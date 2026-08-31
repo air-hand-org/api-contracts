@@ -5,9 +5,8 @@ on:
 
 permissions: {}
 
-# Keep only the newest test run for a branch or pull request.
 concurrency:
-  group: jobdeck-test-${{ github.ref }}
+  group: api-contracts-test-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -19,45 +18,13 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: ./.github/actions/setup-tools
-      - parallel:
-          - name: Restore Go cache
-            uses: actions/cache@v5
-            with:
-              path: |
-                ~/go/pkg/mod
-                ~/.cache/go-build
-              key: go-${{ runner.os }}-${{ hashFiles('**/go.sum') }}
-              restore-keys: |
-                go-${{ runner.os }}-
-          - name: Restore NuGet cache
-            uses: actions/cache@v5
-            with:
-              path: ~/.nuget/packages
-              key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
-              restore-keys: |
-                nuget-${{ runner.os }}-
-      - name: build
-        run: make build
-      - name: lint
-        run: make lint
-      - name: check clean
-        run: make check-clean
-      - name: Go test
-        run: make go-test
-      - name: C# test
-        run: make cs-test
-      - name: upload Playwright traces
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-traces
-          path: '**/playwright-traces/*.zip'
-          if-no-files-found: ignore
-      - name: upload Aspire resource logs
-        if: ${{ failure() || runner.debug == '1' }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: aspire-resource-logs
-          path: '**/TestResults/aspire-logs/*.log'
-          if-no-files-found: ignore
+      - name: Format protobuf
+        run: buf format -w
+      - name: Check formatting diff
+        run: git diff --exit-code
+      - name: Lint protobuf
+        run: buf lint
+      - name: Check breaking changes
+        run: buf breaking --against '.git#branch=main'
