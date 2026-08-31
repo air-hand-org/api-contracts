@@ -25,11 +25,32 @@ jobs:
       - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
         with:
           cache: true
-      - name: Generate C# contracts
-        run: buf generate
-      - name: Pack NuGet package
+      - name: Resolve released package
+        id: package
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
-        run: dotnet pack gen/csharp/Jobdeck.Proto/Jobdeck.Proto.csproj --configuration Release --output artifacts -p:PackageVersion="${RELEASE_TAG#v}"
+        shell: bash
+        run: |
+          case "$RELEASE_TAG" in
+            packages/jobdeck-auth/v*)
+              echo 'path=packages/jobdeck-auth' >> "$GITHUB_OUTPUT"
+              echo 'project=packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj' >> "$GITHUB_OUTPUT"
+              ;;
+            packages/jobdeck-job/v*)
+              echo 'path=packages/jobdeck-job' >> "$GITHUB_OUTPUT"
+              echo 'project=packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj' >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unsupported release tag: $RELEASE_TAG" >&2
+              exit 1
+              ;;
+          esac
+          echo "version=${RELEASE_TAG##*/v}" >> "$GITHUB_OUTPUT"
+      - name: Verify generated package is current
+        run: |
+          make buf-generate
+          git diff --exit-code -- '${{ steps.package.outputs.path }}'
+      - name: Pack NuGet package
+        run: dotnet pack '${{ steps.package.outputs.project }}' --configuration Release --output artifacts -p:PackageVersion='${{ steps.package.outputs.version }}'
       - name: Publish NuGet package
         run: dotnet nuget push 'artifacts/*.nupkg' --source 'https://nuget.pkg.github.com/air-hand-org/index.json' --api-key '${{ github.token }}' --skip-duplicate
