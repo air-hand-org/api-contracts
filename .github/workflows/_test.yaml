@@ -27,7 +27,7 @@ jobs:
       - name: Generate contract packages
         run: make buf-generate
       - name: Check generated and formatted files
-        run: git diff --exit-code
+        run: test -z "$(git status --porcelain)"
       - name: Lint protobuf
         run: buf lint
       - name: Check breaking changes
