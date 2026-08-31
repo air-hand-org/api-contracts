@@ -34,4 +34,4 @@ plugins:
 inputs:
   - directory: proto
     paths:
-      - jobdeck/job
+      - proto/jobdeck/job
