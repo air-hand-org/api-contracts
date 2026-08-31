@@ -24,9 +24,18 @@ jobs:
           cache: true
       - name: Format protobuf
         run: buf format -w
-      - name: Check formatting diff
+      - name: Generate contract packages
+        run: make buf-generate
+      - name: Check generated and formatted files
         run: git diff --exit-code
       - name: Lint protobuf
         run: buf lint
       - name: Check breaking changes
         run: buf breaking --against '.git#ref=refs/remotes/origin/main'
+      - name: Upload generated packages
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: generated-packages
+          path: packages/
+          if-no-files-found: ignore
