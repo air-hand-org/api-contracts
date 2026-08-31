@@ -1,7 +1,8 @@
 .PHONY: buf-generate
 buf-generate:
 	@buf build \
-	&& buf generate --clean
+	&& buf generate --template buf.gen.auth.yaml \
+	&& buf generate --template buf.gen.job.yaml
 
 .PHONY: buf-lint
 buf-lint:

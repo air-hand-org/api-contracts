@@ -1,3 +1,4 @@
 {
-  ".": "1.0.2"
+  "packages/jobdeck-auth": "0.0.0",
+  "packages/jobdeck-job": "0.0.0"
 }
