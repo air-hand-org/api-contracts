@@ -4,8 +4,7 @@ managed:
   override:
     - file_option: go_package_prefix
       path: jobdeck
-#      value: github.com/air-hand/jobdeck/gen
-      value: jobdeck/gen/go
+      value: github.com/air-hand-org/api-contracts/gen/go
   disable:
     - file_option: go_package
       module: buf.build/bufbuild/protovalidate

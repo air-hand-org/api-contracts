@@ -927,8 +927,8 @@ const file_jobdeck_job_v1_execution_proto_rawDesc = "" +
 	"\x10ExecutionService\x12^\n" +
 	"\fGetExecution\x12#.jobdeck.job.v1.GetExecutionRequest\x1a$.jobdeck.job.v1.GetExecutionResponse\"\x03\x90\x02\x01\x12d\n" +
 	"\x0eListExecutions\x12%.jobdeck.job.v1.ListExecutionsRequest\x1a&.jobdeck.job.v1.ListExecutionsResponse\"\x03\x90\x02\x01\x12V\n" +
-	"\vDoExecution\x12\".jobdeck.job.v1.DoExecutionRequest\x1a#.jobdeck.job.v1.DoExecutionResponseB\xa3\x01\n" +
-	"\x12com.jobdeck.job.v1B\x0eExecutionProtoP\x01Z#jobdeck/gen/go/jobdeck/job/v1;jobv1\xa2\x02\x03JJX\xaa\x02\x0eJobdeck.Job.V1\xca\x02\x0eJobdeck\\Job\\V1\xe2\x02\x1aJobdeck\\Job\\V1\\GPBMetadata\xea\x02\x10Jobdeck::Job::V1b\x06proto3"
+	"\vDoExecution\x12\".jobdeck.job.v1.DoExecutionRequest\x1a#.jobdeck.job.v1.DoExecutionResponseB\xc1\x01\n" +
+	"\x12com.jobdeck.job.v1B\x0eExecutionProtoP\x01ZAgithub.com/air-hand-org/api-contracts/gen/go/jobdeck/job/v1;jobv1\xa2\x02\x03JJX\xaa\x02\x0eJobdeck.Job.V1\xca\x02\x0eJobdeck\\Job\\V1\xe2\x02\x1aJobdeck\\Job\\V1\\GPBMetadata\xea\x02\x10Jobdeck::Job::V1b\x06proto3"
 
 var (
 	file_jobdeck_job_v1_execution_proto_rawDescOnce sync.Once

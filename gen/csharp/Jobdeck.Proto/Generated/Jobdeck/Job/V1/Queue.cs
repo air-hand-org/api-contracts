@@ -49,11 +49,11 @@ namespace Jobdeck.Job.V1 {
             "b2IudjEuQ2xhaW1FeGVjdXRpb25SZXNwb25zZRJ0ChVSZXBvcnRFeGVjdXRp",
             "b25SZXN1bHQSLC5qb2JkZWNrLmpvYi52MS5SZXBvcnRFeGVjdXRpb25SZXN1",
             "bHRSZXF1ZXN0Gi0uam9iZGVjay5qb2IudjEuUmVwb3J0RXhlY3V0aW9uUmVz",
-            "dWx0UmVzcG9uc2VCnwEKEmNvbS5qb2JkZWNrLmpvYi52MUIKUXVldWVQcm90",
-            "b1ABWiNqb2JkZWNrL2dlbi9nby9qb2JkZWNrL2pvYi92MTtqb2J2MaICA0pK",
-            "WKoCDkpvYmRlY2suSm9iLlYxygIOSm9iZGVja1xKb2JcVjHiAhpKb2JkZWNr",
-            "XEpvYlxWMVxHUEJNZXRhZGF0YeoCEEpvYmRlY2s6OkpvYjo6VjFiBnByb3Rv",
-            "Mw=="));
+            "dWx0UmVzcG9uc2VCvQEKEmNvbS5qb2JkZWNrLmpvYi52MUIKUXVldWVQcm90",
+            "b1ABWkFnaXRodWIuY29tL2Fpci1oYW5kLW9yZy9hcGktY29udHJhY3RzL2dl",
+            "bi9nby9qb2JkZWNrL2pvYi92MTtqb2J2MaICA0pKWKoCDkpvYmRlY2suSm9i",
+            "LlYxygIOSm9iZGVja1xKb2JcVjHiAhpKb2JkZWNrXEpvYlxWMVxHUEJNZXRh",
+            "ZGF0YeoCEEpvYmRlY2s6OkpvYjo6VjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Buf.Validate.ValidateReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Jobdeck.Job.V1.ExecutionReflection.Descriptor, global::Jobdeck.Job.V1.JobReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
