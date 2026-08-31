@@ -19,7 +19,9 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: ./.github/actions/setup-tools
+      - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        with:
+          cache: true
       - name: Format protobuf
         run: buf format -w
       - name: Check formatting diff
@@ -27,4 +29,4 @@ jobs:
       - name: Lint protobuf
         run: buf lint
       - name: Check breaking changes
-        run: buf breaking --against '.git#branch=main'
+        run: buf breaking --against '.git#ref=refs/remotes/origin/main'
