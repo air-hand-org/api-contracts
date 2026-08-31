@@ -26,6 +26,18 @@ jobs:
         run: buf format -w
       - name: Generate contract packages
         run: make buf-generate
+      - name: Tidy Go modules
+        run: |
+          (cd packages/jobdeck-auth && go mod tidy)
+          (cd packages/jobdeck-job && go mod tidy)
+      - name: Test Go packages
+        run: |
+          (cd packages/jobdeck-auth && go test ./...)
+          (cd packages/jobdeck-job && go test ./...)
+      - name: Build C# packages
+        run: |
+          dotnet build packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj --configuration Release
+          dotnet build packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj --configuration Release
       - name: Check generated and formatted files
         run: test -z "$(git status --porcelain)"
       - name: Lint protobuf
