@@ -23,24 +23,18 @@ jobs:
         with:
           cache: true
       - name: Format protobuf
-        run: buf format -w
+        run: make buf-fmt
       - name: Generate contract packages
         run: make buf-generate
       - name: Tidy Go modules
-        run: |
-          (cd packages/jobdeck-auth && go mod tidy)
-          (cd packages/jobdeck-job && go mod tidy)
-      - name: Test Go packages
-        run: |
-          (cd packages/jobdeck-auth && go test ./...)
-          (cd packages/jobdeck-job && go test ./...)
+        run: make go-tidy
+      - name: Build Go packages
+        run: make go-build
       - name: Build C# packages
-        run: |
-          dotnet build packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj --configuration Release
-          dotnet build packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj --configuration Release
+        run: make cs-build
       - name: Check generated and formatted files
         run: test -z "$(git status --porcelain)"
       - name: Lint protobuf
-        run: buf lint
+        run: make buf-lint
       - name: Check breaking changes
         run: buf breaking --against '.git#ref=refs/remotes/origin/main'
