@@ -1,13 +1,13 @@
+GO_MODULES := $(shell find packages -name go.mod -exec dirname {} \; | sort)
+
 .PHONY: go-tidy
 go-tidy:
-	@find packages -name go.mod -print0 | while IFS= read -r -d '' mod; do \
-		dir=$$(dirname "$$mod"); \
-		(cd "$$dir" && go mod tidy); \
+	@for mod in $(GO_MODULES); do \
+		(cd "$$mod" && go mod tidy) || exit $$?; \
 	done
 
 .PHONY: go-build
 go-build:
-	@find packages -name go.mod -print0 | while IFS= read -r -d '' mod; do \
-		dir=$$(dirname "$$mod"); \
-		(cd "$$dir" && go build ./...); \
+	@for mod in $(GO_MODULES); do \
+		(cd "$$mod" && go build ./...) || exit $$?; \
 	done
