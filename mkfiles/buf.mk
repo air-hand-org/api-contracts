@@ -1,8 +1,11 @@
+BUF_TARGETS := $(shell find proto -type f -name buf.gen.yaml -exec dirname {} \; | sort -u)
+
 .PHONY: buf-generate
 buf-generate:
 	@buf build \
-	&& buf generate --template buf.gen.yaml --path proto/jobdeck/auth -o packages/jobdeck-auth \
-	&& buf generate --template buf.gen.yaml --path proto/jobdeck/job -o packages/jobdeck-job
+	&& for gen in $(BUF_TARGETS); do \
+		buf generate --template "$${gen}/buf.gen.yaml" --path "$${gen}" --output "packages/$${gen#proto/}"; \
+	done
 
 .PHONY: buf-lint
 buf-lint:
