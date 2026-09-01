@@ -1,26 +1,34 @@
 {
   "separate-pull-requests": true,
   "always-update": true,
+  "release-type": "simple",
+  "include-component-in-tag": true,
+  "include-v-in-tag": true,
+  "tag-separator": "/",
+  "draft": false,
+  "force-tag-creation": true,
   "packages": {
-    "packages/jobdeck-auth": {
-      "release-type": "simple",
+    "packages/jobdeck/auth": {
       "package-name": "jobdeck-auth",
-      "component": "packages/jobdeck-auth",
-      "include-component-in-tag": true,
-      "include-v-in-tag": true,
-      "tag-separator": "/",
-      "draft": false,
-      "force-tag-creation": true
+      "component": "packages/jobdeck/auth",
+      "extra-files": [
+        {
+          "type": "xml",
+          "path": "packages/jobdeck/auth/csharp/Jobdeck.Auth.Contracts.csproj",
+          "xpath": "//Version"
+        }
+      ]
     },
-    "packages/jobdeck-job": {
-      "release-type": "simple",
+    "packages/jobdeck/job": {
       "package-name": "jobdeck-job",
-      "component": "packages/jobdeck-job",
-      "include-component-in-tag": true,
-      "include-v-in-tag": true,
-      "tag-separator": "/",
-      "draft": false,
-      "force-tag-creation": true
+      "component": "packages/jobdeck/job",
+      "extra-files": [
+        {
+          "type": "xml",
+          "path": "packages/jobdeck/job/csharp/Jobdeck.Job.Contracts.csproj",
+          "xpath": "//Version"
+        }
+      ]
     }
   }
 }
