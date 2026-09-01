@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj" />
+  <Project Path="packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj" />
+</Solution>
