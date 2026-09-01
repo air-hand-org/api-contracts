@@ -37,4 +37,4 @@ jobs:
       - name: Lint protobuf
         run: make buf-lint
       - name: Check breaking changes
-        run: buf breaking --against '.git#ref=refs/remotes/origin/main'
+        run: make buf-breaking
