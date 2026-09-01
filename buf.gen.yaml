@@ -1,11 +1,14 @@
 version: v2
+clean: true
 managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      path: jobdeck
-#      value: github.com/air-hand/jobdeck/gen
-      value: jobdeck/gen/go
+      path: jobdeck/auth
+      value: github.com/air-hand-org/api-contracts/packages/jobdeck-auth/gen/go
+    - file_option: go_package_prefix
+      path: jobdeck/job
+      value: github.com/air-hand-org/api-contracts/packages/jobdeck-job/gen/go
   disable:
     - file_option: go_package
       module: buf.build/bufbuild/protovalidate
@@ -22,12 +25,12 @@ plugins:
       - paths=source_relative
       - simple
   - remote: buf.build/protocolbuffers/csharp:v35.1
-    out: gen/csharp/Jobdeck.Proto/Generated
+    out: csharp/Generated
     include_imports: true
     opt:
       - base_namespace=
   - remote: buf.build/grpc/csharp:v1.83.0
-    out: gen/csharp/Jobdeck.Proto/Generated
+    out: csharp/Generated
     include_imports: true
     opt:
       - base_namespace=

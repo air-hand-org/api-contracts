@@ -1,12 +1,26 @@
 {
+  "separate-pull-requests": true,
+  "always-update": true,
   "packages": {
-    ".": {
+    "packages/jobdeck-auth": {
       "release-type": "simple",
-      "package-name": "jobdeck",
+      "package-name": "jobdeck-auth",
+      "component": "packages/jobdeck-auth",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "/",
       "draft": false,
-      "include-component-in-tag": false,
-      "force-tag-creation": true,
-      "always-update": true
+      "force-tag-creation": true
+    },
+    "packages/jobdeck-job": {
+      "release-type": "simple",
+      "package-name": "jobdeck-job",
+      "component": "packages/jobdeck-job",
+      "include-component-in-tag": true,
+      "include-v-in-tag": true,
+      "tag-separator": "/",
+      "draft": false,
+      "force-tag-creation": true
     }
   }
 }

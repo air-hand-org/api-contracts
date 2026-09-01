@@ -5,9 +5,8 @@ on:
 
 permissions: {}
 
-# Keep only the newest test run for a branch or pull request.
 concurrency:
-  group: jobdeck-test-${{ github.ref }}
+  group: api-contracts-test-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -19,7 +18,10 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: ./.github/actions/setup-tools
+          fetch-depth: 0
+      - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        with:
+          cache: true
       - parallel:
           - name: Restore Go cache
             uses: actions/cache@v5
@@ -37,27 +39,19 @@ jobs:
               key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
               restore-keys: |
                 nuget-${{ runner.os }}-
-      - name: build
-        run: make build
-      - name: lint
-        run: make lint
-      - name: check clean
-        run: make check-clean
-      - name: Go test
-        run: make go-test
-      - name: C# test
-        run: make cs-test
-      - name: upload Playwright traces
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-traces
-          path: '**/playwright-traces/*.zip'
-          if-no-files-found: ignore
-      - name: upload Aspire resource logs
-        if: ${{ failure() || runner.debug == '1' }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: aspire-resource-logs
-          path: '**/TestResults/aspire-logs/*.log'
-          if-no-files-found: ignore
+      - name: Format protobuf
+        run: make buf-fmt
+      - name: Generate contract packages
+        run: make buf-generate
+      - name: Tidy Go modules
+        run: make go-tidy
+      - name: Build Go packages
+        run: make go-build
+      - name: Build C# packages
+        run: make cs-build
+      - name: Check generated and formatted files
+        run: test -z "$(git status --porcelain)"
+      - name: Lint protobuf
+        run: make buf-lint
+      - name: Check breaking changes
+        run: make buf-breaking

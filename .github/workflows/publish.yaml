@@ -1,0 +1,56 @@
+name: Publish packages
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: publish-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  nuget:
+    if: ${{ github.event.release.prerelease == false }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.release.tag_name }}
+      - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
+        with:
+          cache: true
+      - name: Resolve released package
+        id: package
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        shell: bash
+        run: |
+          case "$RELEASE_TAG" in
+            packages/jobdeck-auth/v*)
+              echo 'path=packages/jobdeck-auth' >> "$GITHUB_OUTPUT"
+              echo 'project=packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj' >> "$GITHUB_OUTPUT"
+              ;;
+            packages/jobdeck-job/v*)
+              echo 'path=packages/jobdeck-job' >> "$GITHUB_OUTPUT"
+              echo 'project=packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj' >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unsupported release tag: $RELEASE_TAG" >&2
+              exit 1
+              ;;
+          esac
+          echo "version=${RELEASE_TAG##*/v}" >> "$GITHUB_OUTPUT"
+      - name: Verify generated package is current
+        run: |
+          make buf-generate
+          git diff --exit-code -- '${{ steps.package.outputs.path }}'
+      - name: Pack NuGet package
+        run: dotnet pack '${{ steps.package.outputs.project }}' --configuration Release --output artifacts -p:PackageVersion='${{ steps.package.outputs.version }}'
+      - name: Publish NuGet package
+        run: dotnet nuget push 'artifacts/*.nupkg' --source 'https://nuget.pkg.github.com/air-hand-org/index.json' --api-key '${{ github.token }}' --skip-duplicate
