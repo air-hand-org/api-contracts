@@ -1,0 +1,40 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  override:
+    - file_option: go_package
+      path: jobdeck/job/v1
+      value: github.com/air-hand-org/api-contracts/packages/jobdeck/job/go/v1;jobv1
+  disable:
+    - file_option: go_package
+      module: buf.build/bufbuild/protovalidate
+plugins:
+  - remote: buf.build/protocolbuffers/go:v1.36.11
+    out: go
+    opt:
+      - paths=import
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/job/go
+  - remote: buf.build/grpc/go:v1.6.2
+    out: go
+    opt:
+      - paths=import
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/job/go
+  - remote: buf.build/connectrpc/gosimple:v1.20.0
+    out: go
+    opt:
+      - paths=import
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/job/go
+      - simple
+  - remote: buf.build/protocolbuffers/csharp:v35.1
+    out: csharp/Generated
+    include_imports: true
+    opt:
+      - base_namespace=
+  - remote: buf.build/grpc/csharp:v1.83.0
+    out: csharp/Generated
+    include_imports: true
+    opt:
+      - base_namespace=
+inputs:
+  - directory: proto
