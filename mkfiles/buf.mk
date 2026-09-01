@@ -1,8 +1,8 @@
 .PHONY: buf-generate
 buf-generate:
 	@buf build \
-	&& buf generate --template buf.gen.yaml --path jobdeck/auth -o packages/jobdeck-auth \
-	&& buf generate --template buf.gen.yaml --path jobdeck/job -o packages/jobdeck-job
+	&& buf generate --template buf.gen.yaml --path proto/jobdeck/auth -o packages/jobdeck-auth \
+	&& buf generate --template buf.gen.yaml --path proto/jobdeck/job -o packages/jobdeck-job
 
 .PHONY: buf-lint
 buf-lint:
