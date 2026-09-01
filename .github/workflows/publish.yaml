@@ -17,40 +17,48 @@ jobs:
   nuget:
     if: ${{ github.event.release.prerelease == false }}
     runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
     steps:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ env.RELEASE_TAG }}
       - uses: jdx/mise-action@e6a8b3978addb5a52f2b4cd9d91eafa7f0ab959d # v4.2.0
         with:
           cache: true
       - name: Resolve released package
         id: package
-        env:
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
         shell: bash
         run: |
-          case "$RELEASE_TAG" in
-            packages/jobdeck-auth/v*)
-              echo 'path=packages/jobdeck-auth' >> "$GITHUB_OUTPUT"
-              echo 'project=packages/jobdeck-auth/csharp/Jobdeck.Auth.Contracts.csproj' >> "$GITHUB_OUTPUT"
-              ;;
-            packages/jobdeck-job/v*)
-              echo 'path=packages/jobdeck-job' >> "$GITHUB_OUTPUT"
-              echo 'project=packages/jobdeck-job/csharp/Jobdeck.Job.Contracts.csproj' >> "$GITHUB_OUTPUT"
-              ;;
-            *)
-              echo "Unsupported release tag: $RELEASE_TAG" >&2
-              exit 1
-              ;;
-          esac
-          echo "version=${RELEASE_TAG##*/v}" >> "$GITHUB_OUTPUT"
+          if [[ ! "$RELEASE_TAG" =~ ^packages/.+/v[0-9] ]]; then
+            echo "Unsupported release tag: $RELEASE_TAG" >&2
+            exit 1
+          fi
+
+          package_path="${RELEASE_TAG%/v*}"
+          mapfile -t projects < <(
+            find "$package_path/csharp" -maxdepth 1 -type f -name '*.csproj' -print
+          )
+
+          if (( ${#projects[@]} != 1 )); then
+            echo "Expected exactly one C# project in $package_path/csharp" >&2
+            exit 1
+          fi
+
+          echo "path=$package_path" >> "$GITHUB_OUTPUT"
+          echo "project=${projects[0]}" >> "$GITHUB_OUTPUT"
       - name: Verify generated package is current
+        env:
+          PACKAGE_PATH: ${{ steps.package.outputs.path }}
         run: |
           make buf-generate
-          git diff --exit-code -- '${{ steps.package.outputs.path }}'
+          git diff --exit-code -- "$PACKAGE_PATH"
       - name: Pack NuGet package
-        run: dotnet pack '${{ steps.package.outputs.project }}' --configuration Release --output artifacts -p:PackageVersion='${{ steps.package.outputs.version }}'
+        env:
+          PROJECT: ${{ steps.package.outputs.project }}
+        run: dotnet pack "$PROJECT" --configuration Release --output artifacts
       - name: Publish NuGet package
-        run: dotnet nuget push 'artifacts/*.nupkg' --source 'https://nuget.pkg.github.com/air-hand-org/index.json' --api-key '${{ github.token }}' --skip-duplicate
+        env:
+          NUGET_API_KEY: ${{ github.token }}
+        run: dotnet nuget push 'artifacts/*.nupkg' --source 'https://nuget.pkg.github.com/air-hand-org/index.json' --api-key "$NUGET_API_KEY" --skip-duplicate
