@@ -7,28 +7,21 @@
   "tag-separator": "/",
   "draft": false,
   "force-tag-creation": true,
+  "extra-files": [
+    {
+      "type": "xml",
+      "path": "csharp/Contracts.csproj",
+      "xpath": "//Version"
+    }
+  ],
   "packages": {
     "packages/jobdeck/auth": {
       "package-name": "jobdeck-auth",
-      "component": "packages/jobdeck/auth",
-      "extra-files": [
-        {
-          "type": "xml",
-          "path": "packages/jobdeck/auth/csharp/Jobdeck.Auth.Contracts.csproj",
-          "xpath": "//Version"
-        }
-      ]
+      "component": "packages/jobdeck/auth"
     },
     "packages/jobdeck/job": {
       "package-name": "jobdeck-job",
-      "component": "packages/jobdeck/job",
-      "extra-files": [
-        {
-          "type": "xml",
-          "path": "packages/jobdeck/job/csharp/Jobdeck.Job.Contracts.csproj",
-          "xpath": "//Version"
-        }
-      ]
+      "component": "packages/jobdeck/job"
     }
   }
 }

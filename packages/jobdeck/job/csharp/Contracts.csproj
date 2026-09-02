@@ -3,6 +3,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>Jobdeck.Job.Contracts</AssemblyName>
     <PackageId>Jobdeck.Job.Contracts</PackageId>
     <Version>1.1.0</Version>
   </PropertyGroup>
