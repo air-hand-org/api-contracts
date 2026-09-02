@@ -47,7 +47,7 @@ jobs:
       - name: Pack NuGet package
         env:
           PACKAGE_PATH: ${{ steps.package.outputs.path }}
-        run: dotnet pack "$PACKAGE_PATH/Contracts.csproj" --configuration Release --output artifacts
+        run: dotnet pack "$PACKAGE_PATH/csharp/Contracts.csproj" --configuration Release --output artifacts
       - name: Publish NuGet package
         env:
           NUGET_API_KEY: ${{ github.token }}
