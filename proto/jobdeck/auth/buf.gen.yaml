@@ -26,12 +26,12 @@ plugins:
       - paths=import
       - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go
       - simple
-  - remote: buf.build/protocolbuffers/csharp:v35.1
+  - remote: buf.build/protocolbuffers/csharp:v36.0
     out: csharp/Generated
     include_imports: true
     opt:
       - base_namespace=
-  - remote: buf.build/grpc/csharp:v1.83.0
+  - remote: buf.build/grpc/csharp:v1.83.1
     out: csharp/Generated
     include_imports: true
     opt:
