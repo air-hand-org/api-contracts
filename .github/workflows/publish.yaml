@@ -37,17 +37,7 @@ jobs:
           fi
 
           package_path="${RELEASE_TAG%/v*}"
-          mapfile -t projects < <(
-            find "$package_path/csharp" -maxdepth 1 -type f -name '*.csproj' -print
-          )
-
-          if (( ${#projects[@]} != 1 )); then
-            echo "Expected exactly one C# project in $package_path/csharp" >&2
-            exit 1
-          fi
-
           echo "path=$package_path" >> "$GITHUB_OUTPUT"
-          echo "project=${projects[0]}" >> "$GITHUB_OUTPUT"
       - name: Verify generated package is current
         env:
           PACKAGE_PATH: ${{ steps.package.outputs.path }}
@@ -56,8 +46,8 @@ jobs:
           git diff --exit-code -- "$PACKAGE_PATH"
       - name: Pack NuGet package
         env:
-          PROJECT: ${{ steps.package.outputs.project }}
-        run: dotnet pack "$PROJECT" --configuration Release --output artifacts
+          PACKAGE_PATH: ${{ steps.package.outputs.path }}
+        run: dotnet pack "$PACKAGE_PATH/Contracts.csproj" --configuration Release --output artifacts
       - name: Publish NuGet package
         env:
           NUGET_API_KEY: ${{ github.token }}

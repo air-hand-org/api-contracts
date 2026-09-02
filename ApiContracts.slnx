@@ -1,4 +1,12 @@
 <Solution>
-  <Project Path="packages/jobdeck/auth/csharp/Jobdeck.Auth.Contracts.csproj" />
-  <Project Path="packages/jobdeck/job/csharp/Jobdeck.Job.Contracts.csproj" />
+  <Folder Name="/packages/" />
+  <Folder Name="/packages/jobdeck/" />
+  <Folder Name="/packages/jobdeck/auth/" />
+  <Folder Name="/packages/jobdeck/auth/csharp/">
+    <Project Path="packages/jobdeck/auth/csharp/Contracts.csproj" />
+  </Folder>
+  <Folder Name="/packages/jobdeck/job/" />
+  <Folder Name="/packages/jobdeck/job/csharp/">
+    <Project Path="packages/jobdeck/job/csharp/Contracts.csproj" />
+  </Folder>
 </Solution>

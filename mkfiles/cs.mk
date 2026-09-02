@@ -4,7 +4,7 @@ CS_PROJECTS := $(shell find packages -name *.csproj | sort)
 .PHONY: cs-generate
 cs-generate:
 	@for prj in $(CS_PROJECTS); do \
-		dotnet sln $(CS_SLNX) add "$$prj" --in-root; \
+		dotnet sln $(CS_SLNX) add "$$prj"; \
 	done
 
 .PHONY: cs-build
