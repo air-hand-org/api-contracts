@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.1.1...packages/jobdeck/auth/v1.1.2) (2026-09-02)
+
+
+### Bug Fixes
+
+* update buf plugins ([#11](https://github.com/air-hand-org/api-contracts/issues/11)) ([71bdf4a](https://github.com/air-hand-org/api-contracts/commit/71bdf4a34731880cddf492073db5f02eb1c6be98))
+
 ## [1.1.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.1.0...packages/jobdeck/auth/v1.1.1) (2026-09-02)
 
 
