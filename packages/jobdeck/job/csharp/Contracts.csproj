@@ -5,11 +5,11 @@
     <Nullable>enable</Nullable>
     <AssemblyName>Jobdeck.Job.Contracts</AssemblyName>
     <PackageId>Jobdeck.Job.Contracts</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.35.1" />
-    <PackageReference Include="Grpc.Net.Common" Version="2.80.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.35.1"/>
+    <PackageReference Include="Grpc.Net.Common" Version="2.80.0"/>
   </ItemGroup>
 </Project>
