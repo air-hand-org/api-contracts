@@ -8,6 +8,7 @@ additionalProperties:
   sourceFolder: .
   router: mux
   addResponseHeaders: true
+  hideGenerationTimestamp: true
   onlyInterfaces: true
 globalProperties:
   apiDocs: false
