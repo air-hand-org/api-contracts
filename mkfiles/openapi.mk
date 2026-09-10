@@ -16,6 +16,7 @@ openapi-generate: openapi-clean
 		output_dir=$$(awk '/^outputDir:/{print $$2}' "$$config"); \
 		ignore_file="$${config%.openapitools.yaml}.ignore"; \
 		if [ -f "$$ignore_file" ]; then \
+			# Copy before generation because openapi-clean removes the generated ignore file. \
 			mkdir -p "$$output_dir"; \
 			cp "$$ignore_file" "$$output_dir/.openapi-generator-ignore"; \
 		fi; \
