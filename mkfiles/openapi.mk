@@ -13,11 +13,11 @@ openapi-clean:
 .PHONY: openapi-generate
 openapi-generate: openapi-clean
 	@for config in $(OPENAPI_CONFIGS); do \
-		ignore_list_file=$$(awk '/^ignoreListFile:/{print $$2}' "$$config"); \
-		if [ -n "$$ignore_list_file" ]; then \
-			ignore_list=$$(awk 'NF && $$1 !~ /^#/' "$$ignore_list_file" | paste -sd, -); \
-			mise exec -- openapi-generator-cli generate -c "$$config" --openapi-generator-ignore-list "$$ignore_list" || exit $$?; \
-		else \
-			mise exec -- openapi-generator-cli generate -c "$$config" || exit $$?; \
+		output_dir=$$(awk '/^outputDir:/{print $$2}' "$$config"); \
+		ignore_file="$${config%.openapitools.yaml}.ignore"; \
+		if [ -f "$$ignore_file" ]; then \
+			mkdir -p "$$output_dir"; \
+			cp "$$ignore_file" "$$output_dir/.openapi-generator-ignore"; \
 		fi; \
+		mise exec -- openapi-generator-cli generate -c "$$config" || exit $$?; \
 	done

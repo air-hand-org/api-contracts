@@ -1,3 +1,5 @@
+.openapi-generator-ignore
+README.md
 api.go
 api/openapi.yaml
 api_default.go
