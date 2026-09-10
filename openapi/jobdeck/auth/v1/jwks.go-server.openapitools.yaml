@@ -1,0 +1,17 @@
+generatorName: go-server
+inputSpec: openapi/jobdeck/auth/v1/jwks.yaml
+outputDir: packages/jobdeck/auth/http/go/v1/jwks/server
+ignoreListFile: openapi/jobdeck/auth/v1/jwks.go-server.ignore
+enablePostProcessFile: true
+additionalProperties:
+  packageName: jwksserver
+  outputAsLibrary: true
+  sourceFolder: .
+  router: mux
+  addResponseHeaders: true
+  onlyInterfaces: true
+globalProperties:
+  apiDocs: false
+  modelDocs: false
+  apiTests: false
+  modelTests: false

@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: Jobdeck Auth JSON Web Key Set API
+  version: 1.0.0
+  description: Publishes public signing keys for JWTs issued by Jobdeck Auth.
+paths:
+  /.well-known/jwks.json:
+    get:
+      operationId: getJSONWebKeySet
+      summary: Get the JWT signing keys
+      description: Returns the public keys that consumers use to validate Jobdeck Auth JWTs.
+      responses:
+        '200':
+          description: JSON Web Key Set
+          headers:
+            Cache-Control:
+              description: Cache directive for this key set.
+              schema:
+                type: string
+              example: public, max-age=300
+          content:
+            application/jwk-set+json:
+              schema:
+                $ref: '#/components/schemas/JSONWebKeySet'
+components:
+  schemas:
+    JSONWebKeySet:
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          type: array
+          description: Public signing keys indexed by their key IDs.
+          items:
+            $ref: '#/components/schemas/Ed25519JSONWebKey'
+    Ed25519JSONWebKey:
+      type: object
+      required:
+        - alg
+        - crv
+        - kid
+        - kty
+        - use
+        - x
+      properties:
+        alg:
+          type: string
+          enum:
+            - EdDSA
+          description: Signature algorithm.
+        crv:
+          type: string
+          enum:
+            - Ed25519
+          description: Elliptic curve for this OKP key.
+        kid:
+          type: string
+          description: Key ID, also present in the JWT protected header.
+        kty:
+          type: string
+          enum:
+            - OKP
+          description: Key type.
+        use:
+          type: string
+          enum:
+            - sig
+          description: Intended use for the key.
+        x:
+          type: string
+          description: Base64url-encoded Ed25519 public key.
