@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.1.2...packages/jobdeck/auth/v1.2.0) (2026-09-10)
+
+
+### Features
+
+* **auth:** add JWKS OpenAPI contract ([#14](https://github.com/air-hand-org/api-contracts/issues/14)) ([2642550](https://github.com/air-hand-org/api-contracts/commit/264255083b88bb39519b0d877d9b1d1b6eddb270))
+
 ## [1.1.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.1.1...packages/jobdeck/auth/v1.1.2) (2026-09-02)
 
 
