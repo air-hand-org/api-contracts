@@ -1,0 +1,13 @@
+generatorName: go
+inputSpec: openapi/jobdeck/auth/v1/jwks.yaml
+outputDir: packages/jobdeck/auth/http/go/v1/jwks/client
+enablePostProcessFile: true
+additionalProperties:
+  packageName: jwksclient
+  withGoMod: false
+  disallowAdditionalPropertiesIfNotPresent: false
+globalProperties:
+  apiDocs: false
+  modelDocs: false
+  apiTests: false
+  modelTests: false

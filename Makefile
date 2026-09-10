@@ -1,3 +1,1 @@
-include mkfiles/buf.mk
-include mkfiles/go.mk
-include mkfiles/cs.mk
+include mkfiles/*.mk
