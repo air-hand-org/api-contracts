@@ -22,25 +22,22 @@ as a string. We intentionally avoid that duplicate source of truth. The
 `x-protobuf` extension retains the exact repository path, fully qualified type,
 and binary encoding for readers and tooling that understand this convention.
 
-## Local validation and HTML preview
+## Local validation and Markdown generation
 
 Run the following from the repository root:
 
 ```sh
 make asyncapi-check
 make asyncapi-markdown
-make asyncapi-html
 ```
 
 The first command checks that the documented Protobuf source and message still
 exist, then validates the AsyncAPI definition. The second generates the
 Git-managed Markdown document at
-[`docs/asyncapi/execution-request.md`](../docs/asyncapi/execution-request.md).
-The third generates a static HTML preview in `artifacts/asyncapi/`; generated
-HTML files are not committed.
+[`docs/asyncapi/jobdeck/job/v1/execution-request.md`](../docs/asyncapi/jobdeck/job/v1/execution-request.md).
 
 The pinned AsyncAPI CLI runs as an official Docker image fixed by digest. The
-HTML template is installed at its pinned version only inside the temporary
+Markdown template is installed at its pinned version only inside the temporary
 generation container. This keeps both npm dependency graphs out of the
 development environment.
 
