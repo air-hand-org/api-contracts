@@ -1,0 +1,66 @@
+asyncapi: 3.1.0
+info:
+  title: Job execution request contract
+  version: 0.1.0
+  description: |
+    The asynchronous contract used to request execution of a job.
+
+    `job-api` publishes an execution request to Google Cloud Pub/Sub. A push
+    subscription delivers that request to `job-worker`. Subscription resource
+    names, push endpoint URLs, IAM, and other deployment configuration are
+    deliberately outside this contract.
+
+    ```mermaid
+    flowchart LR
+      jobApi[job-api] -->|ExecutionRequested| pubSub[Google Cloud Pub/Sub]
+      pubSub -->|push subscription| jobWorker[job-worker]
+    ```
+defaultContentType: application/protobuf
+servers:
+  googleCloudPubSub:
+    host: googleapis.com
+    protocol: googlepubsub
+    description: Logical Google Cloud Pub/Sub broker. Project and resource configuration is environment-specific.
+channels:
+  executionRequest:
+    address: execution-request
+    description: |
+      Logical topic for execution requests. The deployed Pub/Sub topic name is
+      intentionally not part of this contract.
+    messages:
+      executionRequested:
+        $ref: '#/components/messages/executionRequested'
+operations:
+  publishExecutionRequest:
+    action: send
+    summary: Publish an execution request.
+    description: job-api publishes an execution request after creating an execution.
+    channel:
+      $ref: '#/channels/executionRequest'
+    messages:
+      - $ref: '#/channels/executionRequest/messages/executionRequested'
+  receiveExecutionRequest:
+    action: receive
+    summary: Receive an execution request.
+    description: |
+      job-worker receives the request through a Google Cloud Pub/Sub push
+      subscription and starts processing the referenced execution.
+    channel:
+      $ref: '#/channels/executionRequest'
+    messages:
+      - $ref: '#/channels/executionRequest/messages/executionRequested'
+components:
+  messages:
+    executionRequested:
+      name: ExecutionRequested
+      title: Execution requested
+      summary: Requests processing of one execution.
+      description: |
+        The Protocol Buffers definition is the canonical payload schema. AsyncAPI
+        cannot reference an individual message inside a `.proto` file, so this
+        document intentionally does not duplicate its fields.
+      contentType: application/protobuf
+      x-protobuf:
+        file: proto/jobdeck/job/v1/execution.proto
+        message: jobdeck.job.v1.ExecutionRequested
+        encoding: binary
