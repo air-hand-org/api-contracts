@@ -13,6 +13,7 @@ jobs:
   test:
     permissions:
       contents: read
+      pull-requests: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -39,6 +40,21 @@ jobs:
               key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
               restore-keys: |
                 nuget-${{ runner.os }}-
+      - name: Detect AsyncAPI image changes
+        id: changes
+        uses: dorny/paths-filter@v4.0.3
+        with:
+          filters: |
+            asyncapi_image:
+              - 'asyncapi/Dockerfile'
+      - name: Build changed AsyncAPI image
+        if: ${{ steps.changes.outputs.asyncapi_image == 'true' }}
+        run: make asyncapi-image
+      - name: Use changed AsyncAPI image
+        if: ${{ steps.changes.outputs.asyncapi_image == 'true' }}
+        run: |
+          echo "ASYNCAPI_IMAGE=jobdeck-asyncapi:local" >> "$GITHUB_ENV"
+          echo "ASYNCAPI_MARKDOWN_TEMPLATE=/usr/local/lib/node_modules/@asyncapi/markdown-template" >> "$GITHUB_ENV"
       - name: Format protobuf
         run: make buf-fmt
       - name: Generate contract packages

@@ -1,7 +1,12 @@
-ASYNCAPI_IMAGE := asyncapi/cli@sha256:a5b8a30db2db7b572e1a391b3a84f4785e37c055f8be2b38966ef6529dc2d063
+ASYNCAPI_IMAGE ?= asyncapi/cli@sha256:a5b8a30db2db7b572e1a391b3a84f4785e37c055f8be2b38966ef6529dc2d063
+ASYNCAPI_LOCAL_IMAGE ?= jobdeck-asyncapi:local
 ASYNCAPI_CLI := docker run --rm --volume "$(CURDIR):/workspace:ro" --workdir /workspace $(ASYNCAPI_IMAGE)
 ASYNCAPI_DOCUMENTS := $(shell find asyncapi -type f \( -name '*.yaml' -o -name '*.yml' \) | sort)
-ASYNCAPI_MARKDOWN_TEMPLATE := @asyncapi/markdown-template@2.0.0
+ASYNCAPI_MARKDOWN_TEMPLATE ?= @asyncapi/markdown-template@2.0.0
+
+.PHONY: asyncapi-image
+asyncapi-image:
+	docker build --tag $(ASYNCAPI_LOCAL_IMAGE) asyncapi
 
 .PHONY: asyncapi-validate
 asyncapi-validate:
