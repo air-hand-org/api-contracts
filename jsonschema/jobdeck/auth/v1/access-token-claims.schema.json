@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/air-hand-org/api-contracts/jsonschema/jobdeck/auth/v1/access-token-claims.schema.json",
+  "title": "Jobdeck access-token claims",
+  "description": "Claims carried in access tokens issued by Jobdeck Auth. Signature, issuer, audience, and time validation are performed by the JWT verifier, not by JSON Schema validation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["iss", "sub", "aud", "iat", "exp", "actor_type"],
+  "properties": {
+    "iss": {
+      "type": "string",
+      "const": "jobdeck-auth",
+      "description": "Issuer identifier for Jobdeck Auth. JWT consumers must validate it."
+    },
+    "sub": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the authenticated actor."
+    },
+    "aud": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Intended recipients. It is always represented as a JSON array, including for one audience. JWT consumers must require their own audience."
+    },
+    "iat": {
+      "type": "integer",
+      "format": "unix-time",
+      "description": "Issued-at NumericDate: seconds since 1970-01-01T00:00:00Z."
+    },
+    "exp": {
+      "type": "integer",
+      "format": "unix-time",
+      "description": "Expiry NumericDate: seconds since 1970-01-01T00:00:00Z. JWT consumers must reject expired tokens."
+    },
+    "actor_type": {
+      "type": "string",
+      "enum": ["USER", "SERVICE"],
+      "description": "Kind of authenticated actor: USER is a human account; SERVICE is a machine or service account."
+    }
+  }
+}

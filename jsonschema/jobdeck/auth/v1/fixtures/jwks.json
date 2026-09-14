@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "alg": "EdDSA",
+      "crv": "Ed25519",
+      "kid": "auth-fixture-2026-01",
+      "kty": "OKP",
+      "use": "sig",
+      "x": "e1V-LC_-yg_76nEH3YvBn9kkuQm35fm1DLJtZjiB56o"
+    }
+  ]
+}

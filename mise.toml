@@ -6,6 +6,7 @@ buf = "1.70.0"
 grpcurl = "1.9.3"
 watchexec = "2.5.1"
 "pipx:openapi-generator-cli" = "7.25.0"
+"npm:quicktype" = "26.0.0"
 
 powershell = '7.5.0'
 

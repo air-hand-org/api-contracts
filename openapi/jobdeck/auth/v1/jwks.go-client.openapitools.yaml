@@ -1,6 +1,6 @@
 generatorName: go
 inputSpec: openapi/jobdeck/auth/v1/jwks.yaml
-outputDir: packages/jobdeck/auth/http/go/v1/jwks/client
+outputDir: packages/jobdeck/auth/go/openapi/v1/jwks/client
 enablePostProcessFile: true
 additionalProperties:
   packageName: jwksclient
