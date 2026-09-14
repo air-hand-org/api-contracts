@@ -10,7 +10,7 @@ on:
 permissions: {}
 
 concurrency:
-  group: publish-asyncapi-image
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
