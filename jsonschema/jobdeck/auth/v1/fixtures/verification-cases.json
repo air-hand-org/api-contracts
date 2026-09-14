@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "validation": {
+    "now": "2026-01-15T00:00:00Z",
+    "issuer": "jobdeck-auth",
+    "audience": "jobdeck-job-api",
+    "algorithms": ["EdDSA"],
+    "leeway_seconds": 30,
+    "jwks": "jwks.json"
+  },
+  "cases": [
+    {
+      "name": "valid-service-token",
+      "token": "valid.jwt",
+      "expected": {
+        "valid": true,
+        "claims": {
+          "iss": "jobdeck-auth",
+          "sub": "4a17c501-5320-4cdf-99d5-5023db4af0e1",
+          "aud": ["jobdeck-job-api"],
+          "iat": 1768431600,
+          "exp": 1768438800,
+          "actor_type": "SERVICE"
+        }
+      }
+    },
+    {
+      "name": "expired-token",
+      "token": "expired.jwt",
+      "expected": { "valid": false, "failure": "expired" }
+    },
+    {
+      "name": "wrong-audience-token",
+      "token": "wrong-audience.jwt",
+      "expected": { "valid": false, "failure": "audience" }
+    },
+    {
+      "name": "unknown-key-id-token",
+      "token": "unknown-kid.jwt",
+      "expected": { "valid": false, "failure": "unknown_kid" }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "outputRoots": [
+    "packages/jobdeck/auth/go/jsonschema",
+    "packages/jobdeck/auth/csharp/JSONSchema/Generated"
+  ],
+  "generators": [
+    {
+      "input": "jsonschema/jobdeck/auth/v1/access-token-claims.schema.json",
+      "language": "go",
+      "topLevel": "AccessTokenClaims",
+      "package": "jwtauthv1",
+      "output": "packages/jobdeck/auth/go/jsonschema/v1/access_token_claims.go"
+    },
+    {
+      "input": "jsonschema/jobdeck/auth/v1/access-token-header.schema.json",
+      "language": "go",
+      "topLevel": "AccessTokenHeader",
+      "package": "jwtauthv1",
+      "output": "packages/jobdeck/auth/go/jsonschema/v1/access_token_header.go"
+    },
+    {
+      "input": "jsonschema/jobdeck/auth/v1/access-token-claims.schema.json",
+      "language": "csharp",
+      "topLevel": "AccessTokenClaims",
+      "namespace": "Jobdeck.Auth.Jwt.V1.Claims",
+      "output": "packages/jobdeck/auth/csharp/JSONSchema/Generated/Jobdeck/Auth/Jwt/V1/Claims/AccessTokenClaims.cs"
+    },
+    {
+      "input": "jsonschema/jobdeck/auth/v1/access-token-header.schema.json",
+      "language": "csharp",
+      "topLevel": "AccessTokenHeader",
+      "namespace": "Jobdeck.Auth.Jwt.V1.Header",
+      "output": "packages/jobdeck/auth/csharp/JSONSchema/Generated/Jobdeck/Auth/Jwt/V1/Header/AccessTokenHeader.cs"
+    }
+  ]
+}

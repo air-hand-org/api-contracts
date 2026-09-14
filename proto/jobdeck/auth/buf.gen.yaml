@@ -5,26 +5,26 @@ managed:
   override:
     - file_option: go_package
       path: jobdeck/auth/v1
-      value: github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/v1;authv1
+      value: github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto/v1;authv1
   disable:
     - file_option: go_package
       module: buf.build/bufbuild/protovalidate
 plugins:
   - remote: buf.build/protocolbuffers/go:v1.36.11
-    out: go
+    out: go/proto
     opt:
       - paths=import
-      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto
   - remote: buf.build/grpc/go:v1.6.2
-    out: go
+    out: go/proto
     opt:
       - paths=import
-      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto
   - remote: buf.build/connectrpc/gosimple:v1.20.0
-    out: go
+    out: go/proto
     opt:
       - paths=import
-      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go
+      - module=github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto
       - simple
   - remote: buf.build/protocolbuffers/csharp:v36.0
     out: csharp/Generated

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/air-hand-org/api-contracts/jsonschema/jobdeck/auth/v1/access-token-header.schema.json",
+  "title": "Jobdeck access-token protected header",
+  "description": "Protected JOSE header carried by Jobdeck access tokens.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["alg", "kid", "typ"],
+  "properties": {
+    "alg": {
+      "type": "string",
+      "const": "EdDSA",
+      "description": "Signature algorithm. Consumers must only accept EdDSA."
+    },
+    "kid": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Signing-key identifier used to select the matching public key from the JWKS document."
+    },
+    "typ": {
+      "type": "string",
+      "const": "JWT",
+      "description": "JOSE media type for a JSON Web Token."
+    }
+  }
+}

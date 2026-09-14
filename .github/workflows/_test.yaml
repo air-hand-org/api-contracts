@@ -42,9 +42,7 @@ jobs:
       - name: Format protobuf
         run: make buf-fmt
       - name: Generate contract packages
-        run: make buf-generate
-      - name: Generate OpenAPI packages
-        run: make openapi-generate
+        run: make generate
       - name: Tidy Go modules
         run: make go-tidy
       - name: Build Go packages

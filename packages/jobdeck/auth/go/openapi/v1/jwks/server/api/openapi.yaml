@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  description: Publishes public signing keys for JWTs issued by Jobdeck Auth.
+  title: Jobdeck Auth JSON Web Key Set API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /.well-known/jwks.json:
+    get:
+      description: Returns the public keys that consumers use to validate Jobdeck
+        Auth JWTs.
+      operationId: getJSONWebKeySet
+      responses:
+        "200":
+          content:
+            application/jwk-set+json:
+              schema:
+                $ref: "#/components/schemas/JSONWebKeySet"
+          description: JSON Web Key Set
+          headers:
+            Cache-Control:
+              description: Cache directive for this key set.
+              example: "public, max-age=300"
+              explode: false
+              schema:
+                type: string
+              style: simple
+      summary: Get the JWT signing keys
+components:
+  schemas:
+    JSONWebKeySet:
+      properties:
+        keys:
+          description: Public signing keys indexed by their key IDs.
+          items:
+            $ref: "#/components/schemas/Ed25519JSONWebKey"
+          type: array
+      required:
+      - keys
+      type: object
+    Ed25519JSONWebKey:
+      properties:
+        alg:
+          description: Signature algorithm.
+          enum:
+          - EdDSA
+          type: string
+        crv:
+          description: Elliptic curve for this OKP key.
+          enum:
+          - Ed25519
+          type: string
+        kid:
+          description: "Key ID, also present in the JWT protected header."
+          type: string
+        kty:
+          description: Key type.
+          enum:
+          - OKP
+          type: string
+        use:
+          description: Intended use for the key.
+          enum:
+          - sig
+          type: string
+        x:
+          description: Base64url-encoded Ed25519 public key.
+          type: string
+      required:
+      - alg
+      - crv
+      - kid
+      - kty
+      - use
+      - x
+      type: object
