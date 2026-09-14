@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.2.0...packages/jobdeck/auth/v1.3.0) (2026-09-14)
+
+
+### Features
+
+* **auth:** add JWT JSON Schema contract ([#19](https://github.com/air-hand-org/api-contracts/issues/19)) ([0896641](https://github.com/air-hand-org/api-contracts/commit/08966417d29ac9b09aca41f078fa2f71061fa238))
+
 ## [1.2.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.1.2...packages/jobdeck/auth/v1.2.0) (2026-09-10)
 
 
