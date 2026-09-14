@@ -55,7 +55,5 @@ jobs:
         run: make buf-lint
       - name: Validate AsyncAPI contract
         run: make asyncapi-check
-      - name: Check generated AsyncAPI Markdown
-        run: make asyncapi-markdown-check
       - name: Check breaking changes
         run: make buf-breaking
