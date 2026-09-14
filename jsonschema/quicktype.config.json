@@ -2,7 +2,8 @@
   "version": 1,
   "outputRoots": [
     "packages/jobdeck/auth/go/jsonschema",
-    "packages/jobdeck/auth/csharp/JSONSchema/Generated"
+    "packages/jobdeck/auth/csharp/JSONSchema/Generated",
+    "packages/jobdeck/job/go/jsonschema"
   ],
   "generators": [
     {
@@ -32,6 +33,13 @@
       "topLevel": "AccessTokenHeader",
       "namespace": "Jobdeck.Auth.Jwt.V1.Header",
       "output": "packages/jobdeck/auth/csharp/JSONSchema/Generated/Jobdeck/Auth/Jwt/V1/Header/AccessTokenHeader.cs"
+    },
+    {
+      "input": "jsonschema/jobdeck/job/v1/execution-requested.schema.json",
+      "language": "go",
+      "topLevel": "ExecutionRequested",
+      "package": "jobv1",
+      "output": "packages/jobdeck/job/go/jsonschema/v1/execution_requested.go"
     }
   ]
 }

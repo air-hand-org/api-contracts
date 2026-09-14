@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/air-hand-org/api-contracts/jsonschema/jobdeck/job/v1/execution-requested.schema.json",
+  "title": "Jobdeck requested execution",
+  "description": "Execution requested",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["execution_id"],
+  "properties": {
+    "execution_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID of the requested execution."
+    }
+  }
+}
