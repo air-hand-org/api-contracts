@@ -39,18 +39,23 @@ jobs:
               key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
               restore-keys: |
                 nuget-${{ runner.os }}-
+      - name: Detect AsyncAPI image changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            asyncapi_image:
+              - 'asyncapi/Dockerfile'
+      - name: Build changed AsyncAPI image
+        if: ${{ steps.changes.outputs.asyncapi_image == 'true' }}
+        run: make asyncapi-image
+      - name: Use changed AsyncAPI image
+        if: ${{ steps.changes.outputs.asyncapi_image == 'true' }}
+        run: |
+          echo "ASYNCAPI_IMAGE=jobdeck-asyncapi:local" >> "$GITHUB_ENV"
+          echo "ASYNCAPI_MARKDOWN_TEMPLATE=/usr/local/lib/node_modules/@asyncapi/markdown-template" >> "$GITHUB_ENV"
       - name: Format protobuf
         run: make buf-fmt
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v4
-      - name: Build AsyncAPI image
-        uses: docker/build-push-action@v7
-        with:
-          context: asyncapi
-          load: true
-          tags: jobdeck-asyncapi:local
-          cache-from: type=gha,scope=asyncapi
-          cache-to: type=gha,mode=max,scope=asyncapi
       - name: Generate contract packages
         run: make generate
       - name: Tidy Go modules
