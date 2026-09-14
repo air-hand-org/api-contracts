@@ -1,7 +1,5 @@
 # Job execution request contract 0.1.0 documentation
 
-* Default content type: [application/protobuf](https://www.iana.org/assignments/media-types/application/protobuf)
-
 The asynchronous contract used to request execution of a job.
 
 `job-api` publishes an execution request to Google Cloud Pub/Sub. A push

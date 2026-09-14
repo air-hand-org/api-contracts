@@ -15,7 +15,6 @@ info:
       jobApi[job-api] -->|ExecutionRequested| pubSub[Google Cloud Pub/Sub]
       pubSub -->|push subscription| jobWorker[job-worker]
     ```
-defaultContentType: application/protobuf
 servers:
   googleCloudPubSub:
     host: googleapis.com
