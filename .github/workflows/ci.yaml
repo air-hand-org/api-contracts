@@ -17,6 +17,7 @@ jobs:
     uses: ./.github/workflows/_ci.yaml
     permissions:
       contents: read
+      packages: read
       pull-requests: read
 
   check-result:
