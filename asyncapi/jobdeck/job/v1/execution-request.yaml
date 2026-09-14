@@ -55,12 +55,11 @@ components:
       name: ExecutionRequested
       title: Execution requested
       summary: Requests processing of one execution.
-      description: |
-        The Protocol Buffers definition is the canonical payload schema. AsyncAPI
-        cannot reference an individual message inside a `.proto` file, so this
-        document intentionally does not duplicate its fields.
-      contentType: application/protobuf
-      x-protobuf:
-        file: proto/jobdeck/job/v1/execution.proto
-        message: jobdeck.job.v1.ExecutionRequested
-        encoding: binary
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/executionRequested'
+  schemas:
+    executionRequested:
+      payload:
+        schema:
+          $ref: '../../../../jsonschema/jobdeck/job/v1/execution-requested.schema.json'

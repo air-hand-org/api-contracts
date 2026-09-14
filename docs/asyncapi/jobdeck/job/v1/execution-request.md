@@ -53,21 +53,20 @@ job-api publishes an execution request after creating an execution.
 *Requests processing of one execution.*
 
 * Message ID: `executionRequested`
-* Content type: [application/protobuf](https://www.iana.org/assignments/media-types/application/protobuf)
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
 
-The Protocol Buffers definition is the canonical payload schema. AsyncAPI
-cannot reference an individual message inside a `.proto` file, so this
-document intentionally does not duplicate its fields.
-
-
-#### Message extensions
+##### Payload
 
 | Name | Type | Description | Value | Constraints | Notes |
 |---|---|---|---|---|---|
-| x-protobuf | - | - | - | - | - |
-| x-protobuf.file | - | - | `"proto/jobdeck/job/v1/execution.proto"` | - | - |
-| x-protobuf.message | - | - | `"jobdeck.job.v1.ExecutionRequested"` | - | - |
-| x-protobuf.encoding | - | - | `"binary"` | - | - |
+| (root) | any | - | - | - | **additional properties are allowed** |
+
+> Examples of payload _(generated)_
+
+```json
+""
+```
+
 
 
 ### RECEIVE `execution-request` Operation
@@ -89,18 +88,16 @@ subscription and starts processing the referenced execution.
 *Requests processing of one execution.*
 
 * Message ID: `executionRequested`
-* Content type: [application/protobuf](https://www.iana.org/assignments/media-types/application/protobuf)
+* Content type: [application/json](https://www.iana.org/assignments/media-types/application/json)
 
-The Protocol Buffers definition is the canonical payload schema. AsyncAPI
-cannot reference an individual message inside a `.proto` file, so this
-document intentionally does not duplicate its fields.
-
-
-#### Message extensions
+##### Payload
 
 | Name | Type | Description | Value | Constraints | Notes |
 |---|---|---|---|---|---|
-| x-protobuf | - | - | - | - | - |
-| x-protobuf.file | - | - | `"proto/jobdeck/job/v1/execution.proto"` | - | - |
-| x-protobuf.message | - | - | `"jobdeck.job.v1.ExecutionRequested"` | - | - |
-| x-protobuf.encoding | - | - | `"binary"` | - | - |
+| (root) | any | - | - | - | **additional properties are allowed** |
+
+> Examples of payload _(generated)_
+
+```json
+""
+```
