@@ -41,6 +41,16 @@ jobs:
                 nuget-${{ runner.os }}-
       - name: Format protobuf
         run: make buf-fmt
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Build AsyncAPI image
+        uses: docker/build-push-action@v7
+        with:
+          context: asyncapi
+          load: true
+          tags: jobdeck-asyncapi:local
+          cache-from: type=gha,scope=asyncapi
+          cache-to: type=gha,mode=max,scope=asyncapi
       - name: Generate contract packages
         run: make generate
       - name: Tidy Go modules
