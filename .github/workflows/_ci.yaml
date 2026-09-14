@@ -8,4 +8,5 @@ jobs:
     uses: ./.github/workflows/_test.yaml
     permissions:
       contents: read
+      packages: read
       pull-requests: read
