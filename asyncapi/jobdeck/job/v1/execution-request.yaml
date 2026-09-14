@@ -60,6 +60,4 @@ components:
         $ref: '#/components/schemas/executionRequested'
   schemas:
     executionRequested:
-      payload:
-        schema:
-          $ref: '../../../../jsonschema/jobdeck/job/v1/execution-requested.schema.json'
+      $ref: '../../../../jsonschema/jobdeck/job/v1/execution-requested.schema.json'

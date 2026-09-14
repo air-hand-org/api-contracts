@@ -59,12 +59,15 @@ job-api publishes an execution request after creating an execution.
 
 | Name | Type | Description | Value | Constraints | Notes |
 |---|---|---|---|---|---|
-| (root) | any | - | - | - | **additional properties are allowed** |
+| (root) | object | Execution requested | - | - | **additional properties are NOT allowed** |
+| execution_id | string | UUID of the requested execution. | - | format (`uuid`) | **required** |
 
 > Examples of payload _(generated)_
 
 ```json
-""
+{
+  "execution_id": "02ca5b65-a269-4c45-8d4a-0c74ff3ae670"
+}
 ```
 
 
@@ -94,10 +97,13 @@ subscription and starts processing the referenced execution.
 
 | Name | Type | Description | Value | Constraints | Notes |
 |---|---|---|---|---|---|
-| (root) | any | - | - | - | **additional properties are allowed** |
+| (root) | object | Execution requested | - | - | **additional properties are NOT allowed** |
+| execution_id | string | UUID of the requested execution. | - | format (`uuid`) | **required** |
 
 > Examples of payload _(generated)_
 
 ```json
-""
+{
+  "execution_id": "02ca5b65-a269-4c45-8d4a-0c74ff3ae670"
+}
 ```
