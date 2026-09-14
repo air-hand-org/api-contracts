@@ -13,6 +13,7 @@ jobs:
   test:
     permissions:
       contents: read
+      pull-requests: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -41,7 +42,7 @@ jobs:
                 nuget-${{ runner.os }}-
       - name: Detect AsyncAPI image changes
         id: changes
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4.0.3
         with:
           filters: |
             asyncapi_image:
