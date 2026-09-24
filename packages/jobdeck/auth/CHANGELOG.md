@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.3.0...packages/jobdeck/auth/v2.0.0) (2026-09-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove old package ([#25](https://github.com/air-hand-org/api-contracts/issues/25))
+
+### Bug Fixes
+
+* remove old package ([#25](https://github.com/air-hand-org/api-contracts/issues/25)) ([ecfce27](https://github.com/air-hand-org/api-contracts/commit/ecfce27c5dadc4ee2077e4ab46fc428fdd8b4573))
+
 ## [1.3.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.2.0...packages/jobdeck/auth/v1.3.0) (2026-09-14)
 
 
