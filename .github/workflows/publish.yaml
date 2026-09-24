@@ -16,7 +16,7 @@ concurrency:
 jobs:
   nuget:
     if: ${{ github.event.release.prerelease == false }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     env:
       RELEASE_TAG: ${{ github.event.release.tag_name }}
     steps:
