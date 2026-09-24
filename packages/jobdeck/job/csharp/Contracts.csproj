@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>Jobdeck.Job.Contracts</AssemblyName>
     <PackageId>Jobdeck.Job.Contracts</PackageId>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
