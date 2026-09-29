@@ -1,4 +1,4 @@
-module github.com/air-hand-org/api-contracts/packages/jobdeck/job
+module github.com/air-hand-org/api-contracts/packages/jobdeck/job/v2
 
 go 1.26.4
 
