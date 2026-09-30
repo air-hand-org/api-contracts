@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v2.0.0...packages/jobdeck/job/v2.0.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* prepare v2 retractions ([#32](https://github.com/air-hand-org/api-contracts/issues/32)) ([47f611b](https://github.com/air-hand-org/api-contracts/commit/47f611beaa11617e3633e6ddf020323c89dbefec))
+
 ## [2.0.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.0...packages/jobdeck/job/v2.0.0) (2026-09-24)
 
 
