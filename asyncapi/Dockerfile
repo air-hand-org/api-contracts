@@ -12,7 +12,8 @@ RUN mise trust \
     && mise install node pnpm \
     && mise install "npm:@asyncapi/cli" \
     && mise exec -- pnpm add @asyncapi/markdown-template@2.0.0 --dangerously-allow-all-builds \
-    && mise exec -- sh -c 'ln -s "$(command -v node)" /usr/local/bin/node && ln -s "$(command -v asyncapi)" /usr/local/bin/asyncapi' \
+    && ln -s "$(mise where node)/bin/node" /usr/local/bin/node \
+    && ln -s "$(mise where 'npm:@asyncapi/cli')/node_modules/.bin/asyncapi" /usr/local/bin/asyncapi \
     && mise cache clear
 
 ENTRYPOINT ["asyncapi"]
