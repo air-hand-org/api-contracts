@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - asyncapi/Dockerfile
+      - asyncapi/mise.toml
 
 permissions: {}
 
