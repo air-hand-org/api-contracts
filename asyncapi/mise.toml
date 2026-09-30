@@ -1,0 +1,7 @@
+[tools]
+node = "24"
+pnpm = "11.28.0"
+"npm:@asyncapi/cli" = { version = "6.0.2", allow_builds = true }
+
+[settings.npm]
+package_manager = "pnpm"
