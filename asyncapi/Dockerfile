@@ -1,7 +1,13 @@
-FROM asyncapi/cli@sha256:a5b8a30db2db7b572e1a391b3a84f4785e37c055f8be2b38966ef6529dc2d063
+FROM ghcr.io/jdx/mise:2026.9.11-debian
 
-# Keep the generator template inside the image.  Supplying a package name to
-# `asyncapi generate fromTemplate` causes the CLI to download it at runtime;
-# this container is intentionally self-contained instead.
-RUN npm install --global --omit=dev @asyncapi/markdown-template@2.0.0 \
-    && npm cache clean --force
+WORKDIR /opt/asyncapi
+
+COPY mise.toml ./mise.toml
+
+RUN mise trust \
+    && mise install node pnpm \
+    && mise install "npm:@asyncapi/cli" \
+    && mise exec -- pnpm add @asyncapi/markdown-template@2.0.0 --dangerously-allow-all-builds \
+    && mise cache clear
+
+ENTRYPOINT ["mise", "exec", "--"]
