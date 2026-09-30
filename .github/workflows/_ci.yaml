@@ -4,6 +4,24 @@ on:
 permissions: {}
 
 jobs:
+  pr-title:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-slim
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Check PR title
+        uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # Intentionally reject the Conventional Commit `!` form so Release Please
+          # cannot infer a Go module major-version bump from the squash subject.
+          types: |
+            [a-z][a-z0-9-]*
+          headerPattern: '^([a-z][a-z0-9-]*)(?:\(([^()\s!:]+)\))?: (.+)$'
+          headerPatternCorrespondence: type, scope, subject
+
   test:
     uses: ./.github/workflows/_test.yaml
     permissions:
