@@ -3,11 +3,10 @@ name: Publish AsyncAPI image
 on:
   push:
     branches:
-      - ci/ghcr-buildkit-cache
+      - main
     paths:
       - asyncapi/Dockerfile
       - asyncapi/package.json
-      - .github/workflows/publish-asyncapi-image.yaml
 
 permissions: {}
 
@@ -32,11 +31,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/setup-buildx-action@v4
-      - name: Build and push AsyncAPI cache test image
+      # Keep publishing the image for convenient local use; CI builds from source and reuses the GHA cache instead.
+      - name: Build and push AsyncAPI image
         uses: docker/build-push-action@v7
         with:
           context: asyncapi
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/api-contracts-asyncapi:cache-test
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/api-contracts-asyncapi:latest
+            ghcr.io/${{ github.repository_owner }}/api-contracts-asyncapi:${{ github.sha }}
           cache-from: type=gha,scope=asyncapi
-          cache-to: type=inline
+          cache-to: type=gha,scope=asyncapi,mode=max
