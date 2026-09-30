@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ASYNCAPI_IMAGE: jobdeck-asyncapi:local
-      ASYNCAPI_MARKDOWN_TEMPLATE: /usr/local/lib/node_modules/@asyncapi/markdown-template
+      ASYNCAPI_MARKDOWN_TEMPLATE: /opt/asyncapi/node_modules/@asyncapi/markdown-template
     steps:
       - uses: actions/checkout@v7
         with:
