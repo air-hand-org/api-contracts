@@ -3,8 +3,8 @@ module github.com/air-hand-org/api-contracts/packages/jobdeck/auth/v2
 go 1.26.4
 
 retract (
-	v2.0.0 // Published with an invalid v2 module path.
 	v2.0.1 // Retraction-only release; continue using the v1 module.
+	v2.0.0 // Published with an invalid v2 module path.
 )
 
 require (
