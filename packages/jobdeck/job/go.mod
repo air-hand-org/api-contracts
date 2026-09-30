@@ -1,6 +1,11 @@
-module github.com/air-hand-org/api-contracts/packages/jobdeck/job
+module github.com/air-hand-org/api-contracts/packages/jobdeck/job/v2
 
 go 1.26.4
+
+retract (
+	v2.0.1 // Retraction-only release; continue using the v1 module.
+	v2.0.0 // Published with an invalid v2 module path.
+)
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.11-20260415201107-50325440f8f2.1

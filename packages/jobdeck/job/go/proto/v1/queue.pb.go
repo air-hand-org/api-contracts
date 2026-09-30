@@ -316,9 +316,9 @@ const file_jobdeck_job_v1_queue_proto_rawDesc = "" +
 	"\x1dReportExecutionResultResponseJ\x04\b\x01\x10\x02R\texecution2\xee\x01\n" +
 	"\x15ExecutionQueueService\x12_\n" +
 	"\x0eClaimExecution\x12%.jobdeck.job.v1.ClaimExecutionRequest\x1a&.jobdeck.job.v1.ClaimExecutionResponse\x12t\n" +
-	"\x15ReportExecutionResult\x12,.jobdeck.job.v1.ReportExecutionResultRequest\x1a-.jobdeck.job.v1.ReportExecutionResultResponseB\xc8\x01\n" +
+	"\x15ReportExecutionResult\x12,.jobdeck.job.v1.ReportExecutionResultRequest\x1a-.jobdeck.job.v1.ReportExecutionResultResponseB\xcb\x01\n" +
 	"\x12com.jobdeck.job.v1B\n" +
-	"QueueProtoP\x01ZLgithub.com/air-hand-org/api-contracts/packages/jobdeck/job/go/proto/v1;jobv1\xa2\x02\x03JJX\xaa\x02\x0eJobdeck.Job.V1\xca\x02\x0eJobdeck\\Job\\V1\xe2\x02\x1aJobdeck\\Job\\V1\\GPBMetadata\xea\x02\x10Jobdeck::Job::V1b\x06proto3"
+	"QueueProtoP\x01ZOgithub.com/air-hand-org/api-contracts/packages/jobdeck/job/v2/go/proto/v1;jobv1\xa2\x02\x03JJX\xaa\x02\x0eJobdeck.Job.V1\xca\x02\x0eJobdeck\\Job\\V1\xe2\x02\x1aJobdeck\\Job\\V1\\GPBMetadata\xea\x02\x10Jobdeck::Job::V1b\x06proto3"
 
 var (
 	file_jobdeck_job_v1_queue_proto_rawDescOnce sync.Once

@@ -238,9 +238,9 @@ const file_jobdeck_auth_v1_actor_proto_rawDesc = "" +
 	"\x0fACTOR_TYPE_USER\x10\x01\x12\x16\n" +
 	"\x12ACTOR_TYPE_SERVICE\x10\x022t\n" +
 	"\fActorService\x12d\n" +
-	"\x0fGetCurrentActor\x12'.jobdeck.auth.v1.GetCurrentActorRequest\x1a(.jobdeck.auth.v1.GetCurrentActorResponseB\xcf\x01\n" +
+	"\x0fGetCurrentActor\x12'.jobdeck.auth.v1.GetCurrentActorRequest\x1a(.jobdeck.auth.v1.GetCurrentActorResponseB\xd2\x01\n" +
 	"\x13com.jobdeck.auth.v1B\n" +
-	"ActorProtoP\x01ZNgithub.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto/v1;authv1\xa2\x02\x03JAX\xaa\x02\x0fJobdeck.Auth.V1\xca\x02\x0fJobdeck\\Auth\\V1\xe2\x02\x1bJobdeck\\Auth\\V1\\GPBMetadata\xea\x02\x11Jobdeck::Auth::V1b\x06proto3"
+	"ActorProtoP\x01ZQgithub.com/air-hand-org/api-contracts/packages/jobdeck/auth/v2/go/proto/v1;authv1\xa2\x02\x03JAX\xaa\x02\x0fJobdeck.Auth.V1\xca\x02\x0fJobdeck\\Auth\\V1\xe2\x02\x1bJobdeck\\Auth\\V1\\GPBMetadata\xea\x02\x11Jobdeck::Auth::V1b\x06proto3"
 
 var (
 	file_jobdeck_auth_v1_actor_proto_rawDescOnce sync.Once
