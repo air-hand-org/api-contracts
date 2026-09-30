@@ -305,8 +305,8 @@ const file_jobdeck_auth_v1_auth_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token2\x83\x02\n" +
 	"\vAuthService\x12|\n" +
 	"\x17AuthenticateLocalClient\x12/.jobdeck.auth.v1.AuthenticateLocalClientRequest\x1a0.jobdeck.auth.v1.AuthenticateLocalClientResponse\x12v\n" +
-	"\x15ExchangeGoogleIdToken\x12-.jobdeck.auth.v1.ExchangeGoogleIdTokenRequest\x1a..jobdeck.auth.v1.ExchangeGoogleIdTokenResponseB\xce\x01\n" +
-	"\x13com.jobdeck.auth.v1B\tAuthProtoP\x01ZNgithub.com/air-hand-org/api-contracts/packages/jobdeck/auth/v2/go/proto/v1;authv1\xa2\x02\x03JAX\xaa\x02\x0fJobdeck.Auth.V1\xca\x02\x0fJobdeck\\Auth\\V1\xe2\x02\x1bJobdeck\\Auth\\V1\\GPBMetadata\xea\x02\x11Jobdeck::Auth::V1b\x06proto3"
+	"\x15ExchangeGoogleIdToken\x12-.jobdeck.auth.v1.ExchangeGoogleIdTokenRequest\x1a..jobdeck.auth.v1.ExchangeGoogleIdTokenResponseB\xd1\x01\n" +
+	"\x13com.jobdeck.auth.v1B\tAuthProtoP\x01ZQgithub.com/air-hand-org/api-contracts/packages/jobdeck/auth/v2/go/proto/v1;authv1\xa2\x02\x03JAX\xaa\x02\x0fJobdeck.Auth.V1\xca\x02\x0fJobdeck\\Auth\\V1\xe2\x02\x1bJobdeck\\Auth\\V1\\GPBMetadata\xea\x02\x11Jobdeck::Auth::V1b\x06proto3"
 
 var (
 	file_jobdeck_auth_v1_auth_proto_rawDescOnce sync.Once
