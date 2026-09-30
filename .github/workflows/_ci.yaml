@@ -8,17 +8,17 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-slim
     permissions:
-      contents: read
+      pull-requests: read
     steps:
-      - uses: actions/checkout@v7
-        with:
-          persist-credentials: false
-      - name: Test PR title validation
-        run: python3 -m unittest discover -s scripts -p 'test_check_pr_title.py'
       - name: Check PR title
+        uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-        run: python3 scripts/check_pr_title.py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            [a-z][a-z0-9-]*
+          headerPattern: '^([a-z][a-z0-9-]*)(?:\(([^()\s!:]+)\))?: (.+)$'
+          headerPatternCorrespondence: type, scope, subject
 
   test:
     uses: ./.github/workflows/_test.yaml
