@@ -8,4 +8,6 @@ COPY package.json ./package.json
 
 RUN pnpm install --prod --dangerously-allow-all-builds
 
-ENTRYPOINT ["/opt/asyncapi/node_modules/.bin/asyncapi"]
+ENV PATH="/opt/asyncapi/node_modules/.bin:${PATH}"
+
+ENTRYPOINT ["asyncapi"]
