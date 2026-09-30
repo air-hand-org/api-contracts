@@ -1,6 +1,6 @@
 # API contracts
 
-Shared API definitions and generated client/server contract packages for Jobdeck.
+Shared API definitions and generated client/server contract packages.
 
 ## Versioning
 
