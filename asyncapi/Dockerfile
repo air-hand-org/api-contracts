@@ -12,6 +12,7 @@ RUN mise trust \
     && mise install node pnpm \
     && mise install "npm:@asyncapi/cli" \
     && mise exec -- pnpm add @asyncapi/markdown-template@2.0.0 --dangerously-allow-all-builds \
+    && mise exec -- sh -c 'ln -s "$(command -v node)" /usr/local/bin/node && ln -s "$(command -v asyncapi)" /usr/local/bin/asyncapi' \
     && mise cache clear
 
-ENTRYPOINT ["mise", "exec", "--"]
+ENTRYPOINT ["asyncapi"]
