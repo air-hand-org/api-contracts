@@ -1,4 +1,4 @@
 {
-  "packages/jobdeck/auth": "2.0.0",
+  "packages/jobdeck/auth": "2.0.1",
   "packages/jobdeck/job": "2.0.0"
 }
