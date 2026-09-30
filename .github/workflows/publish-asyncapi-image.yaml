@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/publish-asyncapi-image.yaml
       - asyncapi/Dockerfile
       - asyncapi/package.json
 
