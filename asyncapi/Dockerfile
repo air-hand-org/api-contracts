@@ -1,5 +1,9 @@
 FROM ghcr.io/jdx/mise:2026.9.11-debian
 
+RUN apt-get update \
+    && apt-get install --yes --no-install-recommends libatomic1 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /opt/asyncapi
 
 COPY mise.toml ./mise.toml
