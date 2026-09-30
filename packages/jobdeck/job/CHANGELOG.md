@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v2.0.1...packages/jobdeck/job/v1.2.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* resume auth and job v1 patch releases ([#37](https://github.com/air-hand-org/api-contracts/issues/37)) ([4d7c4f2](https://github.com/air-hand-org/api-contracts/commit/4d7c4f25da29a83d5dd136fd816a906eb9ffd58a))
+
+## [2.0.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v2.0.0...packages/jobdeck/job/v2.0.1) (2026-09-30)
+
+
+### Bug Fixes
+
+* prepare v2 retractions ([#32](https://github.com/air-hand-org/api-contracts/issues/32)) ([47f611b](https://github.com/air-hand-org/api-contracts/commit/47f611beaa11617e3633e6ddf020323c89dbefec))
+
 ## [2.0.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.0...packages/jobdeck/job/v2.0.0) (2026-09-24)
 
 
