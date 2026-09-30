@@ -51,6 +51,7 @@ jobs:
           load: true
           tags: jobdeck-asyncapi:local
           cache-from: type=gha,scope=asyncapi
+          cache-to: type=gha,scope=asyncapi,mode=max
       - name: Format protobuf
         run: make buf-fmt
       - name: Generate contract packages
