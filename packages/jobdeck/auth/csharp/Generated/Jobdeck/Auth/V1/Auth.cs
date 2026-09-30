@@ -42,12 +42,12 @@ namespace Jobdeck.Auth.V1 {
             "dGgudjEuQXV0aGVudGljYXRlTG9jYWxDbGllbnRSZXNwb25zZRJ2ChVFeGNo",
             "YW5nZUdvb2dsZUlkVG9rZW4SLS5qb2JkZWNrLmF1dGgudjEuRXhjaGFuZ2VH",
             "b29nbGVJZFRva2VuUmVxdWVzdBouLmpvYmRlY2suYXV0aC52MS5FeGNoYW5n",
-            "ZUdvb2dsZUlkVG9rZW5SZXNwb25zZULRAQoTY29tLmpvYmRlY2suYXV0aC52",
-            "MUIJQXV0aFByb3RvUAFaUWdpdGh1Yi5jb20vYWlyLWhhbmQtb3JnL2FwaS1j",
-            "b250cmFjdHMvcGFja2FnZXMvam9iZGVjay9hdXRoL3YyL2dvL3Byb3RvL3Yx",
-            "O2F1dGh2MaICA0pBWKoCD0pvYmRlY2suQXV0aC5WMcoCD0pvYmRlY2tcQXV0",
-            "aFxWMeICG0pvYmRlY2tcQXV0aFxWMVxHUEJNZXRhZGF0YeoCEUpvYmRlY2s6",
-            "OkF1dGg6OlYxYgZwcm90bzM="));
+            "ZUdvb2dsZUlkVG9rZW5SZXNwb25zZULOAQoTY29tLmpvYmRlY2suYXV0aC52",
+            "MUIJQXV0aFByb3RvUAFaTmdpdGh1Yi5jb20vYWlyLWhhbmQtb3JnL2FwaS1j",
+            "b250cmFjdHMvcGFja2FnZXMvam9iZGVjay9hdXRoL2dvL3Byb3RvL3YxO2F1",
+            "dGh2MaICA0pBWKoCD0pvYmRlY2suQXV0aC5WMcoCD0pvYmRlY2tcQXV0aFxW",
+            "MeICG0pvYmRlY2tcQXV0aFxWMVxHUEJNZXRhZGF0YeoCEUpvYmRlY2s6OkF1",
+            "dGg6OlYxYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Buf.Validate.ValidateReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

@@ -8,7 +8,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	v1 "github.com/air-hand-org/api-contracts/packages/jobdeck/job/v2/go/proto/v1"
+	v1 "github.com/air-hand-org/api-contracts/packages/jobdeck/job/go/proto/v1"
 	http "net/http"
 	strings "strings"
 )
