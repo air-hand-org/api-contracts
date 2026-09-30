@@ -115,6 +115,7 @@ namespace Jobdeck.Job.V1 {
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Buf.Validate.ValidateReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Jobdeck.Job.V1.JobType), typeof(global::Jobdeck.Job.V1.HttpMethod), typeof(global::Jobdeck.Job.V1.BackoffType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Jobdeck.Job.V1.JobType), typeof(global::Jobdeck.Job.V1.HttpMethod), typeof(global::Jobdeck.Job.V1.BackoffType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Job.V1.JobSpec), global::Jobdeck.Job.V1.JobSpec.Parser, new[]{ "Type", "Http", "RetryPolicy" }, new[]{ "Config" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Job.V1.Job), global::Jobdeck.Job.V1.Job.Parser, new[]{ "Id", "OwnerId", "Enabled", "Name", "Spec", "CreatedAt", "UpdatedAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Job.V1.StatusCodeRange), global::Jobdeck.Job.V1.StatusCodeRange.Parser, new[]{ "From", "To" }, null, null, null, null),
