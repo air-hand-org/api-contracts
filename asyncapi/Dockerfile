@@ -9,8 +9,7 @@ WORKDIR /opt/asyncapi
 COPY mise.toml ./mise.toml
 
 RUN mise trust \
-    && mise install node pnpm \
-    && mise install "npm:@asyncapi/cli" \
+    && mise install \
     && mise exec -- pnpm add @asyncapi/markdown-template@2.0.0 --dangerously-allow-all-builds \
     && ln -s "$(mise where node)/bin/node" /usr/local/bin/node \
     && ln -s "$(mise where 'npm:@asyncapi/cli')/node_modules/.bin/asyncapi" /usr/local/bin/asyncapi \
