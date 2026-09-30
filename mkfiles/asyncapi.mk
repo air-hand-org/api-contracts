@@ -11,7 +11,7 @@ asyncapi-image:
 .PHONY: asyncapi-validate
 asyncapi-validate:
 	@for document in $(ASYNCAPI_DOCUMENTS); do \
-		$(ASYNCAPI_CLI) validate "$$document"; \
+		$(ASYNCAPI_CLI) validate "$$document" || exit $$?; \
 	done
 
 .PHONY: asyncapi-check
@@ -26,7 +26,10 @@ asyncapi-markdown: asyncapi-check
 		output="docs/$${document%.*}.md"; \
 		output_dir="$$(dirname "$$output")"; \
 		output_file="$$(basename "$$output")"; \
+		archive="$$(mktemp)"; \
 		mkdir -p "$$output_dir"; \
-		docker run --rm --env ASYNCAPI_DOCUMENT="$$document" --env ASYNCAPI_OUTPUT_FILE="$$output_file" --volume "$(CURDIR):/workspace:ro" --workdir /workspace --entrypoint /bin/sh $(ASYNCAPI_IMAGE) -ec 'asyncapi generate fromTemplate "$$ASYNCAPI_DOCUMENT" $(ASYNCAPI_MARKDOWN_TEMPLATE) --param outFilename="$$ASYNCAPI_OUTPUT_FILE" --output /tmp/asyncapi-markdown --force-write --no-interactive >&2 && tar -C /tmp/asyncapi-markdown -cf - "$$ASYNCAPI_OUTPUT_FILE"' | tar -C "$$output_dir" -xf -; \
-		perl -0pi -e 's/\n{2,}\z/\n/' "$$output"; \
+		docker run --rm --env ASYNCAPI_DOCUMENT="$$document" --env ASYNCAPI_OUTPUT_FILE="$$output_file" --volume "$(CURDIR):/workspace:ro" --workdir /workspace --entrypoint /bin/sh $(ASYNCAPI_IMAGE) -ec 'asyncapi generate fromTemplate "$$ASYNCAPI_DOCUMENT" $(ASYNCAPI_MARKDOWN_TEMPLATE) --param outFilename="$$ASYNCAPI_OUTPUT_FILE" --output /tmp/asyncapi-markdown --force-write --no-interactive >&2 && tar -C /tmp/asyncapi-markdown -cf - "$$ASYNCAPI_OUTPUT_FILE"' > "$$archive" || { status=$$?; rm -f "$$archive"; exit $$status; }; \
+		tar -C "$$output_dir" -xf "$$archive" || { status=$$?; rm -f "$$archive"; exit $$status; }; \
+		rm -f "$$archive"; \
+		perl -0pi -e 's/\n{2,}\z/\n/' "$$output" || exit $$?; \
 	done
