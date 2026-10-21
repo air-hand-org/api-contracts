@@ -16,8 +16,7 @@
 
   <ItemGroup>
     <None Include="../../../../LICENSE" Pack="true" PackagePath="" />
-    <None Include="../../../../THIRD_PARTY_NOTICES.md" Pack="true" PackagePath="" />
-    <None Include="../../../../licenses/bufbuild-protovalidate/LICENSE"
-          Pack="true" PackagePath="licenses/bufbuild-protovalidate/" />
+    <None Include="../third_party/**/*" Pack="true"
+          PackagePath="third_party/" />
   </ItemGroup>
 </Project>

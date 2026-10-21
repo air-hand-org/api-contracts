@@ -5,10 +5,9 @@ Shared API definitions and generated client/server contract packages.
 ## Licensing
 
 Original project code is licensed under MIT; see [LICENSE](LICENSE).
-The generated Buf validation code retains its Apache-2.0 terms; see
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for scope and provenance.
-Both C# NuGet packages include these documents and the upstream Apache license
-text, and declare `MIT AND Apache-2.0` for their combined contents.
+`make buf-generate` exports imported BSR sources, licenses and documentation
+to each package's versioned `third_party/` directory. These files and the project
+`LICENSE` are included in the C# NuGet packages (`MIT AND Apache-2.0`).
 
 ## Versioning
 
