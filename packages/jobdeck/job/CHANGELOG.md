@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.1...packages/jobdeck/job/v1.2.2) (2026-10-21)
+
+
+### Bug Fixes
+
+* include license and third-party notices in NuGet packages ([#45](https://github.com/air-hand-org/api-contracts/issues/45)) ([2630127](https://github.com/air-hand-org/api-contracts/commit/2630127c861440a80bd4e4e9458577ed858ca8bc))
+
 ## [1.2.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v2.0.1...packages/jobdeck/job/v1.2.1) (2026-09-30)
 
 
