@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.3.1...packages/jobdeck/auth/v1.3.2) (2026-10-21)
+
+
+### Bug Fixes
+
+* include license and third-party notices in NuGet packages ([#45](https://github.com/air-hand-org/api-contracts/issues/45)) ([2630127](https://github.com/air-hand-org/api-contracts/commit/2630127c861440a80bd4e4e9458577ed858ca8bc))
+
 ## [1.3.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v2.0.1...packages/jobdeck/auth/v1.3.1) (2026-09-30)
 
 
