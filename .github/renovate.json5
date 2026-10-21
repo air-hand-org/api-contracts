@@ -70,19 +70,15 @@
       "semanticCommitScope": "deps"
     },
     {
-      "description": "Update mise .NET SDK channel with NuGet dependencies",
+      "description": "Use fix commits for mise .NET SDK channel updates",
       "matchManagers": ["custom.regex"],
       "matchDatasources": ["dotnet-version"],
       "matchDepNames": ["dotnet-sdk"],
-      "groupName": ".NET",
-      "groupSlug": "dotnet",
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps"
     },
     {
       "matchManagers": ["nuget"],
-      "groupName": ".NET",
-      "groupSlug": "dotnet",
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps"
     },
