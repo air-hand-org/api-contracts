@@ -1,0 +1,64 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "helpers:pinGitHubActionDigestsToSemver",
+    "config:recommended",
+    ":semanticCommits"
+  ],
+  "prConcurrentLimit": 10,
+  "enabledManagers": ["mise", "github-actions", "gomod", "nuget", "npm", "dockerfile"],
+  "labels": ["dependencies"],
+  "minimumReleaseAge": "3 days",
+  "automerge": false,
+  "automergeType": "pr",
+  "automergeStrategy": "squash",
+  "platformAutomerge": true,
+  "rebaseWhen": "behind-base-branch",
+  "vulnerabilityAlerts": {
+    "automerge": false
+  },
+  "lockFileMaintenance": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major"],
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["minor"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["patch"],
+      "automerge": true
+    },
+    {
+      "description": "Update mise Go version with go.mod Go directive",
+      "matchManagers": ["mise"],
+      "matchDepNames": ["go"],
+      "groupName": "Go",
+      "groupSlug": "go",
+      "semanticCommitType": "fix",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "description": "Update go.mod Go directive with mise Go version",
+      "matchManagers": ["gomod"],
+      "matchDepNames": ["go"],
+      "matchDepTypes": ["golang"],
+      "groupName": "Go",
+      "groupSlug": "go",
+      "rangeStrategy": "bump",
+      "semanticCommitType": "fix",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "matchManagers": ["gomod"],
+      "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
+    }
+  ]
+}
