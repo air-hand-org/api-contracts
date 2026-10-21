@@ -6,7 +6,20 @@
     ":semanticCommits"
   ],
   "prConcurrentLimit": 10,
-  "enabledManagers": ["mise", "github-actions", "gomod", "nuget", "npm", "dockerfile"],
+  "enabledManagers": ["mise", "github-actions", "gomod", "nuget", "npm", "dockerfile", "custom.regex"],
+  "customManagers": [
+    {
+      "description": "Update the mise .NET SDK channel (native mise extraction does not support dotnet SDK)",
+      "customType": "regex",
+      "managerFilePatterns": ["/^mise\\.toml$/"],
+      "matchStrings": ["(?:^|\\n)[ \\t]*dotnet[ \\t]*=[ \\t]*[\"'](?<currentValue>\\d+\\.\\d+)[\"']"],
+      "depNameTemplate": "dotnet-sdk",
+      "depTypeTemplate": "sdk",
+      "datasourceTemplate": "dotnet-version",
+      "versioningTemplate": "semver-coerced",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+)\\.\\d+$"
+    }
+  ],
   "labels": ["dependencies"],
   "minimumReleaseAge": "3 days",
   "automerge": false,
@@ -53,6 +66,23 @@
       "groupName": "Go",
       "groupSlug": "go",
       "rangeStrategy": "bump",
+      "semanticCommitType": "fix",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "description": "Update mise .NET SDK channel with NuGet dependencies",
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["dotnet-version"],
+      "matchDepNames": ["dotnet-sdk"],
+      "groupName": ".NET",
+      "groupSlug": "dotnet",
+      "semanticCommitType": "fix",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "matchManagers": ["nuget"],
+      "groupName": ".NET",
+      "groupSlug": "dotnet",
       "semanticCommitType": "fix",
       "semanticCommitScope": "deps"
     },
