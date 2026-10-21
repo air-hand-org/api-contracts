@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, rmSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readdirSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const [input, output] = process.argv.slice(2);
@@ -22,8 +23,21 @@ for (const line of files.trim().split('\n').filter(Boolean)) {
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 for (const [ref, { name, paths }] of [...modules].sort()) {
-  execFileSync('buf', [
-    'export', ref, '--all', '--output', join(output, name),
-    ...[...paths].sort().flatMap(path => ['--path', path]),
-  ], { stdio: 'inherit' });
+  const staging = mkdtempSync(join(tmpdir(), 'buf-licenses-'));
+  try {
+    const exported = join(staging, 'export');
+    execFileSync('buf', [
+      'export', ref, '--all', '--output', exported,
+      ...[...paths].sort().flatMap(path => ['--path', path]),
+    ], { stdio: 'inherit' });
+    const destination = join(output, name);
+    mkdirSync(destination, { recursive: true });
+    for (const file of readdirSync(exported, { withFileTypes: true })) {
+      if (file.isFile() && /^(license|licence|notice)([._-].*)?$/i.test(file.name)) {
+        copyFileSync(join(exported, file.name), join(destination, file.name));
+      }
+    }
+  } finally {
+    rmSync(staging, { recursive: true, force: true });
+  }
 }
