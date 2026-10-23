@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.3](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.3.2...packages/jobdeck/auth/v1.3.3) (2026-10-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency go to v1.27.3 ([#79](https://github.com/air-hand-org/api-contracts/issues/79)) ([8d0f8b8](https://github.com/air-hand-org/api-contracts/commit/8d0f8b8b416be22d70b33df4e933ed603cc8474c))
+* **deps:** update dependency google.protobuf to 3.36.2 ([#80](https://github.com/air-hand-org/api-contracts/issues/80)) ([a52252f](https://github.com/air-hand-org/api-contracts/commit/a52252fe927a34763ee69c73afdeab94e5d5fafb))
+* **deps:** update module buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go to v1.36.12-20260825204119-511051f7f437.2 ([#57](https://github.com/air-hand-org/api-contracts/issues/57)) ([df3496c](https://github.com/air-hand-org/api-contracts/commit/df3496c7e8f197d017d9e47f9f04935fed7beb4d))
+* **deps:** update module google.golang.org/protobuf to v1.36.12 ([#58](https://github.com/air-hand-org/api-contracts/issues/58)) ([1a63025](https://github.com/air-hand-org/api-contracts/commit/1a630254fe3f21adfca5b1f4a926e16614f4238e))
+
 ## [1.3.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.3.1...packages/jobdeck/auth/v1.3.2) (2026-10-21)
 
 
