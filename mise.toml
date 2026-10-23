@@ -13,3 +13,6 @@ powershell = '7.6.7'
 
 [env]
 GO_POST_PROCESS_FILE = "gofmt -w"
+
+[hooks]
+postinstall = 'mise install -f "pipx:*"'
