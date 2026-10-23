@@ -4,7 +4,7 @@ go 1.27.3
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.12-20260825204119-511051f7f437.2
-	connectrpc.com/connect v1.20.0
+	connectrpc.com/connect v1.21.1
 	github.com/gorilla/mux v1.8.1
 	google.golang.org/grpc v1.84.0
 	google.golang.org/protobuf v1.36.12
