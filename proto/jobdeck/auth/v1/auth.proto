@@ -18,7 +18,7 @@ message ExchangeGoogleIdTokenRequest {
 message Token {
   string access_token = 1;
   string token_type = 2; // "Bearer"
-  int64 expires_in_seconds = 3;
+  int64 expires_in_seconds = 3 [(buf.validate.field).int64.gte = 1];
 }
 
 message AuthenticateLocalClientResponse {
