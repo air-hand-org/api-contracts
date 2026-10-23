@@ -293,12 +293,12 @@ const file_jobdeck_auth_v1_auth_proto_rawDesc = "" +
 	"\baudience\x18\x03 \x01(\tR\baudience\"U\n" +
 	"\x1cExchangeGoogleIdTokenRequest\x12\x19\n" +
 	"\bid_token\x18\x01 \x01(\tR\aidToken\x12\x1a\n" +
-	"\baudience\x18\x02 \x01(\tR\baudience\"w\n" +
+	"\baudience\x18\x02 \x01(\tR\baudience\"\x80\x01\n" +
 	"\x05Token\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x1d\n" +
 	"\n" +
-	"token_type\x18\x02 \x01(\tR\ttokenType\x12,\n" +
-	"\x12expires_in_seconds\x18\x03 \x01(\x03R\x10expiresInSeconds\"O\n" +
+	"token_type\x18\x02 \x01(\tR\ttokenType\x125\n" +
+	"\x12expires_in_seconds\x18\x03 \x01(\x03B\a\xbaH\x04\"\x02(\x01R\x10expiresInSeconds\"O\n" +
 	"\x1fAuthenticateLocalClientResponse\x12,\n" +
 	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token\"M\n" +
 	"\x1dExchangeGoogleIdTokenResponse\x12,\n" +
