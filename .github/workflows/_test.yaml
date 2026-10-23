@@ -69,7 +69,12 @@ jobs:
       - name: Build C# packages
         run: make cs-build
       - name: Check generated and formatted files
-        run: test -z "$(git status --porcelain)"
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            git diff --no-ext-diff HEAD --
+            exit 1
+          fi
       - name: Lint protobuf
         run: make buf-lint
       - name: Validate AsyncAPI contract
