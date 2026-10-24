@@ -4,5 +4,5 @@
     "@asyncapi/cli": "6.2.1",
     "@asyncapi/markdown-template": "2.0.0"
   },
-  "packageManager": "pnpm@12.14.0"
+  "packageManager": "pnpm@12.15.0"
 }
