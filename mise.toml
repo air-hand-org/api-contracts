@@ -9,7 +9,7 @@ uv = "0.13.4"
 "pipx:openapi-generator-cli" = "7.25.0"
 "npm:quicktype" = "26.0.0"
 
-powershell = '7.6.7'
+powershell = '7.6.8'
 
 [env]
 GO_POST_PROCESS_FILE = "gofmt -w"
