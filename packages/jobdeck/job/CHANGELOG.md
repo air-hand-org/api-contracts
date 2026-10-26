@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.4](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.3...packages/jobdeck/job/v1.2.4) (2026-10-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency grpc.net.common to 2.84.0 ([#82](https://github.com/air-hand-org/api-contracts/issues/82)) ([f38066f](https://github.com/air-hand-org/api-contracts/commit/f38066f2e898a7e1e5a8df2b5f346dc6c38fe2a3))
+* **deps:** update module connectrpc.com/connect to v1.21.1 ([#85](https://github.com/air-hand-org/api-contracts/issues/85)) ([7292fee](https://github.com/air-hand-org/api-contracts/commit/7292fee8fc3422cd1e341ac2e4702d517a54ada6))
+* **deps:** update module google.golang.org/grpc to v1.84.0 ([#86](https://github.com/air-hand-org/api-contracts/issues/86)) ([92dc92a](https://github.com/air-hand-org/api-contracts/commit/92dc92a259d94e2f6c700c4c732ca552751710f9))
+
 ## [1.2.3](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.2...packages/jobdeck/job/v1.2.3) (2026-10-23)
 
 

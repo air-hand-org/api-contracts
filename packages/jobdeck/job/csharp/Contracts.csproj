@@ -6,7 +6,7 @@
     <PackageLicenseExpression>MIT AND Apache-2.0</PackageLicenseExpression>
     <AssemblyName>Jobdeck.Job.Contracts</AssemblyName>
     <PackageId>Jobdeck.Job.Contracts</PackageId>
-    <Version>1.2.3</Version>
+    <Version>1.2.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
