@@ -5,43 +5,60 @@
 package jobv1connect
 
 import (
-	connect "connectrpc.com/connect"
+	connect "connectrpc.com/connect/v2"
 	context "context"
-	errors "errors"
 	v1 "github.com/air-hand-org/api-contracts/packages/jobdeck/job/go/proto/v1"
-	http "net/http"
-	strings "strings"
+	sync "sync"
 )
-
-// This is a compile-time assertion to ensure that this generated file and the connect package are
-// compatible. If you get a compiler error that this constant is not defined, this code was
-// generated with a version of connect newer than the one compiled into your binary. You can fix the
-// problem by either regenerating this code with an older version of connect or updating the connect
-// version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// ExecutionServiceName is the fully-qualified name of the ExecutionService service.
 	ExecutionServiceName = "jobdeck.job.v1.ExecutionService"
 )
 
-// These constants are the fully-qualified names of the RPCs defined in this package. They're
-// exposed at runtime as Spec.Procedure and as the final two segments of the HTTP route.
+// These constants are the procedure names of the RPCs defined in this package. They're exposed at
+// runtime as Spec.Procedure and as the final two segments of the HTTP route.
 //
 // Note that these are different from the fully-qualified method names used by
 // google.golang.org/protobuf/reflect/protoreflect. To convert from these constants to
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// ExecutionServiceGetExecutionProcedure is the fully-qualified name of the ExecutionService's
+	// ExecutionServiceGetExecutionProcedure is the procedure name of the ExecutionService's
 	// GetExecution RPC.
 	ExecutionServiceGetExecutionProcedure = "/jobdeck.job.v1.ExecutionService/GetExecution"
-	// ExecutionServiceListExecutionsProcedure is the fully-qualified name of the ExecutionService's
+	// ExecutionServiceListExecutionsProcedure is the procedure name of the ExecutionService's
 	// ListExecutions RPC.
 	ExecutionServiceListExecutionsProcedure = "/jobdeck.job.v1.ExecutionService/ListExecutions"
-	// ExecutionServiceDoExecutionProcedure is the fully-qualified name of the ExecutionService's
-	// DoExecution RPC.
+	// ExecutionServiceDoExecutionProcedure is the procedure name of the ExecutionService's DoExecution
+	// RPC.
 	ExecutionServiceDoExecutionProcedure = "/jobdeck.job.v1.ExecutionService/DoExecution"
+)
+
+var (
+	executionServiceGetExecutionSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType:       connect.StreamTypeUnary,
+			Schema:           v1.File_jobdeck_job_v1_execution_proto.Services().ByName("ExecutionService").Methods().ByName("GetExecution"),
+			Procedure:        ExecutionServiceGetExecutionProcedure,
+			IdempotencyLevel: connect.IdempotencyNoSideEffects,
+		}
+	})
+	executionServiceListExecutionsSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType:       connect.StreamTypeUnary,
+			Schema:           v1.File_jobdeck_job_v1_execution_proto.Services().ByName("ExecutionService").Methods().ByName("ListExecutions"),
+			Procedure:        ExecutionServiceListExecutionsProcedure,
+			IdempotencyLevel: connect.IdempotencyNoSideEffects,
+		}
+	})
+	executionServiceDoExecutionSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_job_v1_execution_proto.Services().ByName("ExecutionService").Methods().ByName("DoExecution"),
+			Procedure:  ExecutionServiceDoExecutionProcedure,
+		}
+	})
 )
 
 // ExecutionServiceClient is a client for the jobdeck.job.v1.ExecutionService service.
@@ -51,72 +68,10 @@ type ExecutionServiceClient interface {
 	DoExecution(context.Context, *v1.DoExecutionRequest) (*v1.DoExecutionResponse, error)
 }
 
-// NewExecutionServiceClient constructs a client for the jobdeck.job.v1.ExecutionService service. By
-// default, it uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses,
-// and sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the
-// connect.WithGRPC() or connect.WithGRPCWeb() options.
-//
-// The URL supplied here should be the base URL for the Connect or gRPC server (for example,
-// http://api.acme.com or https://acme.com/grpc).
-func NewExecutionServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) ExecutionServiceClient {
-	baseURL = strings.TrimRight(baseURL, "/")
-	executionServiceMethods := v1.File_jobdeck_job_v1_execution_proto.Services().ByName("ExecutionService").Methods()
-	return &executionServiceClient{
-		getExecution: connect.NewClient[v1.GetExecutionRequest, v1.GetExecutionResponse](
-			httpClient,
-			baseURL+ExecutionServiceGetExecutionProcedure,
-			connect.WithSchema(executionServiceMethods.ByName("GetExecution")),
-			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-			connect.WithClientOptions(opts...),
-		),
-		listExecutions: connect.NewClient[v1.ListExecutionsRequest, v1.ListExecutionsResponse](
-			httpClient,
-			baseURL+ExecutionServiceListExecutionsProcedure,
-			connect.WithSchema(executionServiceMethods.ByName("ListExecutions")),
-			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-			connect.WithClientOptions(opts...),
-		),
-		doExecution: connect.NewClient[v1.DoExecutionRequest, v1.DoExecutionResponse](
-			httpClient,
-			baseURL+ExecutionServiceDoExecutionProcedure,
-			connect.WithSchema(executionServiceMethods.ByName("DoExecution")),
-			connect.WithClientOptions(opts...),
-		),
-	}
-}
-
-// executionServiceClient implements ExecutionServiceClient.
-type executionServiceClient struct {
-	getExecution   *connect.Client[v1.GetExecutionRequest, v1.GetExecutionResponse]
-	listExecutions *connect.Client[v1.ListExecutionsRequest, v1.ListExecutionsResponse]
-	doExecution    *connect.Client[v1.DoExecutionRequest, v1.DoExecutionResponse]
-}
-
-// GetExecution calls jobdeck.job.v1.ExecutionService.GetExecution.
-func (c *executionServiceClient) GetExecution(ctx context.Context, req *v1.GetExecutionRequest) (*v1.GetExecutionResponse, error) {
-	response, err := c.getExecution.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ListExecutions calls jobdeck.job.v1.ExecutionService.ListExecutions.
-func (c *executionServiceClient) ListExecutions(ctx context.Context, req *v1.ListExecutionsRequest) (*v1.ListExecutionsResponse, error) {
-	response, err := c.listExecutions.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// DoExecution calls jobdeck.job.v1.ExecutionService.DoExecution.
-func (c *executionServiceClient) DoExecution(ctx context.Context, req *v1.DoExecutionRequest) (*v1.DoExecutionResponse, error) {
-	response, err := c.doExecution.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
+// NewExecutionServiceClient constructs a client for the jobdeck.job.v1.ExecutionService service.
+// Multiple service clients may share a single connect.Client.
+func NewExecutionServiceClient(client *connect.Client) ExecutionServiceClient {
+	return &executionServiceClient{client: client}
 }
 
 // ExecutionServiceHandler is an implementation of the jobdeck.job.v1.ExecutionService service.
@@ -126,58 +81,94 @@ type ExecutionServiceHandler interface {
 	DoExecution(context.Context, *v1.DoExecutionRequest) (*v1.DoExecutionResponse, error)
 }
 
-// NewExecutionServiceHandler builds an HTTP handler from the service implementation. It returns the
-// path on which to mount the handler and the handler itself.
-//
-// By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
-// and JSON codecs. They also support gzip compression.
-func NewExecutionServiceHandler(svc ExecutionServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	executionServiceMethods := v1.File_jobdeck_job_v1_execution_proto.Services().ByName("ExecutionService").Methods()
-	executionServiceGetExecutionHandler := connect.NewUnaryHandlerSimple(
-		ExecutionServiceGetExecutionProcedure,
-		svc.GetExecution,
-		connect.WithSchema(executionServiceMethods.ByName("GetExecution")),
-		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-		connect.WithHandlerOptions(opts...),
+// RegisterExecutionServiceHandler registers svc as the jobdeck.job.v1.ExecutionService
+// implementation on server.
+func RegisterExecutionServiceHandler(server *connect.Server, svc ExecutionServiceHandler) {
+	adapter := executionServiceHandler{svc: svc}
+	server.Register(
+		connect.Method{Spec: executionServiceGetExecutionSpec(), Handler: adapter.getExecution},
+		connect.Method{Spec: executionServiceListExecutionsSpec(), Handler: adapter.listExecutions},
+		connect.Method{Spec: executionServiceDoExecutionSpec(), Handler: adapter.doExecution},
 	)
-	executionServiceListExecutionsHandler := connect.NewUnaryHandlerSimple(
-		ExecutionServiceListExecutionsProcedure,
-		svc.ListExecutions,
-		connect.WithSchema(executionServiceMethods.ByName("ListExecutions")),
-		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-		connect.WithHandlerOptions(opts...),
-	)
-	executionServiceDoExecutionHandler := connect.NewUnaryHandlerSimple(
-		ExecutionServiceDoExecutionProcedure,
-		svc.DoExecution,
-		connect.WithSchema(executionServiceMethods.ByName("DoExecution")),
-		connect.WithHandlerOptions(opts...),
-	)
-	return "/jobdeck.job.v1.ExecutionService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		switch r.URL.Path {
-		case ExecutionServiceGetExecutionProcedure:
-			executionServiceGetExecutionHandler.ServeHTTP(w, r)
-		case ExecutionServiceListExecutionsProcedure:
-			executionServiceListExecutionsHandler.ServeHTTP(w, r)
-		case ExecutionServiceDoExecutionProcedure:
-			executionServiceDoExecutionHandler.ServeHTTP(w, r)
-		default:
-			http.NotFound(w, r)
-		}
-	})
 }
 
 // UnimplementedExecutionServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedExecutionServiceHandler struct{}
 
 func (UnimplementedExecutionServiceHandler) GetExecution(context.Context, *v1.GetExecutionRequest) (*v1.GetExecutionResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.ExecutionService.GetExecution is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.ExecutionService.GetExecution is not implemented")
 }
 
 func (UnimplementedExecutionServiceHandler) ListExecutions(context.Context, *v1.ListExecutionsRequest) (*v1.ListExecutionsResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.ExecutionService.ListExecutions is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.ExecutionService.ListExecutions is not implemented")
 }
 
 func (UnimplementedExecutionServiceHandler) DoExecution(context.Context, *v1.DoExecutionRequest) (*v1.DoExecutionResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.ExecutionService.DoExecution is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.ExecutionService.DoExecution is not implemented")
+}
+
+type executionServiceClient struct {
+	client *connect.Client
+}
+
+func (c *executionServiceClient) GetExecution(ctx context.Context, req *v1.GetExecutionRequest) (*v1.GetExecutionResponse, error) {
+	var res v1.GetExecutionResponse
+	if err := c.client.CallUnary(ctx, executionServiceGetExecutionSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *executionServiceClient) ListExecutions(ctx context.Context, req *v1.ListExecutionsRequest) (*v1.ListExecutionsResponse, error) {
+	var res v1.ListExecutionsResponse
+	if err := c.client.CallUnary(ctx, executionServiceListExecutionsSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *executionServiceClient) DoExecution(ctx context.Context, req *v1.DoExecutionRequest) (*v1.DoExecutionResponse, error) {
+	var res v1.DoExecutionResponse
+	if err := c.client.CallUnary(ctx, executionServiceDoExecutionSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+type executionServiceHandler struct{ svc ExecutionServiceHandler }
+
+func (h executionServiceHandler) getExecution(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.GetExecutionRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.GetExecution(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h executionServiceHandler) listExecutions(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.ListExecutionsRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.ListExecutions(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h executionServiceHandler) doExecution(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.DoExecutionRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.DoExecution(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
 }
