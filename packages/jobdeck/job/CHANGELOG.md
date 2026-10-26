@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.4...packages/jobdeck/job/v1.3.0) (2026-10-26)
+
+
+### Features
+
+* migrate Connect Go bindings to v2; generated clients and service registration require migration ([3a03f08](https://github.com/air-hand-org/api-contracts/commit/3a03f081f219fcf7263f0dcf46b5d83c8cdb3fc5))
+
 ## [1.2.4](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.2.3...packages/jobdeck/job/v1.2.4) (2026-10-26)
 
 
