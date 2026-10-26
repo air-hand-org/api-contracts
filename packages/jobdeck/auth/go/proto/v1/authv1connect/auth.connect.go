@@ -5,40 +5,48 @@
 package authv1connect
 
 import (
-	connect "connectrpc.com/connect"
+	connect "connectrpc.com/connect/v2"
 	context "context"
-	errors "errors"
 	v1 "github.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto/v1"
-	http "net/http"
-	strings "strings"
+	sync "sync"
 )
-
-// This is a compile-time assertion to ensure that this generated file and the connect package are
-// compatible. If you get a compiler error that this constant is not defined, this code was
-// generated with a version of connect newer than the one compiled into your binary. You can fix the
-// problem by either regenerating this code with an older version of connect or updating the connect
-// version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// AuthServiceName is the fully-qualified name of the AuthService service.
 	AuthServiceName = "jobdeck.auth.v1.AuthService"
 )
 
-// These constants are the fully-qualified names of the RPCs defined in this package. They're
-// exposed at runtime as Spec.Procedure and as the final two segments of the HTTP route.
+// These constants are the procedure names of the RPCs defined in this package. They're exposed at
+// runtime as Spec.Procedure and as the final two segments of the HTTP route.
 //
 // Note that these are different from the fully-qualified method names used by
 // google.golang.org/protobuf/reflect/protoreflect. To convert from these constants to
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// AuthServiceAuthenticateLocalClientProcedure is the fully-qualified name of the AuthService's
+	// AuthServiceAuthenticateLocalClientProcedure is the procedure name of the AuthService's
 	// AuthenticateLocalClient RPC.
 	AuthServiceAuthenticateLocalClientProcedure = "/jobdeck.auth.v1.AuthService/AuthenticateLocalClient"
-	// AuthServiceExchangeGoogleIdTokenProcedure is the fully-qualified name of the AuthService's
+	// AuthServiceExchangeGoogleIdTokenProcedure is the procedure name of the AuthService's
 	// ExchangeGoogleIdToken RPC.
 	AuthServiceExchangeGoogleIdTokenProcedure = "/jobdeck.auth.v1.AuthService/ExchangeGoogleIdToken"
+)
+
+var (
+	authServiceAuthenticateLocalClientSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_auth_v1_auth_proto.Services().ByName("AuthService").Methods().ByName("AuthenticateLocalClient"),
+			Procedure:  AuthServiceAuthenticateLocalClientProcedure,
+		}
+	})
+	authServiceExchangeGoogleIdTokenSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_auth_v1_auth_proto.Services().ByName("AuthService").Methods().ByName("ExchangeGoogleIdToken"),
+			Procedure:  AuthServiceExchangeGoogleIdTokenProcedure,
+		}
+	})
 )
 
 // AuthServiceClient is a client for the jobdeck.auth.v1.AuthService service.
@@ -47,54 +55,10 @@ type AuthServiceClient interface {
 	ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error)
 }
 
-// NewAuthServiceClient constructs a client for the jobdeck.auth.v1.AuthService service. By default,
-// it uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses, and
-// sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the connect.WithGRPC()
-// or connect.WithGRPCWeb() options.
-//
-// The URL supplied here should be the base URL for the Connect or gRPC server (for example,
-// http://api.acme.com or https://acme.com/grpc).
-func NewAuthServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) AuthServiceClient {
-	baseURL = strings.TrimRight(baseURL, "/")
-	authServiceMethods := v1.File_jobdeck_auth_v1_auth_proto.Services().ByName("AuthService").Methods()
-	return &authServiceClient{
-		authenticateLocalClient: connect.NewClient[v1.AuthenticateLocalClientRequest, v1.AuthenticateLocalClientResponse](
-			httpClient,
-			baseURL+AuthServiceAuthenticateLocalClientProcedure,
-			connect.WithSchema(authServiceMethods.ByName("AuthenticateLocalClient")),
-			connect.WithClientOptions(opts...),
-		),
-		exchangeGoogleIdToken: connect.NewClient[v1.ExchangeGoogleIdTokenRequest, v1.ExchangeGoogleIdTokenResponse](
-			httpClient,
-			baseURL+AuthServiceExchangeGoogleIdTokenProcedure,
-			connect.WithSchema(authServiceMethods.ByName("ExchangeGoogleIdToken")),
-			connect.WithClientOptions(opts...),
-		),
-	}
-}
-
-// authServiceClient implements AuthServiceClient.
-type authServiceClient struct {
-	authenticateLocalClient *connect.Client[v1.AuthenticateLocalClientRequest, v1.AuthenticateLocalClientResponse]
-	exchangeGoogleIdToken   *connect.Client[v1.ExchangeGoogleIdTokenRequest, v1.ExchangeGoogleIdTokenResponse]
-}
-
-// AuthenticateLocalClient calls jobdeck.auth.v1.AuthService.AuthenticateLocalClient.
-func (c *authServiceClient) AuthenticateLocalClient(ctx context.Context, req *v1.AuthenticateLocalClientRequest) (*v1.AuthenticateLocalClientResponse, error) {
-	response, err := c.authenticateLocalClient.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ExchangeGoogleIdToken calls jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken.
-func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, req *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error) {
-	response, err := c.exchangeGoogleIdToken.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
+// NewAuthServiceClient constructs a client for the jobdeck.auth.v1.AuthService service. Multiple
+// service clients may share a single connect.Client.
+func NewAuthServiceClient(client *connect.Client) AuthServiceClient {
+	return &authServiceClient{client: client}
 }
 
 // AuthServiceHandler is an implementation of the jobdeck.auth.v1.AuthService service.
@@ -103,44 +67,69 @@ type AuthServiceHandler interface {
 	ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error)
 }
 
-// NewAuthServiceHandler builds an HTTP handler from the service implementation. It returns the path
-// on which to mount the handler and the handler itself.
-//
-// By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
-// and JSON codecs. They also support gzip compression.
-func NewAuthServiceHandler(svc AuthServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	authServiceMethods := v1.File_jobdeck_auth_v1_auth_proto.Services().ByName("AuthService").Methods()
-	authServiceAuthenticateLocalClientHandler := connect.NewUnaryHandlerSimple(
-		AuthServiceAuthenticateLocalClientProcedure,
-		svc.AuthenticateLocalClient,
-		connect.WithSchema(authServiceMethods.ByName("AuthenticateLocalClient")),
-		connect.WithHandlerOptions(opts...),
+// RegisterAuthServiceHandler registers svc as the jobdeck.auth.v1.AuthService implementation on
+// server.
+func RegisterAuthServiceHandler(server *connect.Server, svc AuthServiceHandler) {
+	adapter := authServiceHandler{svc: svc}
+	server.Register(
+		connect.Method{Spec: authServiceAuthenticateLocalClientSpec(), Handler: adapter.authenticateLocalClient},
+		connect.Method{Spec: authServiceExchangeGoogleIdTokenSpec(), Handler: adapter.exchangeGoogleIdToken},
 	)
-	authServiceExchangeGoogleIdTokenHandler := connect.NewUnaryHandlerSimple(
-		AuthServiceExchangeGoogleIdTokenProcedure,
-		svc.ExchangeGoogleIdToken,
-		connect.WithSchema(authServiceMethods.ByName("ExchangeGoogleIdToken")),
-		connect.WithHandlerOptions(opts...),
-	)
-	return "/jobdeck.auth.v1.AuthService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		switch r.URL.Path {
-		case AuthServiceAuthenticateLocalClientProcedure:
-			authServiceAuthenticateLocalClientHandler.ServeHTTP(w, r)
-		case AuthServiceExchangeGoogleIdTokenProcedure:
-			authServiceExchangeGoogleIdTokenHandler.ServeHTTP(w, r)
-		default:
-			http.NotFound(w, r)
-		}
-	})
 }
 
 // UnimplementedAuthServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedAuthServiceHandler struct{}
 
 func (UnimplementedAuthServiceHandler) AuthenticateLocalClient(context.Context, *v1.AuthenticateLocalClientRequest) (*v1.AuthenticateLocalClientResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.auth.v1.AuthService.AuthenticateLocalClient is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.auth.v1.AuthService.AuthenticateLocalClient is not implemented")
 }
 
 func (UnimplementedAuthServiceHandler) ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken is not implemented")
+}
+
+type authServiceClient struct {
+	client *connect.Client
+}
+
+func (c *authServiceClient) AuthenticateLocalClient(ctx context.Context, req *v1.AuthenticateLocalClientRequest) (*v1.AuthenticateLocalClientResponse, error) {
+	var res v1.AuthenticateLocalClientResponse
+	if err := c.client.CallUnary(ctx, authServiceAuthenticateLocalClientSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, req *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error) {
+	var res v1.ExchangeGoogleIdTokenResponse
+	if err := c.client.CallUnary(ctx, authServiceExchangeGoogleIdTokenSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+type authServiceHandler struct{ svc AuthServiceHandler }
+
+func (h authServiceHandler) authenticateLocalClient(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.AuthenticateLocalClientRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.AuthenticateLocalClient(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h authServiceHandler) exchangeGoogleIdToken(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.ExchangeGoogleIdTokenRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.ExchangeGoogleIdToken(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
 }

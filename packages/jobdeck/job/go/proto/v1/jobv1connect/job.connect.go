@@ -5,47 +5,84 @@
 package jobv1connect
 
 import (
-	connect "connectrpc.com/connect"
+	connect "connectrpc.com/connect/v2"
 	context "context"
-	errors "errors"
 	v1 "github.com/air-hand-org/api-contracts/packages/jobdeck/job/go/proto/v1"
-	http "net/http"
-	strings "strings"
+	sync "sync"
 )
-
-// This is a compile-time assertion to ensure that this generated file and the connect package are
-// compatible. If you get a compiler error that this constant is not defined, this code was
-// generated with a version of connect newer than the one compiled into your binary. You can fix the
-// problem by either regenerating this code with an older version of connect or updating the connect
-// version compiled into your binary.
-const _ = connect.IsAtLeastVersion1_13_0
 
 const (
 	// JobServiceName is the fully-qualified name of the JobService service.
 	JobServiceName = "jobdeck.job.v1.JobService"
 )
 
-// These constants are the fully-qualified names of the RPCs defined in this package. They're
-// exposed at runtime as Spec.Procedure and as the final two segments of the HTTP route.
+// These constants are the procedure names of the RPCs defined in this package. They're exposed at
+// runtime as Spec.Procedure and as the final two segments of the HTTP route.
 //
 // Note that these are different from the fully-qualified method names used by
 // google.golang.org/protobuf/reflect/protoreflect. To convert from these constants to
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// JobServiceCreateJobProcedure is the fully-qualified name of the JobService's CreateJob RPC.
+	// JobServiceCreateJobProcedure is the procedure name of the JobService's CreateJob RPC.
 	JobServiceCreateJobProcedure = "/jobdeck.job.v1.JobService/CreateJob"
-	// JobServiceUpdateJobProcedure is the fully-qualified name of the JobService's UpdateJob RPC.
+	// JobServiceUpdateJobProcedure is the procedure name of the JobService's UpdateJob RPC.
 	JobServiceUpdateJobProcedure = "/jobdeck.job.v1.JobService/UpdateJob"
-	// JobServiceSetJobEnabledProcedure is the fully-qualified name of the JobService's SetJobEnabled
-	// RPC.
+	// JobServiceSetJobEnabledProcedure is the procedure name of the JobService's SetJobEnabled RPC.
 	JobServiceSetJobEnabledProcedure = "/jobdeck.job.v1.JobService/SetJobEnabled"
-	// JobServiceDeleteJobProcedure is the fully-qualified name of the JobService's DeleteJob RPC.
+	// JobServiceDeleteJobProcedure is the procedure name of the JobService's DeleteJob RPC.
 	JobServiceDeleteJobProcedure = "/jobdeck.job.v1.JobService/DeleteJob"
-	// JobServiceGetJobProcedure is the fully-qualified name of the JobService's GetJob RPC.
+	// JobServiceGetJobProcedure is the procedure name of the JobService's GetJob RPC.
 	JobServiceGetJobProcedure = "/jobdeck.job.v1.JobService/GetJob"
-	// JobServiceListJobsProcedure is the fully-qualified name of the JobService's ListJobs RPC.
+	// JobServiceListJobsProcedure is the procedure name of the JobService's ListJobs RPC.
 	JobServiceListJobsProcedure = "/jobdeck.job.v1.JobService/ListJobs"
+)
+
+var (
+	jobServiceCreateJobSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("CreateJob"),
+			Procedure:  JobServiceCreateJobProcedure,
+		}
+	})
+	jobServiceUpdateJobSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("UpdateJob"),
+			Procedure:  JobServiceUpdateJobProcedure,
+		}
+	})
+	jobServiceSetJobEnabledSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("SetJobEnabled"),
+			Procedure:  JobServiceSetJobEnabledProcedure,
+		}
+	})
+	jobServiceDeleteJobSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("DeleteJob"),
+			Procedure:  JobServiceDeleteJobProcedure,
+		}
+	})
+	jobServiceGetJobSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType:       connect.StreamTypeUnary,
+			Schema:           v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("GetJob"),
+			Procedure:        JobServiceGetJobProcedure,
+			IdempotencyLevel: connect.IdempotencyNoSideEffects,
+		}
+	})
+	jobServiceListJobsSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType:       connect.StreamTypeUnary,
+			Schema:           v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods().ByName("ListJobs"),
+			Procedure:        JobServiceListJobsProcedure,
+			IdempotencyLevel: connect.IdempotencyNoSideEffects,
+		}
+	})
 )
 
 // JobServiceClient is a client for the jobdeck.job.v1.JobService service.
@@ -58,120 +95,10 @@ type JobServiceClient interface {
 	ListJobs(context.Context, *v1.ListJobsRequest) (*v1.ListJobsResponse, error)
 }
 
-// NewJobServiceClient constructs a client for the jobdeck.job.v1.JobService service. By default, it
-// uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses, and sends
-// uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the connect.WithGRPC() or
-// connect.WithGRPCWeb() options.
-//
-// The URL supplied here should be the base URL for the Connect or gRPC server (for example,
-// http://api.acme.com or https://acme.com/grpc).
-func NewJobServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) JobServiceClient {
-	baseURL = strings.TrimRight(baseURL, "/")
-	jobServiceMethods := v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods()
-	return &jobServiceClient{
-		createJob: connect.NewClient[v1.CreateJobRequest, v1.CreateJobResponse](
-			httpClient,
-			baseURL+JobServiceCreateJobProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("CreateJob")),
-			connect.WithClientOptions(opts...),
-		),
-		updateJob: connect.NewClient[v1.UpdateJobRequest, v1.UpdateJobResponse](
-			httpClient,
-			baseURL+JobServiceUpdateJobProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("UpdateJob")),
-			connect.WithClientOptions(opts...),
-		),
-		setJobEnabled: connect.NewClient[v1.SetJobEnabledRequest, v1.SetJobEnabledResponse](
-			httpClient,
-			baseURL+JobServiceSetJobEnabledProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("SetJobEnabled")),
-			connect.WithClientOptions(opts...),
-		),
-		deleteJob: connect.NewClient[v1.DeleteJobRequest, v1.DeleteJobResponse](
-			httpClient,
-			baseURL+JobServiceDeleteJobProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("DeleteJob")),
-			connect.WithClientOptions(opts...),
-		),
-		getJob: connect.NewClient[v1.GetJobRequest, v1.GetJobResponse](
-			httpClient,
-			baseURL+JobServiceGetJobProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("GetJob")),
-			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-			connect.WithClientOptions(opts...),
-		),
-		listJobs: connect.NewClient[v1.ListJobsRequest, v1.ListJobsResponse](
-			httpClient,
-			baseURL+JobServiceListJobsProcedure,
-			connect.WithSchema(jobServiceMethods.ByName("ListJobs")),
-			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-			connect.WithClientOptions(opts...),
-		),
-	}
-}
-
-// jobServiceClient implements JobServiceClient.
-type jobServiceClient struct {
-	createJob     *connect.Client[v1.CreateJobRequest, v1.CreateJobResponse]
-	updateJob     *connect.Client[v1.UpdateJobRequest, v1.UpdateJobResponse]
-	setJobEnabled *connect.Client[v1.SetJobEnabledRequest, v1.SetJobEnabledResponse]
-	deleteJob     *connect.Client[v1.DeleteJobRequest, v1.DeleteJobResponse]
-	getJob        *connect.Client[v1.GetJobRequest, v1.GetJobResponse]
-	listJobs      *connect.Client[v1.ListJobsRequest, v1.ListJobsResponse]
-}
-
-// CreateJob calls jobdeck.job.v1.JobService.CreateJob.
-func (c *jobServiceClient) CreateJob(ctx context.Context, req *v1.CreateJobRequest) (*v1.CreateJobResponse, error) {
-	response, err := c.createJob.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// UpdateJob calls jobdeck.job.v1.JobService.UpdateJob.
-func (c *jobServiceClient) UpdateJob(ctx context.Context, req *v1.UpdateJobRequest) (*v1.UpdateJobResponse, error) {
-	response, err := c.updateJob.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// SetJobEnabled calls jobdeck.job.v1.JobService.SetJobEnabled.
-func (c *jobServiceClient) SetJobEnabled(ctx context.Context, req *v1.SetJobEnabledRequest) (*v1.SetJobEnabledResponse, error) {
-	response, err := c.setJobEnabled.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// DeleteJob calls jobdeck.job.v1.JobService.DeleteJob.
-func (c *jobServiceClient) DeleteJob(ctx context.Context, req *v1.DeleteJobRequest) (*v1.DeleteJobResponse, error) {
-	response, err := c.deleteJob.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// GetJob calls jobdeck.job.v1.JobService.GetJob.
-func (c *jobServiceClient) GetJob(ctx context.Context, req *v1.GetJobRequest) (*v1.GetJobResponse, error) {
-	response, err := c.getJob.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
-}
-
-// ListJobs calls jobdeck.job.v1.JobService.ListJobs.
-func (c *jobServiceClient) ListJobs(ctx context.Context, req *v1.ListJobsRequest) (*v1.ListJobsResponse, error) {
-	response, err := c.listJobs.CallUnary(ctx, connect.NewRequest(req))
-	if response != nil {
-		return response.Msg, err
-	}
-	return nil, err
+// NewJobServiceClient constructs a client for the jobdeck.job.v1.JobService service. Multiple
+// service clients may share a single connect.Client.
+func NewJobServiceClient(client *connect.Client) JobServiceClient {
+	return &jobServiceClient{client: client}
 }
 
 // JobServiceHandler is an implementation of the jobdeck.job.v1.JobService service.
@@ -184,94 +111,169 @@ type JobServiceHandler interface {
 	ListJobs(context.Context, *v1.ListJobsRequest) (*v1.ListJobsResponse, error)
 }
 
-// NewJobServiceHandler builds an HTTP handler from the service implementation. It returns the path
-// on which to mount the handler and the handler itself.
-//
-// By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
-// and JSON codecs. They also support gzip compression.
-func NewJobServiceHandler(svc JobServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	jobServiceMethods := v1.File_jobdeck_job_v1_job_proto.Services().ByName("JobService").Methods()
-	jobServiceCreateJobHandler := connect.NewUnaryHandlerSimple(
-		JobServiceCreateJobProcedure,
-		svc.CreateJob,
-		connect.WithSchema(jobServiceMethods.ByName("CreateJob")),
-		connect.WithHandlerOptions(opts...),
+// RegisterJobServiceHandler registers svc as the jobdeck.job.v1.JobService implementation on
+// server.
+func RegisterJobServiceHandler(server *connect.Server, svc JobServiceHandler) {
+	adapter := jobServiceHandler{svc: svc}
+	server.Register(
+		connect.Method{Spec: jobServiceCreateJobSpec(), Handler: adapter.createJob},
+		connect.Method{Spec: jobServiceUpdateJobSpec(), Handler: adapter.updateJob},
+		connect.Method{Spec: jobServiceSetJobEnabledSpec(), Handler: adapter.setJobEnabled},
+		connect.Method{Spec: jobServiceDeleteJobSpec(), Handler: adapter.deleteJob},
+		connect.Method{Spec: jobServiceGetJobSpec(), Handler: adapter.getJob},
+		connect.Method{Spec: jobServiceListJobsSpec(), Handler: adapter.listJobs},
 	)
-	jobServiceUpdateJobHandler := connect.NewUnaryHandlerSimple(
-		JobServiceUpdateJobProcedure,
-		svc.UpdateJob,
-		connect.WithSchema(jobServiceMethods.ByName("UpdateJob")),
-		connect.WithHandlerOptions(opts...),
-	)
-	jobServiceSetJobEnabledHandler := connect.NewUnaryHandlerSimple(
-		JobServiceSetJobEnabledProcedure,
-		svc.SetJobEnabled,
-		connect.WithSchema(jobServiceMethods.ByName("SetJobEnabled")),
-		connect.WithHandlerOptions(opts...),
-	)
-	jobServiceDeleteJobHandler := connect.NewUnaryHandlerSimple(
-		JobServiceDeleteJobProcedure,
-		svc.DeleteJob,
-		connect.WithSchema(jobServiceMethods.ByName("DeleteJob")),
-		connect.WithHandlerOptions(opts...),
-	)
-	jobServiceGetJobHandler := connect.NewUnaryHandlerSimple(
-		JobServiceGetJobProcedure,
-		svc.GetJob,
-		connect.WithSchema(jobServiceMethods.ByName("GetJob")),
-		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-		connect.WithHandlerOptions(opts...),
-	)
-	jobServiceListJobsHandler := connect.NewUnaryHandlerSimple(
-		JobServiceListJobsProcedure,
-		svc.ListJobs,
-		connect.WithSchema(jobServiceMethods.ByName("ListJobs")),
-		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
-		connect.WithHandlerOptions(opts...),
-	)
-	return "/jobdeck.job.v1.JobService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		switch r.URL.Path {
-		case JobServiceCreateJobProcedure:
-			jobServiceCreateJobHandler.ServeHTTP(w, r)
-		case JobServiceUpdateJobProcedure:
-			jobServiceUpdateJobHandler.ServeHTTP(w, r)
-		case JobServiceSetJobEnabledProcedure:
-			jobServiceSetJobEnabledHandler.ServeHTTP(w, r)
-		case JobServiceDeleteJobProcedure:
-			jobServiceDeleteJobHandler.ServeHTTP(w, r)
-		case JobServiceGetJobProcedure:
-			jobServiceGetJobHandler.ServeHTTP(w, r)
-		case JobServiceListJobsProcedure:
-			jobServiceListJobsHandler.ServeHTTP(w, r)
-		default:
-			http.NotFound(w, r)
-		}
-	})
 }
 
 // UnimplementedJobServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedJobServiceHandler struct{}
 
 func (UnimplementedJobServiceHandler) CreateJob(context.Context, *v1.CreateJobRequest) (*v1.CreateJobResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.CreateJob is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.CreateJob is not implemented")
 }
 
 func (UnimplementedJobServiceHandler) UpdateJob(context.Context, *v1.UpdateJobRequest) (*v1.UpdateJobResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.UpdateJob is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.UpdateJob is not implemented")
 }
 
 func (UnimplementedJobServiceHandler) SetJobEnabled(context.Context, *v1.SetJobEnabledRequest) (*v1.SetJobEnabledResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.SetJobEnabled is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.SetJobEnabled is not implemented")
 }
 
 func (UnimplementedJobServiceHandler) DeleteJob(context.Context, *v1.DeleteJobRequest) (*v1.DeleteJobResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.DeleteJob is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.DeleteJob is not implemented")
 }
 
 func (UnimplementedJobServiceHandler) GetJob(context.Context, *v1.GetJobRequest) (*v1.GetJobResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.GetJob is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.GetJob is not implemented")
 }
 
 func (UnimplementedJobServiceHandler) ListJobs(context.Context, *v1.ListJobsRequest) (*v1.ListJobsResponse, error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("jobdeck.job.v1.JobService.ListJobs is not implemented"))
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.job.v1.JobService.ListJobs is not implemented")
+}
+
+type jobServiceClient struct {
+	client *connect.Client
+}
+
+func (c *jobServiceClient) CreateJob(ctx context.Context, req *v1.CreateJobRequest) (*v1.CreateJobResponse, error) {
+	var res v1.CreateJobResponse
+	if err := c.client.CallUnary(ctx, jobServiceCreateJobSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *jobServiceClient) UpdateJob(ctx context.Context, req *v1.UpdateJobRequest) (*v1.UpdateJobResponse, error) {
+	var res v1.UpdateJobResponse
+	if err := c.client.CallUnary(ctx, jobServiceUpdateJobSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *jobServiceClient) SetJobEnabled(ctx context.Context, req *v1.SetJobEnabledRequest) (*v1.SetJobEnabledResponse, error) {
+	var res v1.SetJobEnabledResponse
+	if err := c.client.CallUnary(ctx, jobServiceSetJobEnabledSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *jobServiceClient) DeleteJob(ctx context.Context, req *v1.DeleteJobRequest) (*v1.DeleteJobResponse, error) {
+	var res v1.DeleteJobResponse
+	if err := c.client.CallUnary(ctx, jobServiceDeleteJobSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *jobServiceClient) GetJob(ctx context.Context, req *v1.GetJobRequest) (*v1.GetJobResponse, error) {
+	var res v1.GetJobResponse
+	if err := c.client.CallUnary(ctx, jobServiceGetJobSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *jobServiceClient) ListJobs(ctx context.Context, req *v1.ListJobsRequest) (*v1.ListJobsResponse, error) {
+	var res v1.ListJobsResponse
+	if err := c.client.CallUnary(ctx, jobServiceListJobsSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+type jobServiceHandler struct{ svc JobServiceHandler }
+
+func (h jobServiceHandler) createJob(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.CreateJobRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.CreateJob(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h jobServiceHandler) updateJob(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.UpdateJobRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.UpdateJob(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h jobServiceHandler) setJobEnabled(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.SetJobEnabledRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.SetJobEnabled(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h jobServiceHandler) deleteJob(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.DeleteJobRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.DeleteJob(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h jobServiceHandler) getJob(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.GetJobRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.GetJob(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h jobServiceHandler) listJobs(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.ListJobsRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.ListJobs(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
 }
