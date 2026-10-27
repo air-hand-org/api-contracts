@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.4.0...packages/jobdeck/auth/v1.4.1) (2026-10-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency pipx:openapi-generator-cli to v7.26.0 ([#71](https://github.com/air-hand-org/api-contracts/issues/71)) ([84b2de2](https://github.com/air-hand-org/api-contracts/commit/84b2de2edcf51e26aa675e3ec24381e4b7c360f9))
+
 ## [1.4.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.3.4...packages/jobdeck/auth/v1.4.0) (2026-10-26)
 
 
