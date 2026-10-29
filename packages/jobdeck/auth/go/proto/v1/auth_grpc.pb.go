@@ -19,8 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_AuthenticateLocalClient_FullMethodName = "/jobdeck.auth.v1.AuthService/AuthenticateLocalClient"
-	AuthService_ExchangeGoogleIdToken_FullMethodName   = "/jobdeck.auth.v1.AuthService/ExchangeGoogleIdToken"
+	AuthService_AuthenticateLocalClient_FullMethodName   = "/jobdeck.auth.v1.AuthService/AuthenticateLocalClient"
+	AuthService_ExchangeGoogleIdToken_FullMethodName     = "/jobdeck.auth.v1.AuthService/ExchangeGoogleIdToken"
+	AuthService_ExchangeGitHubAccessToken_FullMethodName = "/jobdeck.auth.v1.AuthService/ExchangeGitHubAccessToken"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -29,6 +30,7 @@ const (
 type AuthServiceClient interface {
 	AuthenticateLocalClient(ctx context.Context, in *AuthenticateLocalClientRequest, opts ...grpc.CallOption) (*AuthenticateLocalClientResponse, error)
 	ExchangeGoogleIdToken(ctx context.Context, in *ExchangeGoogleIdTokenRequest, opts ...grpc.CallOption) (*ExchangeGoogleIdTokenResponse, error)
+	ExchangeGitHubAccessToken(ctx context.Context, in *ExchangeGitHubAccessTokenRequest, opts ...grpc.CallOption) (*ExchangeGitHubAccessTokenResponse, error)
 }
 
 type authServiceClient struct {
@@ -59,12 +61,23 @@ func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, in *Excha
 	return out, nil
 }
 
+func (c *authServiceClient) ExchangeGitHubAccessToken(ctx context.Context, in *ExchangeGitHubAccessTokenRequest, opts ...grpc.CallOption) (*ExchangeGitHubAccessTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExchangeGitHubAccessTokenResponse)
+	err := c.cc.Invoke(ctx, AuthService_ExchangeGitHubAccessToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
 type AuthServiceServer interface {
 	AuthenticateLocalClient(context.Context, *AuthenticateLocalClientRequest) (*AuthenticateLocalClientResponse, error)
 	ExchangeGoogleIdToken(context.Context, *ExchangeGoogleIdTokenRequest) (*ExchangeGoogleIdTokenResponse, error)
+	ExchangeGitHubAccessToken(context.Context, *ExchangeGitHubAccessTokenRequest) (*ExchangeGitHubAccessTokenResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedAuthServiceServer) AuthenticateLocalClient(context.Context, *
 }
 func (UnimplementedAuthServiceServer) ExchangeGoogleIdToken(context.Context, *ExchangeGoogleIdTokenRequest) (*ExchangeGoogleIdTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExchangeGoogleIdToken not implemented")
+}
+func (UnimplementedAuthServiceServer) ExchangeGitHubAccessToken(context.Context, *ExchangeGitHubAccessTokenRequest) (*ExchangeGitHubAccessTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExchangeGitHubAccessToken not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
@@ -138,6 +154,24 @@ func _AuthService_ExchangeGoogleIdToken_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_ExchangeGitHubAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExchangeGitHubAccessTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).ExchangeGitHubAccessToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_ExchangeGitHubAccessToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).ExchangeGitHubAccessToken(ctx, req.(*ExchangeGitHubAccessTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ExchangeGoogleIdToken",
 			Handler:    _AuthService_ExchangeGoogleIdToken_Handler,
+		},
+		{
+			MethodName: "ExchangeGitHubAccessToken",
+			Handler:    _AuthService_ExchangeGitHubAccessToken_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -134,6 +134,58 @@ func (x *ExchangeGoogleIdTokenRequest) GetAudience() string {
 	return ""
 }
 
+type ExchangeGitHubAccessTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
+	Audience      string                 `protobuf:"bytes,2,opt,name=audience,proto3" json:"audience,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExchangeGitHubAccessTokenRequest) Reset() {
+	*x = ExchangeGitHubAccessTokenRequest{}
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExchangeGitHubAccessTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExchangeGitHubAccessTokenRequest) ProtoMessage() {}
+
+func (x *ExchangeGitHubAccessTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExchangeGitHubAccessTokenRequest.ProtoReflect.Descriptor instead.
+func (*ExchangeGitHubAccessTokenRequest) Descriptor() ([]byte, []int) {
+	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ExchangeGitHubAccessTokenRequest) GetAccessToken() string {
+	if x != nil {
+		return x.AccessToken
+	}
+	return ""
+}
+
+func (x *ExchangeGitHubAccessTokenRequest) GetAudience() string {
+	if x != nil {
+		return x.Audience
+	}
+	return ""
+}
+
 type Token struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	AccessToken      string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
@@ -145,7 +197,7 @@ type Token struct {
 
 func (x *Token) Reset() {
 	*x = Token{}
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[2]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -157,7 +209,7 @@ func (x *Token) String() string {
 func (*Token) ProtoMessage() {}
 
 func (x *Token) ProtoReflect() protoreflect.Message {
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[2]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -170,7 +222,7 @@ func (x *Token) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Token.ProtoReflect.Descriptor instead.
 func (*Token) Descriptor() ([]byte, []int) {
-	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{2}
+	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Token) GetAccessToken() string {
@@ -203,7 +255,7 @@ type AuthenticateLocalClientResponse struct {
 
 func (x *AuthenticateLocalClientResponse) Reset() {
 	*x = AuthenticateLocalClientResponse{}
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[3]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -215,7 +267,7 @@ func (x *AuthenticateLocalClientResponse) String() string {
 func (*AuthenticateLocalClientResponse) ProtoMessage() {}
 
 func (x *AuthenticateLocalClientResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[3]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -228,7 +280,7 @@ func (x *AuthenticateLocalClientResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AuthenticateLocalClientResponse.ProtoReflect.Descriptor instead.
 func (*AuthenticateLocalClientResponse) Descriptor() ([]byte, []int) {
-	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{3}
+	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AuthenticateLocalClientResponse) GetToken() *Token {
@@ -247,7 +299,7 @@ type ExchangeGoogleIdTokenResponse struct {
 
 func (x *ExchangeGoogleIdTokenResponse) Reset() {
 	*x = ExchangeGoogleIdTokenResponse{}
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[4]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -259,7 +311,7 @@ func (x *ExchangeGoogleIdTokenResponse) String() string {
 func (*ExchangeGoogleIdTokenResponse) ProtoMessage() {}
 
 func (x *ExchangeGoogleIdTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[4]
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -272,10 +324,54 @@ func (x *ExchangeGoogleIdTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExchangeGoogleIdTokenResponse.ProtoReflect.Descriptor instead.
 func (*ExchangeGoogleIdTokenResponse) Descriptor() ([]byte, []int) {
-	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{4}
+	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ExchangeGoogleIdTokenResponse) GetToken() *Token {
+	if x != nil {
+		return x.Token
+	}
+	return nil
+}
+
+type ExchangeGitHubAccessTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         *Token                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExchangeGitHubAccessTokenResponse) Reset() {
+	*x = ExchangeGitHubAccessTokenResponse{}
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExchangeGitHubAccessTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExchangeGitHubAccessTokenResponse) ProtoMessage() {}
+
+func (x *ExchangeGitHubAccessTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_jobdeck_auth_v1_auth_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExchangeGitHubAccessTokenResponse.ProtoReflect.Descriptor instead.
+func (*ExchangeGitHubAccessTokenResponse) Descriptor() ([]byte, []int) {
+	return file_jobdeck_auth_v1_auth_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ExchangeGitHubAccessTokenResponse) GetToken() *Token {
 	if x != nil {
 		return x.Token
 	}
@@ -293,7 +389,10 @@ const file_jobdeck_auth_v1_auth_proto_rawDesc = "" +
 	"\baudience\x18\x03 \x01(\tR\baudience\"U\n" +
 	"\x1cExchangeGoogleIdTokenRequest\x12\x19\n" +
 	"\bid_token\x18\x01 \x01(\tR\aidToken\x12\x1a\n" +
-	"\baudience\x18\x02 \x01(\tR\baudience\"\x80\x01\n" +
+	"\baudience\x18\x02 \x01(\tR\baudience\"s\n" +
+	" ExchangeGitHubAccessTokenRequest\x12*\n" +
+	"\faccess_token\x18\x01 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\vaccessToken\x12#\n" +
+	"\baudience\x18\x02 \x01(\tB\a\xbaH\x04r\x02\x10\x01R\baudience\"\x80\x01\n" +
 	"\x05Token\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x1d\n" +
 	"\n" +
@@ -302,10 +401,13 @@ const file_jobdeck_auth_v1_auth_proto_rawDesc = "" +
 	"\x1fAuthenticateLocalClientResponse\x12,\n" +
 	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token\"M\n" +
 	"\x1dExchangeGoogleIdTokenResponse\x12,\n" +
-	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token2\x83\x02\n" +
+	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token\"Q\n" +
+	"!ExchangeGitHubAccessTokenResponse\x12,\n" +
+	"\x05token\x18\x01 \x01(\v2\x16.jobdeck.auth.v1.TokenR\x05token2\x88\x03\n" +
 	"\vAuthService\x12|\n" +
 	"\x17AuthenticateLocalClient\x12/.jobdeck.auth.v1.AuthenticateLocalClientRequest\x1a0.jobdeck.auth.v1.AuthenticateLocalClientResponse\x12v\n" +
-	"\x15ExchangeGoogleIdToken\x12-.jobdeck.auth.v1.ExchangeGoogleIdTokenRequest\x1a..jobdeck.auth.v1.ExchangeGoogleIdTokenResponseB\xce\x01\n" +
+	"\x15ExchangeGoogleIdToken\x12-.jobdeck.auth.v1.ExchangeGoogleIdTokenRequest\x1a..jobdeck.auth.v1.ExchangeGoogleIdTokenResponse\x12\x82\x01\n" +
+	"\x19ExchangeGitHubAccessToken\x121.jobdeck.auth.v1.ExchangeGitHubAccessTokenRequest\x1a2.jobdeck.auth.v1.ExchangeGitHubAccessTokenResponseB\xce\x01\n" +
 	"\x13com.jobdeck.auth.v1B\tAuthProtoP\x01ZNgithub.com/air-hand-org/api-contracts/packages/jobdeck/auth/go/proto/v1;authv1\xa2\x02\x03JAX\xaa\x02\x0fJobdeck.Auth.V1\xca\x02\x0fJobdeck\\Auth\\V1\xe2\x02\x1bJobdeck\\Auth\\V1\\GPBMetadata\xea\x02\x11Jobdeck::Auth::V1b\x06proto3"
 
 var (
@@ -320,26 +422,31 @@ func file_jobdeck_auth_v1_auth_proto_rawDescGZIP() []byte {
 	return file_jobdeck_auth_v1_auth_proto_rawDescData
 }
 
-var file_jobdeck_auth_v1_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_jobdeck_auth_v1_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_jobdeck_auth_v1_auth_proto_goTypes = []any{
-	(*AuthenticateLocalClientRequest)(nil),  // 0: jobdeck.auth.v1.AuthenticateLocalClientRequest
-	(*ExchangeGoogleIdTokenRequest)(nil),    // 1: jobdeck.auth.v1.ExchangeGoogleIdTokenRequest
-	(*Token)(nil),                           // 2: jobdeck.auth.v1.Token
-	(*AuthenticateLocalClientResponse)(nil), // 3: jobdeck.auth.v1.AuthenticateLocalClientResponse
-	(*ExchangeGoogleIdTokenResponse)(nil),   // 4: jobdeck.auth.v1.ExchangeGoogleIdTokenResponse
+	(*AuthenticateLocalClientRequest)(nil),    // 0: jobdeck.auth.v1.AuthenticateLocalClientRequest
+	(*ExchangeGoogleIdTokenRequest)(nil),      // 1: jobdeck.auth.v1.ExchangeGoogleIdTokenRequest
+	(*ExchangeGitHubAccessTokenRequest)(nil),  // 2: jobdeck.auth.v1.ExchangeGitHubAccessTokenRequest
+	(*Token)(nil),                             // 3: jobdeck.auth.v1.Token
+	(*AuthenticateLocalClientResponse)(nil),   // 4: jobdeck.auth.v1.AuthenticateLocalClientResponse
+	(*ExchangeGoogleIdTokenResponse)(nil),     // 5: jobdeck.auth.v1.ExchangeGoogleIdTokenResponse
+	(*ExchangeGitHubAccessTokenResponse)(nil), // 6: jobdeck.auth.v1.ExchangeGitHubAccessTokenResponse
 }
 var file_jobdeck_auth_v1_auth_proto_depIdxs = []int32{
-	2, // 0: jobdeck.auth.v1.AuthenticateLocalClientResponse.token:type_name -> jobdeck.auth.v1.Token
-	2, // 1: jobdeck.auth.v1.ExchangeGoogleIdTokenResponse.token:type_name -> jobdeck.auth.v1.Token
-	0, // 2: jobdeck.auth.v1.AuthService.AuthenticateLocalClient:input_type -> jobdeck.auth.v1.AuthenticateLocalClientRequest
-	1, // 3: jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken:input_type -> jobdeck.auth.v1.ExchangeGoogleIdTokenRequest
-	3, // 4: jobdeck.auth.v1.AuthService.AuthenticateLocalClient:output_type -> jobdeck.auth.v1.AuthenticateLocalClientResponse
-	4, // 5: jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken:output_type -> jobdeck.auth.v1.ExchangeGoogleIdTokenResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	3, // 0: jobdeck.auth.v1.AuthenticateLocalClientResponse.token:type_name -> jobdeck.auth.v1.Token
+	3, // 1: jobdeck.auth.v1.ExchangeGoogleIdTokenResponse.token:type_name -> jobdeck.auth.v1.Token
+	3, // 2: jobdeck.auth.v1.ExchangeGitHubAccessTokenResponse.token:type_name -> jobdeck.auth.v1.Token
+	0, // 3: jobdeck.auth.v1.AuthService.AuthenticateLocalClient:input_type -> jobdeck.auth.v1.AuthenticateLocalClientRequest
+	1, // 4: jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken:input_type -> jobdeck.auth.v1.ExchangeGoogleIdTokenRequest
+	2, // 5: jobdeck.auth.v1.AuthService.ExchangeGitHubAccessToken:input_type -> jobdeck.auth.v1.ExchangeGitHubAccessTokenRequest
+	4, // 6: jobdeck.auth.v1.AuthService.AuthenticateLocalClient:output_type -> jobdeck.auth.v1.AuthenticateLocalClientResponse
+	5, // 7: jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken:output_type -> jobdeck.auth.v1.ExchangeGoogleIdTokenResponse
+	6, // 8: jobdeck.auth.v1.AuthService.ExchangeGitHubAccessToken:output_type -> jobdeck.auth.v1.ExchangeGitHubAccessTokenResponse
+	6, // [6:9] is the sub-list for method output_type
+	3, // [3:6] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_jobdeck_auth_v1_auth_proto_init() }
@@ -353,7 +460,7 @@ func file_jobdeck_auth_v1_auth_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_jobdeck_auth_v1_auth_proto_rawDesc), len(file_jobdeck_auth_v1_auth_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

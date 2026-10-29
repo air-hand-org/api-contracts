@@ -30,6 +30,9 @@ const (
 	// AuthServiceExchangeGoogleIdTokenProcedure is the procedure name of the AuthService's
 	// ExchangeGoogleIdToken RPC.
 	AuthServiceExchangeGoogleIdTokenProcedure = "/jobdeck.auth.v1.AuthService/ExchangeGoogleIdToken"
+	// AuthServiceExchangeGitHubAccessTokenProcedure is the procedure name of the AuthService's
+	// ExchangeGitHubAccessToken RPC.
+	AuthServiceExchangeGitHubAccessTokenProcedure = "/jobdeck.auth.v1.AuthService/ExchangeGitHubAccessToken"
 )
 
 var (
@@ -47,12 +50,20 @@ var (
 			Procedure:  AuthServiceExchangeGoogleIdTokenProcedure,
 		}
 	})
+	authServiceExchangeGitHubAccessTokenSpec = sync.OnceValue(func() connect.Spec {
+		return connect.Spec{
+			StreamType: connect.StreamTypeUnary,
+			Schema:     v1.File_jobdeck_auth_v1_auth_proto.Services().ByName("AuthService").Methods().ByName("ExchangeGitHubAccessToken"),
+			Procedure:  AuthServiceExchangeGitHubAccessTokenProcedure,
+		}
+	})
 )
 
 // AuthServiceClient is a client for the jobdeck.auth.v1.AuthService service.
 type AuthServiceClient interface {
 	AuthenticateLocalClient(context.Context, *v1.AuthenticateLocalClientRequest) (*v1.AuthenticateLocalClientResponse, error)
 	ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error)
+	ExchangeGitHubAccessToken(context.Context, *v1.ExchangeGitHubAccessTokenRequest) (*v1.ExchangeGitHubAccessTokenResponse, error)
 }
 
 // NewAuthServiceClient constructs a client for the jobdeck.auth.v1.AuthService service. Multiple
@@ -65,6 +76,7 @@ func NewAuthServiceClient(client *connect.Client) AuthServiceClient {
 type AuthServiceHandler interface {
 	AuthenticateLocalClient(context.Context, *v1.AuthenticateLocalClientRequest) (*v1.AuthenticateLocalClientResponse, error)
 	ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error)
+	ExchangeGitHubAccessToken(context.Context, *v1.ExchangeGitHubAccessTokenRequest) (*v1.ExchangeGitHubAccessTokenResponse, error)
 }
 
 // RegisterAuthServiceHandler registers svc as the jobdeck.auth.v1.AuthService implementation on
@@ -74,6 +86,7 @@ func RegisterAuthServiceHandler(server *connect.Server, svc AuthServiceHandler) 
 	server.Register(
 		connect.Method{Spec: authServiceAuthenticateLocalClientSpec(), Handler: adapter.authenticateLocalClient},
 		connect.Method{Spec: authServiceExchangeGoogleIdTokenSpec(), Handler: adapter.exchangeGoogleIdToken},
+		connect.Method{Spec: authServiceExchangeGitHubAccessTokenSpec(), Handler: adapter.exchangeGitHubAccessToken},
 	)
 }
 
@@ -86,6 +99,10 @@ func (UnimplementedAuthServiceHandler) AuthenticateLocalClient(context.Context, 
 
 func (UnimplementedAuthServiceHandler) ExchangeGoogleIdToken(context.Context, *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.auth.v1.AuthService.ExchangeGoogleIdToken is not implemented")
+}
+
+func (UnimplementedAuthServiceHandler) ExchangeGitHubAccessToken(context.Context, *v1.ExchangeGitHubAccessTokenRequest) (*v1.ExchangeGitHubAccessTokenResponse, error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, "jobdeck.auth.v1.AuthService.ExchangeGitHubAccessToken is not implemented")
 }
 
 type authServiceClient struct {
@@ -103,6 +120,14 @@ func (c *authServiceClient) AuthenticateLocalClient(ctx context.Context, req *v1
 func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, req *v1.ExchangeGoogleIdTokenRequest) (*v1.ExchangeGoogleIdTokenResponse, error) {
 	var res v1.ExchangeGoogleIdTokenResponse
 	if err := c.client.CallUnary(ctx, authServiceExchangeGoogleIdTokenSpec(), req, &res); err != nil {
+		return nil, err
+	}
+	return &res, nil
+}
+
+func (c *authServiceClient) ExchangeGitHubAccessToken(ctx context.Context, req *v1.ExchangeGitHubAccessTokenRequest) (*v1.ExchangeGitHubAccessTokenResponse, error) {
+	var res v1.ExchangeGitHubAccessTokenResponse
+	if err := c.client.CallUnary(ctx, authServiceExchangeGitHubAccessTokenSpec(), req, &res); err != nil {
 		return nil, err
 	}
 	return &res, nil
@@ -128,6 +153,18 @@ func (h authServiceHandler) exchangeGoogleIdToken(ctx context.Context, _ connect
 		return err
 	}
 	res, err := h.svc.ExchangeGoogleIdToken(ctx, &req)
+	if err != nil {
+		return err
+	}
+	return stream.Send(res)
+}
+
+func (h authServiceHandler) exchangeGitHubAccessToken(ctx context.Context, _ connect.Spec, stream connect.ServerStream) error {
+	var req v1.ExchangeGitHubAccessTokenRequest
+	if err := stream.Receive(&req); err != nil {
+		return err
+	}
+	res, err := h.svc.ExchangeGitHubAccessToken(ctx, &req)
 	if err != nil {
 		return err
 	}
