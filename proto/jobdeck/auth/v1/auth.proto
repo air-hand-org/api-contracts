@@ -15,6 +15,11 @@ message ExchangeGoogleIdTokenRequest {
   string audience = 2;
 }
 
+message ExchangeGitHubAccessTokenRequest {
+  string access_token = 1 [(buf.validate.field).string.min_len = 1];
+  string audience = 2 [(buf.validate.field).string.min_len = 1];
+}
+
 message Token {
   string access_token = 1;
   string token_type = 2; // "Bearer"
@@ -29,7 +34,12 @@ message ExchangeGoogleIdTokenResponse {
   Token token = 1;
 }
 
+message ExchangeGitHubAccessTokenResponse {
+  Token token = 1;
+}
+
 service AuthService {
   rpc AuthenticateLocalClient(AuthenticateLocalClientRequest) returns (AuthenticateLocalClientResponse);
   rpc ExchangeGoogleIdToken(ExchangeGoogleIdTokenRequest) returns (ExchangeGoogleIdTokenResponse);
+  rpc ExchangeGitHubAccessToken(ExchangeGitHubAccessTokenRequest) returns (ExchangeGitHubAccessTokenResponse);
 }

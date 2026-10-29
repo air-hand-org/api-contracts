@@ -30,32 +30,41 @@ namespace Jobdeck.Auth.V1 {
             "SWQSIwoNY2xpZW50X3NlY3JldBgCIAEoCVIMY2xpZW50U2VjcmV0EhoKCGF1",
             "ZGllbmNlGAMgASgJUghhdWRpZW5jZSJVChxFeGNoYW5nZUdvb2dsZUlkVG9r",
             "ZW5SZXF1ZXN0EhkKCGlkX3Rva2VuGAEgASgJUgdpZFRva2VuEhoKCGF1ZGll",
-            "bmNlGAIgASgJUghhdWRpZW5jZSKAAQoFVG9rZW4SIQoMYWNjZXNzX3Rva2Vu",
-            "GAEgASgJUgthY2Nlc3NUb2tlbhIdCgp0b2tlbl90eXBlGAIgASgJUgl0b2tl",
-            "blR5cGUSNQoSZXhwaXJlc19pbl9zZWNvbmRzGAMgASgDQge6SAQiAigBUhBl",
-            "eHBpcmVzSW5TZWNvbmRzIk8KH0F1dGhlbnRpY2F0ZUxvY2FsQ2xpZW50UmVz",
-            "cG9uc2USLAoFdG9rZW4YASABKAsyFi5qb2JkZWNrLmF1dGgudjEuVG9rZW5S",
-            "BXRva2VuIk0KHUV4Y2hhbmdlR29vZ2xlSWRUb2tlblJlc3BvbnNlEiwKBXRv",
-            "a2VuGAEgASgLMhYuam9iZGVjay5hdXRoLnYxLlRva2VuUgV0b2tlbjKDAgoL",
-            "QXV0aFNlcnZpY2USfAoXQXV0aGVudGljYXRlTG9jYWxDbGllbnQSLy5qb2Jk",
-            "ZWNrLmF1dGgudjEuQXV0aGVudGljYXRlTG9jYWxDbGllbnRSZXF1ZXN0GjAu",
-            "am9iZGVjay5hdXRoLnYxLkF1dGhlbnRpY2F0ZUxvY2FsQ2xpZW50UmVzcG9u",
-            "c2USdgoVRXhjaGFuZ2VHb29nbGVJZFRva2VuEi0uam9iZGVjay5hdXRoLnYx",
-            "LkV4Y2hhbmdlR29vZ2xlSWRUb2tlblJlcXVlc3QaLi5qb2JkZWNrLmF1dGgu",
-            "djEuRXhjaGFuZ2VHb29nbGVJZFRva2VuUmVzcG9uc2VCzgEKE2NvbS5qb2Jk",
-            "ZWNrLmF1dGgudjFCCUF1dGhQcm90b1ABWk5naXRodWIuY29tL2Fpci1oYW5k",
-            "LW9yZy9hcGktY29udHJhY3RzL3BhY2thZ2VzL2pvYmRlY2svYXV0aC9nby9w",
-            "cm90by92MTthdXRodjGiAgNKQViqAg9Kb2JkZWNrLkF1dGguVjHKAg9Kb2Jk",
-            "ZWNrXEF1dGhcVjHiAhtKb2JkZWNrXEF1dGhcVjFcR1BCTWV0YWRhdGHqAhFK",
-            "b2JkZWNrOjpBdXRoOjpWMWIGcHJvdG8z"));
+            "bmNlGAIgASgJUghhdWRpZW5jZSJzCiBFeGNoYW5nZUdpdEh1YkFjY2Vzc1Rv",
+            "a2VuUmVxdWVzdBIqCgxhY2Nlc3NfdG9rZW4YASABKAlCB7pIBHICEAFSC2Fj",
+            "Y2Vzc1Rva2VuEiMKCGF1ZGllbmNlGAIgASgJQge6SARyAhABUghhdWRpZW5j",
+            "ZSKAAQoFVG9rZW4SIQoMYWNjZXNzX3Rva2VuGAEgASgJUgthY2Nlc3NUb2tl",
+            "bhIdCgp0b2tlbl90eXBlGAIgASgJUgl0b2tlblR5cGUSNQoSZXhwaXJlc19p",
+            "bl9zZWNvbmRzGAMgASgDQge6SAQiAigBUhBleHBpcmVzSW5TZWNvbmRzIk8K",
+            "H0F1dGhlbnRpY2F0ZUxvY2FsQ2xpZW50UmVzcG9uc2USLAoFdG9rZW4YASAB",
+            "KAsyFi5qb2JkZWNrLmF1dGgudjEuVG9rZW5SBXRva2VuIk0KHUV4Y2hhbmdl",
+            "R29vZ2xlSWRUb2tlblJlc3BvbnNlEiwKBXRva2VuGAEgASgLMhYuam9iZGVj",
+            "ay5hdXRoLnYxLlRva2VuUgV0b2tlbiJRCiFFeGNoYW5nZUdpdEh1YkFjY2Vz",
+            "c1Rva2VuUmVzcG9uc2USLAoFdG9rZW4YASABKAsyFi5qb2JkZWNrLmF1dGgu",
+            "djEuVG9rZW5SBXRva2VuMogDCgtBdXRoU2VydmljZRJ8ChdBdXRoZW50aWNh",
+            "dGVMb2NhbENsaWVudBIvLmpvYmRlY2suYXV0aC52MS5BdXRoZW50aWNhdGVM",
+            "b2NhbENsaWVudFJlcXVlc3QaMC5qb2JkZWNrLmF1dGgudjEuQXV0aGVudGlj",
+            "YXRlTG9jYWxDbGllbnRSZXNwb25zZRJ2ChVFeGNoYW5nZUdvb2dsZUlkVG9r",
+            "ZW4SLS5qb2JkZWNrLmF1dGgudjEuRXhjaGFuZ2VHb29nbGVJZFRva2VuUmVx",
+            "dWVzdBouLmpvYmRlY2suYXV0aC52MS5FeGNoYW5nZUdvb2dsZUlkVG9rZW5S",
+            "ZXNwb25zZRKCAQoZRXhjaGFuZ2VHaXRIdWJBY2Nlc3NUb2tlbhIxLmpvYmRl",
+            "Y2suYXV0aC52MS5FeGNoYW5nZUdpdEh1YkFjY2Vzc1Rva2VuUmVxdWVzdBoy",
+            "LmpvYmRlY2suYXV0aC52MS5FeGNoYW5nZUdpdEh1YkFjY2Vzc1Rva2VuUmVz",
+            "cG9uc2VCzgEKE2NvbS5qb2JkZWNrLmF1dGgudjFCCUF1dGhQcm90b1ABWk5n",
+            "aXRodWIuY29tL2Fpci1oYW5kLW9yZy9hcGktY29udHJhY3RzL3BhY2thZ2Vz",
+            "L2pvYmRlY2svYXV0aC9nby9wcm90by92MTthdXRodjGiAgNKQViqAg9Kb2Jk",
+            "ZWNrLkF1dGguVjHKAg9Kb2JkZWNrXEF1dGhcVjHiAhtKb2JkZWNrXEF1dGhc",
+            "VjFcR1BCTWV0YWRhdGHqAhFKb2JkZWNrOjpBdXRoOjpWMWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Buf.Validate.ValidateReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest), global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest.Parser, new[]{ "ClientId", "ClientSecret", "Audience" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest), global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest.Parser, new[]{ "IdToken", "Audience" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest), global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest.Parser, new[]{ "AccessToken", "Audience" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.Token), global::Jobdeck.Auth.V1.Token.Parser, new[]{ "AccessToken", "TokenType", "ExpiresInSeconds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse), global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse.Parser, new[]{ "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse), global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse.Parser, new[]{ "Token" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse), global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse.Parser, new[]{ "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse), global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse.Parser, new[]{ "Token" }, null, null, null, null)
           }));
     }
     #endregion
@@ -570,6 +579,241 @@ namespace Jobdeck.Auth.V1 {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ExchangeGitHubAccessTokenRequest : pb::IMessage<ExchangeGitHubAccessTokenRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ExchangeGitHubAccessTokenRequest> _parser = new pb::MessageParser<ExchangeGitHubAccessTokenRequest>(() => new ExchangeGitHubAccessTokenRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ExchangeGitHubAccessTokenRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenRequest(ExchangeGitHubAccessTokenRequest other) : this() {
+      accessToken_ = other.accessToken_;
+      audience_ = other.audience_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenRequest Clone() {
+      return new ExchangeGitHubAccessTokenRequest(this);
+    }
+
+    /// <summary>Field number for the "access_token" field.</summary>
+    public const int AccessTokenFieldNumber = 1;
+    private string accessToken_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AccessToken {
+      get { return accessToken_; }
+      set {
+        accessToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "audience" field.</summary>
+    public const int AudienceFieldNumber = 2;
+    private string audience_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Audience {
+      get { return audience_; }
+      set {
+        audience_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeGitHubAccessTokenRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ExchangeGitHubAccessTokenRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (AccessToken != other.AccessToken) return false;
+      if (Audience != other.Audience) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (AccessToken.Length != 0) hash ^= AccessToken.GetHashCode();
+      if (Audience.Length != 0) hash ^= Audience.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (AccessToken.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(AccessToken);
+      }
+      if (Audience.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Audience);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (AccessToken.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(AccessToken);
+      }
+      if (Audience.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Audience);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (AccessToken.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AccessToken);
+      }
+      if (Audience.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Audience);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ExchangeGitHubAccessTokenRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.AccessToken.Length != 0) {
+        AccessToken = other.AccessToken;
+      }
+      if (other.Audience.Length != 0) {
+        Audience = other.Audience;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            AccessToken = input.ReadString();
+            break;
+          }
+          case 18: {
+            Audience = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            AccessToken = input.ReadString();
+            break;
+          }
+          case 18: {
+            Audience = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Token : pb::IMessage<Token>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -584,7 +828,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -859,7 +1103,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1066,7 +1310,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1190,6 +1434,213 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ExchangeGoogleIdTokenResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.token_ != null) {
+        if (token_ == null) {
+          Token = new global::Jobdeck.Auth.V1.Token();
+        }
+        Token.MergeFrom(other.Token);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (token_ == null) {
+              Token = new global::Jobdeck.Auth.V1.Token();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (token_ == null) {
+              Token = new global::Jobdeck.Auth.V1.Token();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ExchangeGitHubAccessTokenResponse : pb::IMessage<ExchangeGitHubAccessTokenResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ExchangeGitHubAccessTokenResponse> _parser = new pb::MessageParser<ExchangeGitHubAccessTokenResponse>(() => new ExchangeGitHubAccessTokenResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ExchangeGitHubAccessTokenResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenResponse(ExchangeGitHubAccessTokenResponse other) : this() {
+      token_ = other.token_ != null ? other.token_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeGitHubAccessTokenResponse Clone() {
+      return new ExchangeGitHubAccessTokenResponse(this);
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 1;
+    private global::Jobdeck.Auth.V1.Token token_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Jobdeck.Auth.V1.Token Token {
+      get { return token_; }
+      set {
+        token_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeGitHubAccessTokenResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ExchangeGitHubAccessTokenResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Token, other.Token)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (token_ != null) hash ^= Token.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (token_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (token_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (token_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Token);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ExchangeGitHubAccessTokenResponse other) {
       if (other == null) {
         return;
       }
