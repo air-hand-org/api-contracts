@@ -28,48 +28,70 @@ namespace Jobdeck.Auth.V1 {
             "GhtidWYvdmFsaWRhdGUvdmFsaWRhdGUucHJvdG8ifgoeQXV0aGVudGljYXRl",
             "TG9jYWxDbGllbnRSZXF1ZXN0EhsKCWNsaWVudF9pZBgBIAEoCVIIY2xpZW50",
             "SWQSIwoNY2xpZW50X3NlY3JldBgCIAEoCVIMY2xpZW50U2VjcmV0EhoKCGF1",
-            "ZGllbmNlGAMgASgJUghhdWRpZW5jZSJVChxFeGNoYW5nZUdvb2dsZUlkVG9r",
+            "ZGllbmNlGAMgASgJUghhdWRpZW5jZSJZChxFeGNoYW5nZUdvb2dsZUlkVG9r",
             "ZW5SZXF1ZXN0EhkKCGlkX3Rva2VuGAEgASgJUgdpZFRva2VuEhoKCGF1ZGll",
-            "bmNlGAIgASgJUghhdWRpZW5jZSJzCiBFeGNoYW5nZUdpdEh1YkFjY2Vzc1Rv",
-            "a2VuUmVxdWVzdBIqCgxhY2Nlc3NfdG9rZW4YASABKAlCB7pIBHICEAFSC2Fj",
-            "Y2Vzc1Rva2VuEiMKCGF1ZGllbmNlGAIgASgJQge6SARyAhABUghhdWRpZW5j",
-            "ZSKAAQoFVG9rZW4SIQoMYWNjZXNzX3Rva2VuGAEgASgJUgthY2Nlc3NUb2tl",
-            "bhIdCgp0b2tlbl90eXBlGAIgASgJUgl0b2tlblR5cGUSNQoSZXhwaXJlc19p",
-            "bl9zZWNvbmRzGAMgASgDQge6SAQiAigBUhBleHBpcmVzSW5TZWNvbmRzIk8K",
-            "H0F1dGhlbnRpY2F0ZUxvY2FsQ2xpZW50UmVzcG9uc2USLAoFdG9rZW4YASAB",
-            "KAsyFi5qb2JkZWNrLmF1dGgudjEuVG9rZW5SBXRva2VuIk0KHUV4Y2hhbmdl",
-            "R29vZ2xlSWRUb2tlblJlc3BvbnNlEiwKBXRva2VuGAEgASgLMhYuam9iZGVj",
-            "ay5hdXRoLnYxLlRva2VuUgV0b2tlbiJRCiFFeGNoYW5nZUdpdEh1YkFjY2Vz",
-            "c1Rva2VuUmVzcG9uc2USLAoFdG9rZW4YASABKAsyFi5qb2JkZWNrLmF1dGgu",
-            "djEuVG9rZW5SBXRva2VuMogDCgtBdXRoU2VydmljZRJ8ChdBdXRoZW50aWNh",
-            "dGVMb2NhbENsaWVudBIvLmpvYmRlY2suYXV0aC52MS5BdXRoZW50aWNhdGVM",
-            "b2NhbENsaWVudFJlcXVlc3QaMC5qb2JkZWNrLmF1dGgudjEuQXV0aGVudGlj",
-            "YXRlTG9jYWxDbGllbnRSZXNwb25zZRJ2ChVFeGNoYW5nZUdvb2dsZUlkVG9r",
-            "ZW4SLS5qb2JkZWNrLmF1dGgudjEuRXhjaGFuZ2VHb29nbGVJZFRva2VuUmVx",
-            "dWVzdBouLmpvYmRlY2suYXV0aC52MS5FeGNoYW5nZUdvb2dsZUlkVG9rZW5S",
-            "ZXNwb25zZRKCAQoZRXhjaGFuZ2VHaXRIdWJBY2Nlc3NUb2tlbhIxLmpvYmRl",
-            "Y2suYXV0aC52MS5FeGNoYW5nZUdpdEh1YkFjY2Vzc1Rva2VuUmVxdWVzdBoy",
-            "LmpvYmRlY2suYXV0aC52MS5FeGNoYW5nZUdpdEh1YkFjY2Vzc1Rva2VuUmVz",
-            "cG9uc2VCzgEKE2NvbS5qb2JkZWNrLmF1dGgudjFCCUF1dGhQcm90b1ABWk5n",
-            "aXRodWIuY29tL2Fpci1oYW5kLW9yZy9hcGktY29udHJhY3RzL3BhY2thZ2Vz",
-            "L2pvYmRlY2svYXV0aC9nby9wcm90by92MTthdXRodjGiAgNKQViqAg9Kb2Jk",
-            "ZWNrLkF1dGguVjHKAg9Kb2JkZWNrXEF1dGhcVjHiAhtKb2JkZWNrXEF1dGhc",
-            "VjFcR1BCTWV0YWRhdGHqAhFKb2JkZWNrOjpBdXRoOjpWMWIGcHJvdG8z"));
+            "bmNlGAIgASgJUghhdWRpZW5jZToCGAEidwogRXhjaGFuZ2VHaXRIdWJBY2Nl",
+            "c3NUb2tlblJlcXVlc3QSKgoMYWNjZXNzX3Rva2VuGAEgASgJQge6SARyAhAB",
+            "UgthY2Nlc3NUb2tlbhIjCghhdWRpZW5jZRgCIAEoCUIHukgEcgIQAVIIYXVk",
+            "aWVuY2U6AhgBIrIBChxFeGNoYW5nZUV4dGVybmFsVG9rZW5SZXF1ZXN0Ek4K",
+            "CHByb3ZpZGVyGAEgASgOMiYuam9iZGVjay5hdXRoLnYxLkV4dGVybmFsVG9r",
+            "ZW5Qcm92aWRlckIKukgHggEEEAEgAFIIcHJvdmlkZXISHQoFdG9rZW4YAiAB",
+            "KAlCB7pIBHICEAFSBXRva2VuEiMKCGF1ZGllbmNlGAMgASgJQge6SARyAhAB",
+            "UghhdWRpZW5jZSKAAQoFVG9rZW4SIQoMYWNjZXNzX3Rva2VuGAEgASgJUgth",
+            "Y2Nlc3NUb2tlbhIdCgp0b2tlbl90eXBlGAIgASgJUgl0b2tlblR5cGUSNQoS",
+            "ZXhwaXJlc19pbl9zZWNvbmRzGAMgASgDQge6SAQiAigBUhBleHBpcmVzSW5T",
+            "ZWNvbmRzIk8KH0F1dGhlbnRpY2F0ZUxvY2FsQ2xpZW50UmVzcG9uc2USLAoF",
+            "dG9rZW4YASABKAsyFi5qb2JkZWNrLmF1dGgudjEuVG9rZW5SBXRva2VuIlEK",
+            "HUV4Y2hhbmdlR29vZ2xlSWRUb2tlblJlc3BvbnNlEiwKBXRva2VuGAEgASgL",
+            "MhYuam9iZGVjay5hdXRoLnYxLlRva2VuUgV0b2tlbjoCGAEiVQohRXhjaGFu",
+            "Z2VHaXRIdWJBY2Nlc3NUb2tlblJlc3BvbnNlEiwKBXRva2VuGAEgASgLMhYu",
+            "am9iZGVjay5hdXRoLnYxLlRva2VuUgV0b2tlbjoCGAEiTQodRXhjaGFuZ2VF",
+            "eHRlcm5hbFRva2VuUmVzcG9uc2USLAoFdG9rZW4YASABKAsyFi5qb2JkZWNr",
+            "LmF1dGgudjEuVG9rZW5SBXRva2VuKmQKFUV4dGVybmFsVG9rZW5Qcm92aWRl",
+            "chInCiNFWFRFUk5BTF9UT0tFTl9QUk9WSURFUl9VTlNQRUNJRklFRBAAEiIK",
+            "HkVYVEVSTkFMX1RPS0VOX1BST1ZJREVSX0dJVEhVQhABMooECgtBdXRoU2Vy",
+            "dmljZRJ8ChdBdXRoZW50aWNhdGVMb2NhbENsaWVudBIvLmpvYmRlY2suYXV0",
+            "aC52MS5BdXRoZW50aWNhdGVMb2NhbENsaWVudFJlcXVlc3QaMC5qb2JkZWNr",
+            "LmF1dGgudjEuQXV0aGVudGljYXRlTG9jYWxDbGllbnRSZXNwb25zZRJ7ChVF",
+            "eGNoYW5nZUdvb2dsZUlkVG9rZW4SLS5qb2JkZWNrLmF1dGgudjEuRXhjaGFu",
+            "Z2VHb29nbGVJZFRva2VuUmVxdWVzdBouLmpvYmRlY2suYXV0aC52MS5FeGNo",
+            "YW5nZUdvb2dsZUlkVG9rZW5SZXNwb25zZSIDiAIBEocBChlFeGNoYW5nZUdp",
+            "dEh1YkFjY2Vzc1Rva2VuEjEuam9iZGVjay5hdXRoLnYxLkV4Y2hhbmdlR2l0",
+            "SHViQWNjZXNzVG9rZW5SZXF1ZXN0GjIuam9iZGVjay5hdXRoLnYxLkV4Y2hh",
+            "bmdlR2l0SHViQWNjZXNzVG9rZW5SZXNwb25zZSIDiAIBEnYKFUV4Y2hhbmdl",
+            "RXh0ZXJuYWxUb2tlbhItLmpvYmRlY2suYXV0aC52MS5FeGNoYW5nZUV4dGVy",
+            "bmFsVG9rZW5SZXF1ZXN0Gi4uam9iZGVjay5hdXRoLnYxLkV4Y2hhbmdlRXh0",
+            "ZXJuYWxUb2tlblJlc3BvbnNlQs4BChNjb20uam9iZGVjay5hdXRoLnYxQglB",
+            "dXRoUHJvdG9QAVpOZ2l0aHViLmNvbS9haXItaGFuZC1vcmcvYXBpLWNvbnRy",
+            "YWN0cy9wYWNrYWdlcy9qb2JkZWNrL2F1dGgvZ28vcHJvdG8vdjE7YXV0aHYx",
+            "ogIDSkFYqgIPSm9iZGVjay5BdXRoLlYxygIPSm9iZGVja1xBdXRoXFYx4gIb",
+            "Sm9iZGVja1xBdXRoXFYxXEdQQk1ldGFkYXRh6gIRSm9iZGVjazo6QXV0aDo6",
+            "VjFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Buf.Validate.ValidateReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Jobdeck.Auth.V1.ExternalTokenProvider), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest), global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest.Parser, new[]{ "ClientId", "ClientSecret", "Audience" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest), global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest.Parser, new[]{ "IdToken", "Audience" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest), global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest.Parser, new[]{ "AccessToken", "Audience" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest), global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest.Parser, new[]{ "Provider", "Token", "Audience" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.Token), global::Jobdeck.Auth.V1.Token.Parser, new[]{ "AccessToken", "TokenType", "ExpiresInSeconds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse), global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse.Parser, new[]{ "Token" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse), global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse.Parser, new[]{ "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse), global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse.Parser, new[]{ "Token" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse), global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse.Parser, new[]{ "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse), global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse.Parser, new[]{ "Token" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum ExternalTokenProvider {
+    [pbr::OriginalName("EXTERNAL_TOKEN_PROVIDER_UNSPECIFIED")] Unspecified = 0,
+    [pbr::OriginalName("EXTERNAL_TOKEN_PROVIDER_GITHUB")] Github = 1,
+  }
+
+  #endregion
+
   #region Messages
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AuthenticateLocalClientRequest : pb::IMessage<AuthenticateLocalClientRequest>
@@ -343,6 +365,7 @@ namespace Jobdeck.Auth.V1 {
 
   }
 
+  [global::System.ObsoleteAttribute]
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExchangeGoogleIdTokenRequest : pb::IMessage<ExchangeGoogleIdTokenRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -578,6 +601,7 @@ namespace Jobdeck.Auth.V1 {
 
   }
 
+  [global::System.ObsoleteAttribute]
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExchangeGitHubAccessTokenRequest : pb::IMessage<ExchangeGitHubAccessTokenRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -814,6 +838,278 @@ namespace Jobdeck.Auth.V1 {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ExchangeExternalTokenRequest : pb::IMessage<ExchangeExternalTokenRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ExchangeExternalTokenRequest> _parser = new pb::MessageParser<ExchangeExternalTokenRequest>(() => new ExchangeExternalTokenRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ExchangeExternalTokenRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenRequest(ExchangeExternalTokenRequest other) : this() {
+      provider_ = other.provider_;
+      token_ = other.token_;
+      audience_ = other.audience_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenRequest Clone() {
+      return new ExchangeExternalTokenRequest(this);
+    }
+
+    /// <summary>Field number for the "provider" field.</summary>
+    public const int ProviderFieldNumber = 1;
+    private global::Jobdeck.Auth.V1.ExternalTokenProvider provider_ = global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Jobdeck.Auth.V1.ExternalTokenProvider Provider {
+      get { return provider_; }
+      set {
+        provider_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 2;
+    private string token_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Token {
+      get { return token_; }
+      set {
+        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "audience" field.</summary>
+    public const int AudienceFieldNumber = 3;
+    private string audience_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Audience {
+      get { return audience_; }
+      set {
+        audience_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeExternalTokenRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ExchangeExternalTokenRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Provider != other.Provider) return false;
+      if (Token != other.Token) return false;
+      if (Audience != other.Audience) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Provider != global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified) hash ^= Provider.GetHashCode();
+      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (Audience.Length != 0) hash ^= Audience.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Provider != global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Provider);
+      }
+      if (Token.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Token);
+      }
+      if (Audience.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Audience);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Provider != global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Provider);
+      }
+      if (Token.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Token);
+      }
+      if (Audience.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Audience);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Provider != global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Provider);
+      }
+      if (Token.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      }
+      if (Audience.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Audience);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ExchangeExternalTokenRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Provider != global::Jobdeck.Auth.V1.ExternalTokenProvider.Unspecified) {
+        Provider = other.Provider;
+      }
+      if (other.Token.Length != 0) {
+        Token = other.Token;
+      }
+      if (other.Audience.Length != 0) {
+        Audience = other.Audience;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Provider = (global::Jobdeck.Auth.V1.ExternalTokenProvider) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Token = input.ReadString();
+            break;
+          }
+          case 26: {
+            Audience = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Provider = (global::Jobdeck.Auth.V1.ExternalTokenProvider) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            Token = input.ReadString();
+            break;
+          }
+          case 26: {
+            Audience = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Token : pb::IMessage<Token>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -828,7 +1124,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1103,7 +1399,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1295,6 +1591,7 @@ namespace Jobdeck.Auth.V1 {
 
   }
 
+  [global::System.ObsoleteAttribute]
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExchangeGoogleIdTokenResponse : pb::IMessage<ExchangeGoogleIdTokenResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1310,7 +1607,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1502,6 +1799,7 @@ namespace Jobdeck.Auth.V1 {
 
   }
 
+  [global::System.ObsoleteAttribute]
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExchangeGitHubAccessTokenResponse : pb::IMessage<ExchangeGitHubAccessTokenResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -1517,7 +1815,7 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1641,6 +1939,213 @@ namespace Jobdeck.Auth.V1 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(ExchangeGitHubAccessTokenResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.token_ != null) {
+        if (token_ == null) {
+          Token = new global::Jobdeck.Auth.V1.Token();
+        }
+        Token.MergeFrom(other.Token);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (token_ == null) {
+              Token = new global::Jobdeck.Auth.V1.Token();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (token_ == null) {
+              Token = new global::Jobdeck.Auth.V1.Token();
+            }
+            input.ReadMessage(Token);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class ExchangeExternalTokenResponse : pb::IMessage<ExchangeExternalTokenResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ExchangeExternalTokenResponse> _parser = new pb::MessageParser<ExchangeExternalTokenResponse>(() => new ExchangeExternalTokenResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ExchangeExternalTokenResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Jobdeck.Auth.V1.AuthReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenResponse(ExchangeExternalTokenResponse other) : this() {
+      token_ = other.token_ != null ? other.token_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ExchangeExternalTokenResponse Clone() {
+      return new ExchangeExternalTokenResponse(this);
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 1;
+    private global::Jobdeck.Auth.V1.Token token_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Jobdeck.Auth.V1.Token Token {
+      get { return token_; }
+      set {
+        token_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ExchangeExternalTokenResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ExchangeExternalTokenResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Token, other.Token)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (token_ != null) hash ^= Token.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (token_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (token_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Token);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (token_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Token);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ExchangeExternalTokenResponse other) {
       if (other == null) {
         return;
       }

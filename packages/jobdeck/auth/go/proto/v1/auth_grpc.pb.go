@@ -22,6 +22,7 @@ const (
 	AuthService_AuthenticateLocalClient_FullMethodName   = "/jobdeck.auth.v1.AuthService/AuthenticateLocalClient"
 	AuthService_ExchangeGoogleIdToken_FullMethodName     = "/jobdeck.auth.v1.AuthService/ExchangeGoogleIdToken"
 	AuthService_ExchangeGitHubAccessToken_FullMethodName = "/jobdeck.auth.v1.AuthService/ExchangeGitHubAccessToken"
+	AuthService_ExchangeExternalToken_FullMethodName     = "/jobdeck.auth.v1.AuthService/ExchangeExternalToken"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -29,8 +30,11 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AuthServiceClient interface {
 	AuthenticateLocalClient(ctx context.Context, in *AuthenticateLocalClientRequest, opts ...grpc.CallOption) (*AuthenticateLocalClientResponse, error)
+	// Deprecated: Do not use.
 	ExchangeGoogleIdToken(ctx context.Context, in *ExchangeGoogleIdTokenRequest, opts ...grpc.CallOption) (*ExchangeGoogleIdTokenResponse, error)
+	// Deprecated: Do not use.
 	ExchangeGitHubAccessToken(ctx context.Context, in *ExchangeGitHubAccessTokenRequest, opts ...grpc.CallOption) (*ExchangeGitHubAccessTokenResponse, error)
+	ExchangeExternalToken(ctx context.Context, in *ExchangeExternalTokenRequest, opts ...grpc.CallOption) (*ExchangeExternalTokenResponse, error)
 }
 
 type authServiceClient struct {
@@ -51,6 +55,7 @@ func (c *authServiceClient) AuthenticateLocalClient(ctx context.Context, in *Aut
 	return out, nil
 }
 
+// Deprecated: Do not use.
 func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, in *ExchangeGoogleIdTokenRequest, opts ...grpc.CallOption) (*ExchangeGoogleIdTokenResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExchangeGoogleIdTokenResponse)
@@ -61,10 +66,21 @@ func (c *authServiceClient) ExchangeGoogleIdToken(ctx context.Context, in *Excha
 	return out, nil
 }
 
+// Deprecated: Do not use.
 func (c *authServiceClient) ExchangeGitHubAccessToken(ctx context.Context, in *ExchangeGitHubAccessTokenRequest, opts ...grpc.CallOption) (*ExchangeGitHubAccessTokenResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ExchangeGitHubAccessTokenResponse)
 	err := c.cc.Invoke(ctx, AuthService_ExchangeGitHubAccessToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) ExchangeExternalToken(ctx context.Context, in *ExchangeExternalTokenRequest, opts ...grpc.CallOption) (*ExchangeExternalTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExchangeExternalTokenResponse)
+	err := c.cc.Invoke(ctx, AuthService_ExchangeExternalToken_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,8 +92,11 @@ func (c *authServiceClient) ExchangeGitHubAccessToken(ctx context.Context, in *E
 // for forward compatibility.
 type AuthServiceServer interface {
 	AuthenticateLocalClient(context.Context, *AuthenticateLocalClientRequest) (*AuthenticateLocalClientResponse, error)
+	// Deprecated: Do not use.
 	ExchangeGoogleIdToken(context.Context, *ExchangeGoogleIdTokenRequest) (*ExchangeGoogleIdTokenResponse, error)
+	// Deprecated: Do not use.
 	ExchangeGitHubAccessToken(context.Context, *ExchangeGitHubAccessTokenRequest) (*ExchangeGitHubAccessTokenResponse, error)
+	ExchangeExternalToken(context.Context, *ExchangeExternalTokenRequest) (*ExchangeExternalTokenResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -96,6 +115,9 @@ func (UnimplementedAuthServiceServer) ExchangeGoogleIdToken(context.Context, *Ex
 }
 func (UnimplementedAuthServiceServer) ExchangeGitHubAccessToken(context.Context, *ExchangeGitHubAccessTokenRequest) (*ExchangeGitHubAccessTokenResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ExchangeGitHubAccessToken not implemented")
+}
+func (UnimplementedAuthServiceServer) ExchangeExternalToken(context.Context, *ExchangeExternalTokenRequest) (*ExchangeExternalTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ExchangeExternalToken not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
@@ -172,6 +194,24 @@ func _AuthService_ExchangeGitHubAccessToken_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_ExchangeExternalToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExchangeExternalTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).ExchangeExternalToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_ExchangeExternalToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).ExchangeExternalToken(ctx, req.(*ExchangeExternalTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -190,6 +230,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ExchangeGitHubAccessToken",
 			Handler:    _AuthService_ExchangeGitHubAccessToken_Handler,
+		},
+		{
+			MethodName: "ExchangeExternalToken",
+			Handler:    _AuthService_ExchangeExternalToken_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
