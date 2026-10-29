@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.5.0...packages/jobdeck/auth/v1.6.0) (2026-10-29)
+
+
+### Features
+
+* add ExchangeExternalToken and deprecate others ([#103](https://github.com/air-hand-org/api-contracts/issues/103)) ([dc8e42c](https://github.com/air-hand-org/api-contracts/commit/dc8e42c78ec4748f31c12cd4fb7eba670516ab09))
+
 ## [1.5.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.4.1...packages/jobdeck/auth/v1.5.0) (2026-10-29)
 
 
