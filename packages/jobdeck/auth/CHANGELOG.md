@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.4.1...packages/jobdeck/auth/v1.5.0) (2026-10-29)
+
+
+### Features
+
+* add jobdeck github oauth login flow ([#101](https://github.com/air-hand-org/api-contracts/issues/101)) ([0bf74a6](https://github.com/air-hand-org/api-contracts/commit/0bf74a609db8c804944555cf696f741992164cea))
+
 ## [1.4.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.4.0...packages/jobdeck/auth/v1.4.1) (2026-10-27)
 
 
