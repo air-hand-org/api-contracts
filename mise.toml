@@ -5,7 +5,7 @@ java = "21"
 buf = "1.75.0"
 grpcurl = "1.9.4"
 watchexec = "2.8.0"
-uv = "0.13.5"
+uv = "0.13.6"
 "pipx:openapi-generator-cli" = "7.26.0"
 "npm:quicktype" = "26.0.0"
 
