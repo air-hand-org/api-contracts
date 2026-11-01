@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.6.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.6.0...packages/jobdeck/auth/v1.6.1) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency grpc.net.common to 2.85.0 ([#114](https://github.com/air-hand-org/api-contracts/issues/114)) ([88771b6](https://github.com/air-hand-org/api-contracts/commit/88771b6be24ea38b2a79e7f84d21289257156c58))
+* **deps:** update module google.golang.org/grpc to v1.85.0 ([#110](https://github.com/air-hand-org/api-contracts/issues/110)) ([9dd1702](https://github.com/air-hand-org/api-contracts/commit/9dd17025d802ac5bfd1930dd207680232ca70475))
+
 ## [1.6.0](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/auth/v1.5.0...packages/jobdeck/auth/v1.6.0) (2026-10-29)
 
 
