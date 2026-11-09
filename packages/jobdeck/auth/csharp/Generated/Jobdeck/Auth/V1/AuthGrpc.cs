@@ -50,14 +50,6 @@ namespace Jobdeck.Auth.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse> __Marshaller_jobdeck_auth_v1_AuthenticateLocalClientResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest> __Marshaller_jobdeck_auth_v1_ExchangeGoogleIdTokenRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse> __Marshaller_jobdeck_auth_v1_ExchangeGoogleIdTokenResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest> __Marshaller_jobdeck_auth_v1_ExchangeGitHubAccessTokenRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse> __Marshaller_jobdeck_auth_v1_ExchangeGitHubAccessTokenResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest> __Marshaller_jobdeck_auth_v1_ExchangeExternalTokenRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse> __Marshaller_jobdeck_auth_v1_ExchangeExternalTokenResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse.Parser));
@@ -69,22 +61,6 @@ namespace Jobdeck.Auth.V1 {
         "AuthenticateLocalClient",
         __Marshaller_jobdeck_auth_v1_AuthenticateLocalClientRequest,
         __Marshaller_jobdeck_auth_v1_AuthenticateLocalClientResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest, global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse> __Method_ExchangeGoogleIdToken = new grpc::Method<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest, global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ExchangeGoogleIdToken",
-        __Marshaller_jobdeck_auth_v1_ExchangeGoogleIdTokenRequest,
-        __Marshaller_jobdeck_auth_v1_ExchangeGoogleIdTokenResponse);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest, global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse> __Method_ExchangeGitHubAccessToken = new grpc::Method<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest, global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ExchangeGitHubAccessToken",
-        __Marshaller_jobdeck_auth_v1_ExchangeGitHubAccessTokenRequest,
-        __Marshaller_jobdeck_auth_v1_ExchangeGitHubAccessTokenResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest, global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse> __Method_ExchangeExternalToken = new grpc::Method<global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest, global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse>(
@@ -106,20 +82,6 @@ namespace Jobdeck.Auth.V1 {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse> AuthenticateLocalClient(global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse> ExchangeGoogleIdToken(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse> ExchangeGitHubAccessToken(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -179,54 +141,6 @@ namespace Jobdeck.Auth.V1 {
       {
         return CallInvoker.AsyncUnaryCall(__Method_AuthenticateLocalClient, null, options, request);
       }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse ExchangeGoogleIdToken(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ExchangeGoogleIdToken(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse ExchangeGoogleIdToken(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ExchangeGoogleIdToken, null, options, request);
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse> ExchangeGoogleIdTokenAsync(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ExchangeGoogleIdTokenAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse> ExchangeGoogleIdTokenAsync(global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ExchangeGoogleIdToken, null, options, request);
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse ExchangeGitHubAccessToken(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ExchangeGitHubAccessToken(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse ExchangeGitHubAccessToken(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ExchangeGitHubAccessToken, null, options, request);
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse> ExchangeGitHubAccessTokenAsync(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ExchangeGitHubAccessTokenAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.ObsoleteAttribute]
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse> ExchangeGitHubAccessTokenAsync(global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ExchangeGitHubAccessToken, null, options, request);
-      }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse ExchangeExternalToken(global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -262,8 +176,6 @@ namespace Jobdeck.Auth.V1 {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_AuthenticateLocalClient, serviceImpl.AuthenticateLocalClient)
-          .AddMethod(__Method_ExchangeGoogleIdToken, serviceImpl.ExchangeGoogleIdToken)
-          .AddMethod(__Method_ExchangeGitHubAccessToken, serviceImpl.ExchangeGitHubAccessToken)
           .AddMethod(__Method_ExchangeExternalToken, serviceImpl.ExchangeExternalToken).Build();
     }
 
@@ -275,8 +187,6 @@ namespace Jobdeck.Auth.V1 {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AuthServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_AuthenticateLocalClient, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Jobdeck.Auth.V1.AuthenticateLocalClientRequest, global::Jobdeck.Auth.V1.AuthenticateLocalClientResponse>(serviceImpl.AuthenticateLocalClient));
-      serviceBinder.AddMethod(__Method_ExchangeGoogleIdToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenRequest, global::Jobdeck.Auth.V1.ExchangeGoogleIdTokenResponse>(serviceImpl.ExchangeGoogleIdToken));
-      serviceBinder.AddMethod(__Method_ExchangeGitHubAccessToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenRequest, global::Jobdeck.Auth.V1.ExchangeGitHubAccessTokenResponse>(serviceImpl.ExchangeGitHubAccessToken));
       serviceBinder.AddMethod(__Method_ExchangeExternalToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Jobdeck.Auth.V1.ExchangeExternalTokenRequest, global::Jobdeck.Auth.V1.ExchangeExternalTokenResponse>(serviceImpl.ExchangeExternalToken));
     }
 
