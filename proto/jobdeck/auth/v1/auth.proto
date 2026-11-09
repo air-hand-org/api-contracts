@@ -10,18 +10,6 @@ message AuthenticateLocalClientRequest {
   string audience = 3;
 }
 
-message ExchangeGoogleIdTokenRequest {
-  option deprecated = true;
-  string id_token = 1;
-  string audience = 2;
-}
-
-message ExchangeGitHubAccessTokenRequest {
-  option deprecated = true;
-  string access_token = 1 [(buf.validate.field).string.min_len = 1];
-  string audience = 2 [(buf.validate.field).string.min_len = 1];
-}
-
 enum ExternalTokenProvider {
   EXTERNAL_TOKEN_PROVIDER_UNSPECIFIED = 0;
   EXTERNAL_TOKEN_PROVIDER_GITHUB = 1;
@@ -46,27 +34,11 @@ message AuthenticateLocalClientResponse {
   Token token = 1;
 }
 
-message ExchangeGoogleIdTokenResponse {
-  option deprecated = true;
-  Token token = 1;
-}
-
-message ExchangeGitHubAccessTokenResponse {
-  option deprecated = true;
-  Token token = 1;
-}
-
 message ExchangeExternalTokenResponse {
   Token token = 1;
 }
 
 service AuthService {
   rpc AuthenticateLocalClient(AuthenticateLocalClientRequest) returns (AuthenticateLocalClientResponse);
-  rpc ExchangeGoogleIdToken(ExchangeGoogleIdTokenRequest) returns (ExchangeGoogleIdTokenResponse) {
-    option deprecated = true;
-  }
-  rpc ExchangeGitHubAccessToken(ExchangeGitHubAccessTokenRequest) returns (ExchangeGitHubAccessTokenResponse) {
-    option deprecated = true;
-  }
   rpc ExchangeExternalToken(ExchangeExternalTokenRequest) returns (ExchangeExternalTokenResponse);
 }
