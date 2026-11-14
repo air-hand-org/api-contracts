@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.3.1...packages/jobdeck/job/v1.3.2) (2026-11-14)
+
+
+### Bug Fixes
+
+* **deps:** update go module directive to v1.27.4 ([#127](https://github.com/air-hand-org/api-contracts/issues/127)) ([de7c516](https://github.com/air-hand-org/api-contracts/commit/de7c516669d3473ca7c501355e495c988becc14d))
+
 ## [1.3.1](https://github.com/air-hand-org/api-contracts/compare/packages/jobdeck/job/v1.3.0...packages/jobdeck/job/v1.3.1) (2026-11-02)
 
 
