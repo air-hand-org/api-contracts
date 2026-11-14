@@ -1,5 +1,5 @@
 [tools]
-dotnet = "10.0"
+dotnet = "11.0"
 go = "1.27.4"
 java = "21"
 buf = "1.75.0"
