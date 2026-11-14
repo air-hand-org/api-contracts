@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package jobdeck.bff.v1;
+
+message GetAntiforgeryTokenRequest {}
+
+message GetAntiforgeryTokenResponse {
+  string request_token = 1;
+}
+
+service AntiforgeryService {
+  rpc GetAntiforgeryToken(GetAntiforgeryTokenRequest) returns (GetAntiforgeryTokenResponse);
+}
