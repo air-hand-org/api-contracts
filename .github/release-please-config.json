@@ -19,6 +19,10 @@
       "package-name": "jobdeck-auth",
       "component": "packages/jobdeck/auth"
     },
+    "packages/jobdeck/bff": {
+      "package-name": "jobdeck-bff",
+      "component": "packages/jobdeck/bff"
+    },
     "packages/jobdeck/job": {
       "package-name": "jobdeck-job",
       "component": "packages/jobdeck/job"

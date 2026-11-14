@@ -1,0 +1,15 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+plugins:
+  - remote: buf.build/protocolbuffers/csharp:v36.0
+    out: csharp/Generated
+    opt:
+      - base_namespace=
+  - remote: buf.build/grpc/csharp:v1.83.1
+    out: csharp/Generated
+    opt:
+      - base_namespace=
+inputs:
+  - directory: proto
